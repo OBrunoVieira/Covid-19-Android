@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.doubleb.covid19"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        buildConfigField 'String', 'SERVER_URL', '"https://coronavirus-19-api.herokuapp.com"'
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+
+        release {
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions { jvmTarget = '1.8' }
+}
+
+dependencies {
+    kapt rootProject.androidDependencies.lifecycleAnnotation
+
+    implementation rootProject.androidDependencies.kotlin
+    implementation rootProject.androidDependencies.koin
+    implementation rootProject.androidDependencies.androidx
+    implementation rootProject.androidDependencies.archComponents
+    implementation rootProject.androidDependencies.httpClient
+    implementation rootProject.androidDependencies.rx
+
+    testImplementation rootProject.androidDependencies.unitTest
+    androidTestImplementation rootProject.androidDependencies.androidTest
+}
