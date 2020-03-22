@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_sixteen"
+    android:layout_marginBottom="@dimen/spacing_sixteen"
+    app:cardCornerRadius="@dimen/spacing_eight"
+    app:contentPaddingBottom="@dimen/spacing_twenty_eight"
+    app:contentPaddingLeft="@dimen/spacing_sixteen"
+    app:contentPaddingRight="@dimen/spacing_sixteen"
+    app:contentPaddingTop="@dimen/spacing_sixteen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/home_text_view_today"
+            style="@style/Home.TextView.Today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/home_text_view_date"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/home_text_view_date"
+            style="@style/Home.TextView.Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@+id/home_text_view_today"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/home_text_view_today"
+            tools:text="(03/02/1955)" />
+
+        <TextView
+            android:id="@+id/home_text_view_new_cases"
+            style="@style/Home.TextView.NewCases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/home_text_view_new_cases_results"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_text_view_today" />
+
+        <TextView
+            android:id="@+id/home_text_view_new_cases_results"
+            style="@style/Home.TextView.NewResults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@id/home_text_view_new_cases"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/home_text_view_new_cases"
+            tools:text="80" />
+
+        <View
+            android:id="@+id/home_divider_new_cases"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/home_fragment_divider_max_height"
+            android:layout_marginTop="@dimen/spacing_ten"
+            android:background="@color/gray_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_text_view_new_cases" />
+
+        <TextView
+            android:id="@+id/home_text_view_new_deaths"
+            style="@style/Home.TextView.NewDeaths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/home_text_view_new_deaths_results"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_divider_new_cases" />
+
+        <TextView
+            android:id="@+id/home_text_view_new_deaths_results"
+            style="@style/Home.TextView.NewResults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@id/home_text_view_new_deaths"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/home_text_view_new_deaths"
+            tools:text="80" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

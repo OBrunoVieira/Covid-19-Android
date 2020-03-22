@@ -1,10 +1,133 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Base.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Base.TextView.Bold" parent="Base.TextView">
+        <item name="android:fontFamily">@font/nunito_sans_bold</item>
+    </style>
+
+    <style name="Base.TextView.SemiBold" parent="Base.TextView">
+        <item name="android:fontFamily">@font/nunito_sans_semi_bold</item>
+    </style>
+
+    <style name="Base.TextView.Regular" parent="Base.TextView">
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+    </style>
+
+    <style name="Base.TextView.Light" parent="Base.TextView">
+        <item name="android:fontFamily">@font/nunito_sans_light</item>
+    </style>
+
+    <!--  Circle Chart View  -->
+    <style name="CircleChartView.TextView.Title" parent="Base.TextView.Light">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:text">@string/circle_chart_title</item>
+        <item name="android:maxWidth">@dimen/circle_chart_text_view_max_width</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="CircleChartView.TextView.Result" parent="Base.TextView.Bold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_thirty_two</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxWidth">@dimen/circle_chart_text_view_max_width</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!--  Main Activity  -->
+    <style name="Main.TextView.Home" parent="Base.TextView.SemiBold">
+        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:text">@string/main_menu_item_home</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawableTop">@drawable/selector_icon_home</item>
+    </style>
+
+    <style name="Main.TextView.World" parent="Base.TextView.SemiBold">
+        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:text">@string/main_menu_item_world</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawableTop">@drawable/selector_icon_world</item>
+    </style>
+
+    <!-- Home Fragment-->
+    <style name="Home.TextView.Title" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:text">@string/home_title</item>
+    </style>
+
+    <style name="Home.TextView.SubTitle" parent="Base.TextView.Bold">
+        <item name="android:textSize">@dimen/text_size_thirty_two</item>
+        <item name="android:text">@string/home_sub_title</item>
+    </style>
+
+    <style name="CardChart.TextView.CasesNumber" parent="Base.TextView.Bold">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="CardChart.TextView.ActiveCases" parent="Base.TextView.Regular">
+        <item name="android:text">@string/home_active_cases</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">@dimen/spacing_thirty_two</item>
+    </style>
+
+    <style name="CardChart.TextView.RecoveredCases" parent="Base.TextView.Regular">
+        <item name="android:text">@string/home_recovered_cases</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">@dimen/spacing_thirty_two</item>
+    </style>
+
+    <style name="CardChart.TextView.CriticalCases" parent="Base.TextView.Regular">
+        <item name="android:text">@string/home_critical_cases</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">@dimen/spacing_thirty_two</item>
+    </style>
+
+    <style name="Home.TextView.Today" parent="Base.TextView.SemiBold">
+        <item name="android:text">@string/home_today</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_twenty_eighteen</item>
+    </style>
+
+    <style name="Home.TextView.Date" parent="Base.TextView.Regular">
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:layout_marginStart">@dimen/spacing_four</item>
+        <item name="android:textSize">@dimen/text_size_twenty_twelve</item>
+    </style>
+
+    <style name="Home.TextView.NewCases" parent="Base.TextView.Regular">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:text">@string/home_new_cases</item>
+        <item name="android:layout_marginTop">@dimen/spacing_twenty_four</item>
+    </style>
+
+    <style name="Home.TextView.NewRecovered" parent="Base.TextView.Regular">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:text">@string/home_new_recovered</item>
+        <item name="android:layout_marginTop">@dimen/spacing_twelve</item>
+    </style>
+
+    <style name="Home.TextView.NewDeaths" parent="Base.TextView.Regular">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:text">@string/home_new_deaths</item>
+        <item name="android:layout_marginTop">@dimen/spacing_twelve</item>
+    </style>
+
+    <style name="Home.TextView.NewResults" parent="Base.TextView.SemiBold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_twenty_eighteen</item>
+        <item name="android:layout_marginTop">@dimen/spacing_twelve</item>
     </style>
 
 </resources>

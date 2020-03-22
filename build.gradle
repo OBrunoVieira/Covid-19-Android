@@ -32,6 +32,7 @@ ext {
     final ktxVersion = '1.2.0'
     final androidxVersion = '1.1.0'
     final constraintLayoutVersion = '2.0.0-beta4'
+    final fragmentVersion = '1.2.3'
     final archComponentsVersion = '2.2.0'
     final koinVersion = '2.1.4'
     final retrofitVersion = '2.7.2'
@@ -46,15 +47,19 @@ ext {
 
             lifecycleAnnotation: "androidx.lifecycle:lifecycle-compiler:$archComponentsVersion",
 
-            koin               : [
+            di               : [
                     "org.koin:koin-android:$koinVersion",
-                    "org.koin:koin-android-viewmodel:$koinVersion"
+                    "org.koin:koin-android-viewmodel:$koinVersion",
+                    "org.koin:koin-androidx-fragment:$koinVersion"
             ],
+
+            materialDesign     : "com.google.android.material:material:$androidxVersion",
 
             androidx           : [
                     "androidx.appcompat:appcompat:$androidxVersion",
                     "androidx.core:core-ktx:$ktxVersion",
-                    "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+                    "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+                    "androidx.fragment:fragment-ktx:$fragmentVersion"
             ],
 
             archComponents     : [

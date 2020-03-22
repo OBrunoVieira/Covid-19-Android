@@ -48,11 +48,12 @@ dependencies {
     kapt rootProject.androidDependencies.lifecycleAnnotation
 
     implementation rootProject.androidDependencies.kotlin
-    implementation rootProject.androidDependencies.koin
+    implementation rootProject.androidDependencies.di
     implementation rootProject.androidDependencies.androidx
     implementation rootProject.androidDependencies.archComponents
     implementation rootProject.androidDependencies.httpClient
     implementation rootProject.androidDependencies.rx
+    implementation rootProject.androidDependencies.materialDesign
 
     testImplementation rootProject.androidDependencies.unitTest
     androidTestImplementation rootProject.androidDependencies.androidTest

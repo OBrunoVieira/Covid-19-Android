@@ -1,0 +1,21 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+
+            <size android:height="56dp"
+                android:width="56dp"/>
+
+            <gradient
+                android:angle="45"
+                android:endColor="#409ff5"
+                android:startColor="#0ac1ab" />
+        </shape>
+    </item>
+
+    <item
+        android:top="18dp"
+        android:start="18dp"
+        android:end="18dp"
+        android:bottom="18dp"
+        android:drawable="@drawable/ic_search" />
+</layer-list>

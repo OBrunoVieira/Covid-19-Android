@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <ProgressBar
+        android:id="@+id/circle_chart_critical"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="@dimen/circle_chart_view_size"
+        android:layout_height="@dimen/circle_chart_view_size"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/shape_critical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/circle_chart_critical_recovered"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="@dimen/circle_chart_view_size"
+        android:layout_height="@dimen/circle_chart_view_size"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="55"
+        android:progressDrawable="@drawable/shape_recovered"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/circle_chart_critical_active"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="@dimen/circle_chart_view_size"
+        android:layout_height="@dimen/circle_chart_view_size"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="50"
+        android:progressDrawable="@drawable/shape_active"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/circle_chart_critical_loading"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="@dimen/circle_chart_view_size"
+        android:layout_height="@dimen/circle_chart_view_size"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/shape_loading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/circle_chart_text_view_title"
+        style="@style/CircleChartView.TextView.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/circle_chart_text_view_result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.doubleb.covid19.ui.LoadingTextView
+        android:id="@+id/circle_chart_text_view_result"
+        style="@style/CircleChartView.TextView.Result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circle_chart_text_view_title"
+        tools:text="1920" />
+</merge>

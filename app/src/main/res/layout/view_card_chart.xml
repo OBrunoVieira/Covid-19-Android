@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:cardCornerRadius="@dimen/spacing_eight"
+    tools:contentPadding="@dimen/spacing_twenty_four"
+    tools:layout_marginTop="@dimen/spacing_sixteen"
+    tools:parentTag="androidx.cardview.widget.CardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.doubleb.covid19.ui.CircleChartView
+            android:id="@+id/card_chart_circle_chart_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_eight"
+            android:background="@drawable/shape_cases_indicator"
+            android:backgroundTint="@color/yellow_light"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/card_chart_text_view_active_cases"
+            app:layout_constraintEnd_toStartOf="@id/card_chart_text_view_active_cases"
+            app:layout_constraintTop_toTopOf="@id/card_chart_text_view_active_cases" />
+
+        <TextView
+            android:id="@+id/card_chart_text_view_active_cases"
+            style="@style/CardChart.TextView.ActiveCases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/card_chart_text_view_recovered_cases"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_chart_circle_chart_view" />
+
+        <com.doubleb.covid19.ui.LoadingTextView
+            android:id="@+id/card_chart_text_view_active_cases_number"
+            style="@style/CardChart.TextView.CasesNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/card_chart_text_view_active_cases"
+            app:layout_constraintTop_toBottomOf="@id/card_chart_text_view_active_cases"
+            tools:text="100" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_eight"
+            android:background="@drawable/shape_cases_indicator"
+            android:backgroundTint="@color/green_dark"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/card_chart_text_view_recovered_cases"
+            app:layout_constraintEnd_toStartOf="@id/card_chart_text_view_recovered_cases"
+            app:layout_constraintTop_toTopOf="@id/card_chart_text_view_recovered_cases" />
+
+        <TextView
+            android:id="@+id/card_chart_text_view_recovered_cases"
+            style="@style/CardChart.TextView.RecoveredCases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/card_chart_text_view_critical_cases"
+            app:layout_constraintStart_toEndOf="@id/card_chart_text_view_active_cases"
+            app:layout_constraintTop_toBottomOf="@id/card_chart_circle_chart_view" />
+
+        <com.doubleb.covid19.ui.LoadingTextView
+            android:id="@+id/card_chart_text_view_recovered_cases_number"
+            style="@style/CardChart.TextView.CasesNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/card_chart_text_view_recovered_cases"
+            app:layout_constraintTop_toBottomOf="@id/card_chart_text_view_recovered_cases"
+            tools:text="100" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_eight"
+            android:background="@drawable/shape_cases_indicator"
+            android:backgroundTint="@color/black"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/card_chart_text_view_critical_cases"
+            app:layout_constraintEnd_toStartOf="@id/card_chart_text_view_critical_cases"
+            app:layout_constraintTop_toTopOf="@id/card_chart_text_view_critical_cases" />
+
+        <TextView
+            android:id="@+id/card_chart_text_view_critical_cases"
+            style="@style/CardChart.TextView.CriticalCases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_chart_text_view_recovered_cases"
+            app:layout_constraintTop_toBottomOf="@id/card_chart_circle_chart_view" />
+
+        <com.doubleb.covid19.ui.LoadingTextView
+            android:id="@+id/card_chart_text_view_critical_cases_number"
+            style="@style/CardChart.TextView.CasesNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/card_chart_text_view_critical_cases"
+            app:layout_constraintTop_toBottomOf="@id/card_chart_text_view_critical_cases"
+            tools:text="100" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

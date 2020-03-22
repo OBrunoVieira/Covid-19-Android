@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Covid19</string>
+
+    <string name="main_content_description_search">Search Countries</string>
+    <string name="main_menu_item_home">Home</string>
+    <string name="main_menu_item_world">World</string>
+
+    <string name="home_title">Covid-19 in</string>
+    <string name="home_sub_title">Brazil</string>
+    <string name="home_active_cases">Active</string>
+    <string name="home_recovered_cases">Recovered</string>
+    <string name="home_critical_cases">Fatal</string>
+    <string name="home_today">Today</string>
+    <string name="home_new_cases">New cases</string>
+    <string name="home_new_recovered">Recovered</string>
+    <string name="home_new_deaths">Deaths</string>
+
+    <string name="circle_chart_title">total cases</string>
 </resources>
