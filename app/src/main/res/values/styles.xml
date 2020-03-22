@@ -7,40 +7,40 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="Base.TextView" parent="Widget.MaterialComponents.TextView">
+    <style name="Base.TextView" parent="@android:style/TextAppearance">
         <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="Base.TextView.Bold" parent="Base.TextView">
-        <item name="android:fontFamily">@font/nunito_sans_bold</item>
+        <item name="android:fontFamily">@font/nunito_bold</item>
     </style>
 
     <style name="Base.TextView.SemiBold" parent="Base.TextView">
-        <item name="android:fontFamily">@font/nunito_sans_semi_bold</item>
+        <item name="android:fontFamily">@font/nunito_semi_bold</item>
     </style>
 
     <style name="Base.TextView.Regular" parent="Base.TextView">
-        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+        <item name="android:fontFamily">@font/nunito_regular</item>
     </style>
 
     <style name="Base.TextView.Light" parent="Base.TextView">
-        <item name="android:fontFamily">@font/nunito_sans_light</item>
+        <item name="android:fontFamily">@font/nunito_light</item>
     </style>
 
     <!--  Circle Chart View  -->
     <style name="CircleChartView.TextView.Title" parent="Base.TextView.Light">
         <item name="android:textColor">@color/black</item>
         <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
         <item name="android:text">@string/circle_chart_title</item>
-        <item name="android:maxWidth">@dimen/circle_chart_text_view_max_width</item>
         <item name="android:maxLines">1</item>
     </style>
 
     <style name="CircleChartView.TextView.Result" parent="Base.TextView.Bold">
         <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/text_size_thirty_two</item>
         <item name="android:ellipsize">end</item>
-        <item name="android:maxWidth">@dimen/circle_chart_text_view_max_width</item>
         <item name="android:maxLines">1</item>
     </style>
 
@@ -74,24 +74,39 @@
 
     <style name="CardChart.TextView.CasesNumber" parent="Base.TextView.Bold">
         <item name="android:textColor">@color/black</item>
+        <item name="android:minWidth">@dimen/circle_chart_text_view_cases_min_width</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
     </style>
 
     <style name="CardChart.TextView.ActiveCases" parent="Base.TextView.Regular">
         <item name="android:text">@string/home_active_cases</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:layout_marginTop">@dimen/spacing_thirty_two</item>
+        <item name="android:drawableStart">@drawable/shape_cases_indicator</item>
+        <item name="android:drawablePadding">@dimen/spacing_eight</item>
+        <item name="android:drawableTint">@color/yellow_light</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
     </style>
 
     <style name="CardChart.TextView.RecoveredCases" parent="Base.TextView.Regular">
         <item name="android:text">@string/home_recovered_cases</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:layout_marginTop">@dimen/spacing_thirty_two</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
+        <item name="android:drawablePadding">@dimen/spacing_eight</item>
+        <item name="android:drawableStart">@drawable/shape_cases_indicator</item>
+        <item name="android:drawableTint">@color/green_dark</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
     </style>
 
     <style name="CardChart.TextView.CriticalCases" parent="Base.TextView.Regular">
         <item name="android:text">@string/home_critical_cases</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:layout_marginTop">@dimen/spacing_thirty_two</item>
+        <item name="android:drawablePadding">@dimen/spacing_eight</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
+        <item name="android:drawableStart">@drawable/shape_cases_indicator</item>
+        <item name="android:drawableTint">@color/black</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
     </style>
 
     <style name="Home.TextView.Today" parent="Base.TextView.SemiBold">
@@ -103,7 +118,7 @@
     <style name="Home.TextView.Date" parent="Base.TextView.Regular">
         <item name="android:textColor">@color/gray_dark</item>
         <item name="android:layout_marginStart">@dimen/spacing_four</item>
-        <item name="android:textSize">@dimen/text_size_twenty_twelve</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
     </style>
 
     <style name="Home.TextView.NewCases" parent="Base.TextView.Regular">
@@ -126,8 +141,30 @@
 
     <style name="Home.TextView.NewResults" parent="Base.TextView.SemiBold">
         <item name="android:textColor">@color/black</item>
+        <item name="android:minWidth">@dimen/home_fragment_new_results_min_width</item>
+        <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/text_size_twenty_eighteen</item>
         <item name="android:layout_marginTop">@dimen/spacing_twelve</item>
+    </style>
+
+    <!--  World Fragment  -->
+    <style name="World.TextView.Title" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:text">@string/world_title</item>
+    </style>
+
+    <style name="World.TextView.CountryName" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_sixteen</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">start</item>
+        <item name="android:minWidth">@dimen/world_fragment_cases_min_width</item>
+    </style>
+
+    <style name="World.TextView.CountryCases" parent="Base.TextView.SemiBold">
+        <item name="android:textSize">@dimen/text_size_sixteen</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:gravity">end</item>
+        <item name="android:minWidth">@dimen/world_fragment_cases_min_width</item>
     </style>
 
 </resources>

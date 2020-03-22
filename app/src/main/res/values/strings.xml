@@ -5,7 +5,7 @@
     <string name="main_menu_item_home">Home</string>
     <string name="main_menu_item_world">World</string>
 
-    <string name="home_title">Covid-19 in</string>
+    <string name="home_title">Covid-19 in my country</string>
     <string name="home_sub_title">Brazil</string>
     <string name="home_active_cases">Active</string>
     <string name="home_recovered_cases">Recovered</string>
@@ -16,4 +16,6 @@
     <string name="home_new_deaths">Deaths</string>
 
     <string name="circle_chart_title">total cases</string>
+
+    <string name="world_title">Covid-19 in the world</string>
 </resources>

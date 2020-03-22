@@ -11,5 +11,5 @@
     <color name="green_dark">#12CA5B</color>
     <color name="yellow_light">#FCCC50</color>
 
-    <color name="loading">#C4C4C4</color>
+    <color name="loading">@color/gray_light</color>
 </resources>

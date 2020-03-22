@@ -1,4 +1,4 @@
-package com.doubleb.covid19.ui
+package com.doubleb.covid19.ui.view
 
 import android.content.Context
 import android.util.AttributeSet
@@ -49,9 +49,9 @@ class ChartCardView @JvmOverloads constructor(
             .totalCases(totalCases)
             .build()
 
-        card_chart_text_view_active_cases_number.text = activeCases.toString()
-        card_chart_text_view_recovered_cases_number.text = recoveredCases.toString()
-        card_chart_text_view_critical_cases_number.text = criticalCases.toString()
+        card_chart_text_view_active_cases_number.setLoadedText(activeCases.toString())
+        card_chart_text_view_recovered_cases_number.setLoadedText(recoveredCases.toString())
+        card_chart_text_view_critical_cases_number.setLoadedText(criticalCases.toString())
     }
 
 }

@@ -1,4 +1,4 @@
-package com.doubleb.covid19.ui
+package com.doubleb.covid19.ui.view
 
 import android.content.Context
 import android.util.AttributeSet
@@ -37,7 +37,7 @@ class CircleChartView @JvmOverloads constructor(
     }
 
     fun build() {
-        circle_chart_text_view_result.text = totalCases.toString()
+        circle_chart_text_view_result.setLoadedText(totalCases.toString())
 
         circle_chart_critical_loading.progress = 0
         circle_chart_critical_active.progress = casesByTotal(activeCases)

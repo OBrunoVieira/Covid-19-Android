@@ -40,6 +40,7 @@
             android:padding="8dp">
 
             <TextView
+                android:id="@+id/main_menu_item_home"
                 style="@style/Main.TextView.Home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -51,6 +52,7 @@
                 android:layout_weight=".2" />
 
             <TextView
+                android:id="@+id/main_menu_item_world"
                 style="@style/Main.TextView.World"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

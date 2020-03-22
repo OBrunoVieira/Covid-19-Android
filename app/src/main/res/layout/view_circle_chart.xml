@@ -65,7 +65,7 @@
     <TextView
         android:id="@+id/circle_chart_text_view_title"
         style="@style/CircleChartView.TextView.Title"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/circle_chart_text_view_max_width"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/circle_chart_text_view_result"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,14 +73,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <com.doubleb.covid19.ui.LoadingTextView
+    <com.doubleb.covid19.ui.view.LoadingTextView
         android:id="@+id/circle_chart_text_view_result"
         style="@style/CircleChartView.TextView.Result"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/circle_chart_text_view_max_width"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/circle_chart_text_view_title"
-        tools:text="1920" />
+        app:layout_constraintTop_toBottomOf="@id/circle_chart_text_view_title" />
 </merge>

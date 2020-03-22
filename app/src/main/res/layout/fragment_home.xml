@@ -14,7 +14,7 @@
         android:paddingStart="@dimen/spacing_sixteen"
         android:paddingTop="@dimen/spacing_sixteen"
         android:paddingEnd="@dimen/spacing_sixteen"
-        android:paddingBottom="?attr/actionBarSize">
+        android:paddingBottom="@dimen/home_bottom_spacing">
 
         <TextView
             style="@style/Home.TextView.Title"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/selector_icon_edit" />
 
-        <com.doubleb.covid19.ui.ChartCardView
+        <com.doubleb.covid19.ui.view.ChartCardView
             android:id="@+id/home_chart_card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

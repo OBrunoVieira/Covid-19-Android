@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.doubleb.covid19.R
-import com.doubleb.covid19.model.Result
+import com.doubleb.covid19.model.Country
 import com.doubleb.covid19.view_model.DataSource
 import com.doubleb.covid19.view_model.DataState
 import com.doubleb.covid19.view_model.HomeViewModel
@@ -23,9 +22,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
+    ): View = inflater.inflate(R.layout.fragment_home, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,10 +30,12 @@ class HomeFragment : Fragment() {
         viewModel.getByCountry()
     }
 
-    private fun observeCountry() = Observer<DataSource<Result>> {
+    private fun observeCountry() = Observer<DataSource<Country>> {
         when (it.dataState) {
             DataState.LOADING -> {
                 home_chart_card_view.loading()
+                home_text_view_new_cases_results.loading()
+                home_text_view_new_deaths_results.loading()
             }
 
             DataState.SUCCESS -> {
@@ -49,8 +48,8 @@ class HomeFragment : Fragment() {
                         .build()
 
                     home_text_view_date.text = "Formatar aqui"
-                    home_text_view_new_cases_results.text = result.todayCases.toString()
-                    home_text_view_new_deaths_results.text = result.todayDeaths.toString()
+                    home_text_view_new_cases_results.setLoadedText(result.todayCases.toString())
+                    home_text_view_new_deaths_results.setLoadedText(result.todayDeaths.toString())
                 }
             }
 

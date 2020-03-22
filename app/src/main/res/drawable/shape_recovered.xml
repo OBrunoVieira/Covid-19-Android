@@ -3,7 +3,8 @@
     android:fromDegrees="270"
     android:toDegrees="270">
     <shape
-        android:shape="ring">
+        android:shape="ring"
+        android:thickness="@dimen/circle_chart_thickness">
         <solid android:color="#29e072" />
     </shape>
 </rotate>

@@ -2,7 +2,7 @@ package com.doubleb.covid19.view_model
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.doubleb.covid19.model.Result
+import com.doubleb.covid19.model.Country
 import com.doubleb.covid19.repository.HomeRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -12,27 +12,29 @@ import io.reactivex.rxjava3.observers.DisposableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
-    private val compositeDisposable = CompositeDisposable()
+class HomeViewModel(
+    private val homeRepository: HomeRepository,
+    private val compositeDisposable : CompositeDisposable
+) : ViewModel() {
     private var subscription: Disposable? = null
 
-    val liveData = MutableLiveData<DataSource<Result>>()
+    val liveData = MutableLiveData<DataSource<Country>>()
 
     fun getByCountry() {
         subscription = Observable.interval(0, 2, TimeUnit.MINUTES).map {
-           compositeDisposable.add(
+            compositeDisposable.add(
                 homeRepository.getCountry()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe {
                         liveData.postValue(DataSource(DataState.LOADING))
                     }
-                    .subscribeWith(object : DisposableObserver<Result>() {
+                    .subscribeWith(object : DisposableObserver<Country>() {
                         override fun onComplete() {
                             liveData.postValue(DataSource(DataState.SUCCESS, liveData.value?.data))
                         }
 
-                        override fun onNext(t: Result?) {
+                        override fun onNext(t: Country?) {
                             liveData.value = DataSource(DataState.SUCCESS, t)
                         }
 
