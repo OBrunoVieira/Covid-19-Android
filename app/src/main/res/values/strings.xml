@@ -2,6 +2,8 @@
     <string name="app_name">Covid19</string>
     <string name="country">Brazil</string>
     <string name="back">Back</string>
+    <string name="covid19">Covid-19</string>
+    <string name="tracker">Tracker</string>
 
     <string name="main_content_description_search">Search Countries</string>
     <string name="main_menu_item_home">Home</string>
@@ -15,11 +17,14 @@
     <string name="home_sub_title">Brazil</string>
     <string name="home_active_cases">Active</string>
     <string name="home_recovered_cases">Recovered</string>
-    <string name="home_critical_cases">Fatal</string>
+    <string name="home_critical_cases">Deaths</string>
     <string name="home_today">Today</string>
     <string name="home_new_cases">New cases</string>
-    <string name="home_new_recovered">Recovered</string>
     <string name="home_new_deaths">Deaths</string>
+
+    <string name="error_try_again">Try again</string>
+    <string name="error_internet_description">No internet</string>
+    <string name="error_generic_description">Something went wrong</string>
 
     <string name="circle_chart_title">total cases</string>
 

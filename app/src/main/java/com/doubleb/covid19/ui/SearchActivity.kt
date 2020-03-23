@@ -3,6 +3,7 @@ package com.doubleb.covid19.ui
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
@@ -90,16 +91,20 @@ class SearchActivity :
         when (it.dataState) {
             DataState.LOADING -> {
                 search_progress.show()
+                search_error_view.visibility = GONE
+                search_card_view.visibility = GONE
+
                 search_edit_text.isEnabled = false
                 search_edit_text.alpha = .5f
-                search_card_view.visibility = GONE
             }
 
             DataState.SUCCESS -> {
                 search_progress.hide()
+                search_error_view.visibility = GONE
+                search_card_view.visibility = VISIBLE
+
                 search_edit_text.isEnabled = true
                 search_edit_text.alpha = 1f
-                search_card_view.visibility = VISIBLE
                 buildSearchList(it.data)
             }
 
@@ -108,6 +113,14 @@ class SearchActivity :
                 search_edit_text.isEnabled = false
                 search_edit_text.alpha = .5f
                 search_card_view.visibility = GONE
+
+                search_error_view
+                    .errorType(it.throwable)
+                    .reload(View.OnClickListener {
+                        viewModel.getCountryNames()
+                    })
+                    .build()
+                    .visibility = VISIBLE
             }
         }
     }

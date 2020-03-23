@@ -27,6 +27,25 @@
         <item name="android:fontFamily">@font/nunito_light</item>
     </style>
 
+    <!--  Error View  -->
+    <style name="ErrorView.TextView.Title" parent="Base.TextView.Bold">
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:drawablePadding">@dimen/spacing_twenty_four</item>
+    </style>
+
+    <style name="ErrorView.Button" parent="Base.TextView.SemiBold">
+        <item name="android:textSize">@dimen/text_size_eighteen</item>
+        <item name="android:text">@string/error_try_again</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_marginTop">@dimen/spacing_forty</item>
+        <item name="android:paddingTop">@dimen/spacing_eight</item>
+        <item name="android:paddingBottom">@dimen/spacing_eight</item>
+        <item name="android:paddingStart">@dimen/spacing_thirty_two</item>
+        <item name="android:paddingEnd">@dimen/spacing_thirty_two</item>
+        <item name="android:background">@drawable/shape_outline_rectangle</item>
+    </style>
+
     <!--  Circle Chart View  -->
     <style name="CircleChartView.TextView.Title" parent="Base.TextView.Light">
         <item name="android:textColor">@color/black</item>
@@ -42,6 +61,18 @@
         <item name="android:textSize">@dimen/text_size_thirty_two</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
+    </style>
+
+    <!--  Splash Activity  -->
+    <style name="Splash.TextView.One" parent="Base.TextView.Light">
+        <item name="android:textSize">@dimen/text_size_thirty_six</item>
+        <item name="android:text">@string/covid19</item>
+    </style>
+
+    <style name="Splash.TextView.Two" parent="Base.TextView.Bold">
+        <item name="android:textSize">@dimen/text_size_thirty_six</item>
+        <item name="android:text">@string/tracker</item>
+        <item name="android:layout_marginStart">@dimen/spacing_four</item>
     </style>
 
     <!--  Main Activity  -->
@@ -154,6 +185,7 @@
 
     <style name="Home.TextView.Date" parent="Base.TextView.Regular">
         <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:minWidth">@dimen/home_fragment_date_min_width</item>
         <item name="android:layout_marginStart">@dimen/spacing_four</item>
         <item name="android:textSize">@dimen/text_size_twelve</item>
     </style>
@@ -162,12 +194,6 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:text">@string/home_new_cases</item>
         <item name="android:layout_marginTop">@dimen/spacing_twenty_four</item>
-    </style>
-
-    <style name="Home.TextView.NewRecovered" parent="Base.TextView.Regular">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:text">@string/home_new_recovered</item>
-        <item name="android:layout_marginTop">@dimen/spacing_twelve</item>
     </style>
 
     <style name="Home.TextView.NewDeaths" parent="Base.TextView.Regular">

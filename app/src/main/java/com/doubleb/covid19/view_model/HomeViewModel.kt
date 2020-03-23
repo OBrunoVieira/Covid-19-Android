@@ -1,6 +1,8 @@
 package com.doubleb.covid19.view_model
 
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModel
 import com.doubleb.covid19.model.Country
 import com.doubleb.covid19.repository.HomeRepository
@@ -14,7 +16,7 @@ import java.util.concurrent.TimeUnit
 
 class HomeViewModel(
     private val homeRepository: HomeRepository,
-    private val compositeDisposable : CompositeDisposable
+    private val compositeDisposable: CompositeDisposable
 ) : ViewModel() {
     private var subscription: Disposable? = null
 
@@ -47,9 +49,13 @@ class HomeViewModel(
         }.subscribe()
     }
 
-    override fun onCleared() {
-        super.onCleared()
+    fun clear(){
         compositeDisposable.clear()
         subscription?.dispose()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        clear()
     }
 }

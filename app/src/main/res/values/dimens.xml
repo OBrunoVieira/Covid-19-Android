@@ -5,10 +5,11 @@
     <dimen name="spacing_ten">10dp</dimen>
     <dimen name="spacing_twelve">12dp</dimen>
     <dimen name="spacing_sixteen">16dp</dimen>
-    <dimen name="spacing_twenty">24dp</dimen>
+    <dimen name="spacing_twenty">20dp</dimen>
     <dimen name="spacing_twenty_eight">28dp</dimen>
-    <dimen name="spacing_twenty_four">20dp</dimen>
+    <dimen name="spacing_twenty_four">24dp</dimen>
     <dimen name="spacing_thirty_two">32dp</dimen>
+    <dimen name="spacing_forty">40dp</dimen>
     <dimen name="spacing_hundred">100dp</dimen>
 
     <dimen name="text_size_twenty_ten">10sp</dimen>
@@ -17,12 +18,14 @@
     <dimen name="text_size_eighteen">18sp</dimen>
     <dimen name="text_size_twenty_four">24sp</dimen>
     <dimen name="text_size_thirty_two">32sp</dimen>
+    <dimen name="text_size_thirty_six">36sp</dimen>
 
     <!--  Search Activity  -->
     <dimen name="search_activity_card_max_height">250dp</dimen>
 
     <!--  Home Fragment  -->
     <dimen name="home_fragment_country_min_width">120dp</dimen>
+    <dimen name="home_fragment_date_min_width">60dp</dimen>
     <dimen name="home_fragment_cases_indicator_size">8dp</dimen>
     <dimen name="home_fragment_divider_max_height">1dp</dimen>
     <dimen name="home_fragment_new_results_min_width">60dp</dimen>
@@ -31,6 +34,9 @@
     <!--  World Fragment  -->
     <dimen name="world_fragment_cases_min_width">76dp</dimen>
     <dimen name="world_bottom_spacing">84dp</dimen>
+
+    <!--  Error View  -->
+    <dimen name="error_button_stroke_width">1dp</dimen>
 
     <!--  Circle Chart View  -->
     <dimen name="circle_chart_view_size">240dp</dimen>

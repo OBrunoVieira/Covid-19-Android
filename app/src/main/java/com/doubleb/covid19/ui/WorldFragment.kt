@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -20,7 +22,7 @@ import org.koin.android.ext.android.inject
 
 class WorldFragment : Fragment(), ClickListener<Country?> {
 
-    companion object{
+    companion object {
         const val TAG = "WorldFragment"
     }
 
@@ -40,22 +42,34 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
 
         viewModel.liveDataWorldCases.observe(viewLifecycleOwner, observeWorldCases())
         viewModel.liveDataCasesByCountry.observe(viewLifecycleOwner, observeCasesByCountries())
+
         viewModel.getWorldCases()
         viewModel.getCasesByCountries()
 
         world_recycler_view.adapter = adapter
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.clear()
+    }
+
     private fun observeWorldCases() =
         Observer<DataSource<WorldData>> {
             when (it.dataState) {
                 DataState.LOADING -> {
+                    world_error_view.visibility = GONE
+                    world_recycler_view.visibility = VISIBLE
+
                     adapter.list.clear()
                     adapter.list.addAll(placeholderList)
                     adapter.notifyDataSetChanged()
                 }
 
                 DataState.SUCCESS -> {
+                    world_error_view.visibility = GONE
+                    world_recycler_view.visibility = VISIBLE
+
                     it.data?.let { worldData ->
                         adapter.list[1] = worldData
                         adapter.notifyItemChanged(1)
@@ -63,7 +77,15 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
                 }
 
                 DataState.ERROR -> {
-
+                    world_recycler_view.visibility = GONE
+                    world_error_view
+                        .errorType(it.throwable)
+                        .reload(View.OnClickListener {
+                            viewModel.getWorldCases()
+                            viewModel.getCasesByCountries()
+                        })
+                        .build()
+                        .visibility = VISIBLE
                 }
             }
         }
@@ -72,12 +94,18 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
         Observer<DataSource<List<WorldData>>> {
             when (it.dataState) {
                 DataState.LOADING -> {
+                    world_error_view.visibility = GONE
+                    world_recycler_view.visibility = VISIBLE
+
                     adapter.list.clear()
                     adapter.list.addAll(placeholderList)
                     adapter.notifyDataSetChanged()
                 }
 
                 DataState.SUCCESS -> {
+                    world_error_view.visibility = GONE
+                    world_recycler_view.visibility = VISIBLE
+
                     it.data?.let { worldDataList ->
                         adapter.list.run {
                             removeAt(size - 1)
@@ -90,16 +118,17 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
                 }
 
                 DataState.ERROR -> {
-
                 }
             }
         }
 
     override fun onItemClicked(data: Country?, position: Int) {
-        startActivity(
-            Intent(activity, CountryActivity::class.java)
-                .putExtra(CountryActivity.ARGUMENTS_COUNTRY_NAME, data?.country)
-        )
+        data?.let {
+            startActivity(
+                Intent(activity, CountryActivity::class.java)
+                    .putExtra(CountryActivity.ARGUMENTS_COUNTRY_NAME, it.country)
+            )
+        }
     }
 
 }

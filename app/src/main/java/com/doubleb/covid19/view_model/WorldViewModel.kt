@@ -73,6 +73,10 @@ class WorldViewModel(
         )
     }
 
+    fun clear(){
+        compositeDisposable.clear()
+    }
+
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.clear()

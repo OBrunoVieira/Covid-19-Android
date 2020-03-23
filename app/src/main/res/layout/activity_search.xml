@@ -67,6 +67,20 @@
 
     </androidx.cardview.widget.CardView>
 
+    <com.doubleb.covid19.ui.view.ErrorView
+        android:id="@+id/search_error_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_twenty"
+        android:layout_marginTop="@dimen/spacing_hundred"
+        android:layout_marginEnd="@dimen/spacing_twenty"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_edit_text"
+        app:layout_constraintVertical_bias="0" />
+
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/search_progress"
         style="@style/Widget.AppCompat.ProgressBar"
