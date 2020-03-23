@@ -2,6 +2,7 @@ package com.doubleb.covid19.di
 
 import com.doubleb.covid19.ui.view_holder.WorldViewHolder
 import com.doubleb.covid19.view_model.HomeViewModel
+import com.doubleb.covid19.view_model.SearchViewModel
 import com.doubleb.covid19.view_model.WorldViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.koin.android.viewmodel.dsl.viewModel
@@ -12,4 +13,5 @@ val viewModelModule = module {
 
     viewModel { HomeViewModel(get(), get()) }
     viewModel { WorldViewModel(get(), get()) }
+    viewModel { SearchViewModel(get(), get()) }
 }

@@ -9,6 +9,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_fragment_container"
         android:name="com.doubleb.covid19.ui.HomeFragment"
+        android:tag="HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

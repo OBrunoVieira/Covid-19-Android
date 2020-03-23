@@ -11,7 +11,7 @@ class WorldChartViewHolder(itemView: View) : WorldViewHolder(itemView) {
             itemView.world_chart_card_view
                 .totalCases(it.cases)
                 .activeCases(it.cases - it.recovered - it.deaths)
-                .criticalCases(it.deaths)
+                .deathCases(it.deaths)
                 .recoveredCases(it.recovered)
                 .build()
         } ?: run {

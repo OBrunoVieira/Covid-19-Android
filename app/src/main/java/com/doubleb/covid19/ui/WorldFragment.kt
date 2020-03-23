@@ -1,5 +1,6 @@
 package com.doubleb.covid19.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,20 +8,26 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.doubleb.covid19.R
+import com.doubleb.covid19.model.Country
 import com.doubleb.covid19.model.WorldData
 import com.doubleb.covid19.ui.adapter.WorldAdapter
+import com.doubleb.covid19.ui.listener.ClickListener
 import com.doubleb.covid19.view_model.DataSource
 import com.doubleb.covid19.view_model.DataState
 import com.doubleb.covid19.view_model.WorldViewModel
 import kotlinx.android.synthetic.main.fragment_world.*
 import org.koin.android.ext.android.inject
 
-class WorldFragment : Fragment() {
+class WorldFragment : Fragment(), ClickListener<Country?> {
+
+    companion object{
+        const val TAG = "WorldFragment"
+    }
 
     private val viewModel: WorldViewModel by inject()
 
     private var placeholderList = arrayListOf(WorldData(), WorldData(), WorldData(), WorldData())
-    private var adapter = WorldAdapter()
+    private var adapter = WorldAdapter(listener = this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,7 +50,9 @@ class WorldFragment : Fragment() {
         Observer<DataSource<WorldData>> {
             when (it.dataState) {
                 DataState.LOADING -> {
-
+                    adapter.list.clear()
+                    adapter.list.addAll(placeholderList)
+                    adapter.notifyDataSetChanged()
                 }
 
                 DataState.SUCCESS -> {
@@ -63,6 +72,7 @@ class WorldFragment : Fragment() {
         Observer<DataSource<List<WorldData>>> {
             when (it.dataState) {
                 DataState.LOADING -> {
+                    adapter.list.clear()
                     adapter.list.addAll(placeholderList)
                     adapter.notifyDataSetChanged()
                 }
@@ -84,5 +94,12 @@ class WorldFragment : Fragment() {
                 }
             }
         }
+
+    override fun onItemClicked(data: Country?, position: Int) {
+        startActivity(
+            Intent(activity, CountryActivity::class.java)
+                .putExtra(CountryActivity.ARGUMENTS_COUNTRY_NAME, data?.country)
+        )
+    }
 
 }

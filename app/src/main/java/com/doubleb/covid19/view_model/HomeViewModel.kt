@@ -20,10 +20,10 @@ class HomeViewModel(
 
     val liveData = MutableLiveData<DataSource<Country>>()
 
-    fun getByCountry() {
+    fun getByCountry(country: String) {
         subscription = Observable.interval(0, 2, TimeUnit.MINUTES).map {
             compositeDisposable.add(
-                homeRepository.getCountry()
+                homeRepository.getCountry(country)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe {

@@ -9,15 +9,20 @@
     <dimen name="spacing_twenty_eight">28dp</dimen>
     <dimen name="spacing_twenty_four">20dp</dimen>
     <dimen name="spacing_thirty_two">32dp</dimen>
+    <dimen name="spacing_hundred">100dp</dimen>
 
     <dimen name="text_size_twenty_ten">10sp</dimen>
     <dimen name="text_size_twelve">12sp</dimen>
     <dimen name="text_size_sixteen">16sp</dimen>
-    <dimen name="text_size_twenty_eighteen">18sp</dimen>
+    <dimen name="text_size_eighteen">18sp</dimen>
     <dimen name="text_size_twenty_four">24sp</dimen>
     <dimen name="text_size_thirty_two">32sp</dimen>
 
+    <!--  Search Activity  -->
+    <dimen name="search_activity_card_max_height">250dp</dimen>
+
     <!--  Home Fragment  -->
+    <dimen name="home_fragment_country_min_width">120dp</dimen>
     <dimen name="home_fragment_cases_indicator_size">8dp</dimen>
     <dimen name="home_fragment_divider_max_height">1dp</dimen>
     <dimen name="home_fragment_new_results_min_width">60dp</dimen>

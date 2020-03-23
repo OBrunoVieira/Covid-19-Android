@@ -4,14 +4,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.doubleb.covid19.R
+import com.doubleb.covid19.model.Country
 import com.doubleb.covid19.model.WorldData
-import com.doubleb.covid19.ui.view.ChartCardView
+import com.doubleb.covid19.ui.listener.ClickListener
 import com.doubleb.covid19.ui.view_holder.WorldChartViewHolder
 import com.doubleb.covid19.ui.view_holder.WorldCountriesViewHolder
 import com.doubleb.covid19.ui.view_holder.WorldTitleViewHolder
 import com.doubleb.covid19.ui.view_holder.WorldViewHolder
 
-class WorldAdapter(val list: ArrayList<WorldData> = ArrayList()) :
+class WorldAdapter(
+    val list: ArrayList<WorldData> = ArrayList(),
+    val listener: ClickListener<Country?>
+) :
     RecyclerView.Adapter<WorldViewHolder>() {
     companion object {
         private const val VIEW_TYPE_TITLE = 1111
@@ -45,7 +49,8 @@ class WorldAdapter(val list: ArrayList<WorldData> = ArrayList()) :
                         R.layout.view_world_country_item,
                         parent,
                         false
-                    )
+                    ),
+                    listener
                 )
         }
 
@@ -59,7 +64,7 @@ class WorldAdapter(val list: ArrayList<WorldData> = ArrayList()) :
             }
 
             VIEW_TYPE_COUNTRIES -> {
-                (holder as WorldCountriesViewHolder).bind(country, position == list.size -1)
+                (holder as WorldCountriesViewHolder).bind(country, position == list.size - 1)
             }
         }
     }

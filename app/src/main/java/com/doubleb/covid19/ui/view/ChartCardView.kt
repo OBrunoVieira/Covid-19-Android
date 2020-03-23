@@ -39,7 +39,7 @@ class ChartCardView @JvmOverloads constructor(
         this.recoveredCases = recoveredCases
     }
 
-    fun criticalCases(criticalCases: Int) = apply {
+    fun deathCases(criticalCases: Int) = apply {
         this.criticalCases = criticalCases
     }
 

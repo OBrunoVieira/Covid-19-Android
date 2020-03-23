@@ -21,8 +21,13 @@ class CircleChartView @JvmOverloads constructor(
         loading()
     }
 
-    fun loading(){
+    fun loading() {
         circle_chart_critical_loading.progress = 100
+        circle_chart_critical_loading.visibility = VISIBLE
+
+        circle_chart_critical_active.visibility = GONE
+        circle_chart_critical_recovered.visibility = GONE
+        circle_chart_critical.visibility = GONE
         circle_chart_text_view_result.loading()
     }
 
@@ -39,7 +44,13 @@ class CircleChartView @JvmOverloads constructor(
     fun build() {
         circle_chart_text_view_result.setLoadedText(totalCases.toString())
 
+        circle_chart_critical_active.visibility = VISIBLE
+        circle_chart_critical_recovered.visibility = VISIBLE
+        circle_chart_critical.visibility = VISIBLE
+
+        circle_chart_critical_loading.visibility = View.GONE
         circle_chart_critical_loading.progress = 0
+
         circle_chart_critical_active.progress = casesByTotal(activeCases)
         circle_chart_critical_recovered.progress =
             circle_chart_critical_active.progress + casesByTotal(recoveredCases)

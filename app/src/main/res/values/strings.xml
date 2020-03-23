@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">Covid19</string>
+    <string name="country">Brazil</string>
+    <string name="back">Back</string>
 
     <string name="main_content_description_search">Search Countries</string>
     <string name="main_menu_item_home">Home</string>
     <string name="main_menu_item_world">World</string>
 
+    <string name="search_hint">Search a country</string>
+    <string name="search_no_result">No results</string>
+
     <string name="home_title">Covid-19 in my country</string>
+    <string name="home_search_your_country">Search your country</string>
     <string name="home_sub_title">Brazil</string>
     <string name="home_active_cases">Active</string>
     <string name="home_recovered_cases">Recovered</string>
