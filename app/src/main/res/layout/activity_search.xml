@@ -12,6 +12,7 @@
         android:id="@+id/search_image_view_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/back"
         android:padding="@dimen/spacing_twenty"
         android:src="@drawable/ic_arrow"
         app:layout_constraintBottom_toBottomOf="@id/search_edit_text"

@@ -14,7 +14,6 @@
 
     <string name="home_title">Covid-19 in my country</string>
     <string name="home_search_your_country">Search your country</string>
-    <string name="home_sub_title">Brazil</string>
     <string name="home_active_cases">Active</string>
     <string name="home_recovered_cases">Recovered</string>
     <string name="home_critical_cases">Deaths</string>
