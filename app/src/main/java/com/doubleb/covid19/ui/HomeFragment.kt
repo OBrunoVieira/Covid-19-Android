@@ -16,6 +16,7 @@ import com.doubleb.covid19.ui.SearchActivity.Companion.HOME_ORIGIN
 import com.doubleb.covid19.view_model.DataSource
 import com.doubleb.covid19.view_model.DataState
 import com.doubleb.covid19.view_model.HomeViewModel
+import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.view_home_today_cases.*
 import org.koin.android.ext.android.inject
@@ -52,6 +53,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        FirebaseAnalytics.getInstance(requireActivity())
+            .setCurrentScreen(requireActivity(), "Home", javaClass.simpleName)
+
         countryName =
             getCountry(arguments?.getString(ARGUMENTS_COUNTRY))
 
@@ -97,7 +102,7 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        viewModel.clear()
+        viewModel.clearViewModel()
     }
 
     private fun observeCountry() = Observer<DataSource<Country>> {

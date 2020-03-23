@@ -17,6 +17,7 @@ import com.doubleb.covid19.ui.listener.ClickListener
 import com.doubleb.covid19.view_model.DataSource
 import com.doubleb.covid19.view_model.DataState
 import com.doubleb.covid19.view_model.WorldViewModel
+import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.fragment_world.*
 import org.koin.android.ext.android.inject
 
@@ -40,6 +41,9 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        FirebaseAnalytics.getInstance(requireActivity())
+            .setCurrentScreen(requireActivity(), "World", javaClass.simpleName)
+
         viewModel.liveDataWorldCases.observe(viewLifecycleOwner, observeWorldCases())
         viewModel.liveDataCasesByCountry.observe(viewLifecycleOwner, observeCasesByCountries())
 
@@ -51,7 +55,7 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        viewModel.clear()
+        viewModel.clearViewModel()
     }
 
     private fun observeWorldCases() =

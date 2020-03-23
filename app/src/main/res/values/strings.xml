@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Covid19</string>
-    <string name="country">Brazil</string>
     <string name="back">Back</string>
-    <string name="covid19">Covid-19</string>
-    <string name="tracker">Tracker</string>
+    <string name="country" translatable="false">Brazil</string>
+    <string name="covid19" translatable="false">Covid-19</string>
+    <string name="tracker" translatable="false">Tracker</string>
 
     <string name="main_content_description_search">Search Countries</string>
     <string name="main_menu_item_home">Home</string>

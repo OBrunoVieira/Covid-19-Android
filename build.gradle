@@ -1,6 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "1.3.61"
+    ext.google_services_version = "4.3.3"
+    ext.gradle_version = '4.0.0-beta03'
+    ext.crashlytics_version = "2.0.0-beta03"
 
     repositories {
         google()
@@ -8,8 +11,10 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.0-alpha02"
+        classpath "com.android.tools.build:gradle:$gradle_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.gms:google-services:$google_services_version"
+        classpath "com.google.firebase:firebase-crashlytics-gradle:$crashlytics_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -29,6 +34,8 @@ task clean(type: Delete) {
 
 ext {
     final kotlinVersion = '1.3.70'
+    final firebaseVersion = '17.2.2'
+    final firebaseCrashlyticsVersion = '17.0.0-beta01'
     final ktxVersion = '1.2.0'
     final androidxVersion = '1.1.0'
     final constraintLayoutVersion = '2.0.0-beta4'
@@ -47,7 +54,12 @@ ext {
 
             lifecycleAnnotation: "androidx.lifecycle:lifecycle-compiler:$archComponentsVersion",
 
-            di               : [
+            firebase           : [
+                    "com.google.firebase:firebase-analytics:$firebaseVersion",
+                    "com.google.firebase:firebase-crashlytics:$firebaseCrashlyticsVersion"
+            ],
+
+            di                 : [
                     "org.koin:koin-android:$koinVersion",
                     "org.koin:koin-android-viewmodel:$koinVersion",
                     "org.koin:koin-androidx-fragment:$koinVersion"

@@ -73,7 +73,7 @@ class WorldViewModel(
         )
     }
 
-    fun clear(){
+    fun clearViewModel(){
         compositeDisposable.clear()
     }
 

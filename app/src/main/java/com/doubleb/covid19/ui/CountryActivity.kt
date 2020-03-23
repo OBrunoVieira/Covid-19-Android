@@ -5,6 +5,7 @@ import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import com.doubleb.covid19.R
+import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_country.*
 
 class CountryActivity : AppCompatActivity(R.layout.activity_country) {
@@ -17,6 +18,9 @@ class CountryActivity : AppCompatActivity(R.layout.activity_country) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseAnalytics.getInstance(this)
+            .setCurrentScreen(this, "Country Details", javaClass.simpleName)
+
         countryName = intent.getStringExtra(ARGUMENTS_COUNTRY_NAME) ?: getString(R.string.country)
 
         country_image_view_back.setOnClickListener { onBackPressed() }

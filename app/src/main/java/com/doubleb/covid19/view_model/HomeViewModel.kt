@@ -1,8 +1,6 @@
 package com.doubleb.covid19.view_model
 
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModel
 import com.doubleb.covid19.model.Country
 import com.doubleb.covid19.repository.HomeRepository
@@ -49,13 +47,13 @@ class HomeViewModel(
         }.subscribe()
     }
 
-    fun clear(){
+    fun clearViewModel(){
         compositeDisposable.clear()
         subscription?.dispose()
     }
 
     override fun onCleared() {
         super.onCleared()
-        clear()
+        clearViewModel()
     }
 }

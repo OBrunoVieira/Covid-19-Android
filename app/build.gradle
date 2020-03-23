@@ -3,18 +3,30 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    signingConfigs {
+        release {
+            storeFile file(STORE_FILE_RELEASE)
+            keyAlias KEY_ALIAS_RELEASE
+            storePassword STORE_PASSWORD_RELEASE
+            keyPassword KEY_PASSWORD_RELEASE
+        }
+    }
+
     defaultConfig {
         applicationId "com.doubleb.covid19"
         minSdkVersion 23
         targetSdkVersion 29
+
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -25,14 +37,35 @@ android {
 
     buildTypes {
         debug {
+            applicationIdSuffix ".debug"
             minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
             debuggable true
         }
 
         release {
             minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
             debuggable false
+
+            signingConfig signingConfigs.release
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    bundle {
+        density {
+            enableSplit true
+        }
+        abi {
+            enableSplit true
+        }
+        language {
+            enableSplit false
         }
     }
 
@@ -48,6 +81,7 @@ dependencies {
     kapt rootProject.androidDependencies.lifecycleAnnotation
 
     implementation rootProject.androidDependencies.kotlin
+    implementation rootProject.androidDependencies.firebase
     implementation rootProject.androidDependencies.di
     implementation rootProject.androidDependencies.androidx
     implementation rootProject.androidDependencies.archComponents

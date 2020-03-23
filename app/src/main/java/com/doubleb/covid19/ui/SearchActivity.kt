@@ -18,6 +18,7 @@ import com.doubleb.covid19.ui.listener.ClickListener
 import com.doubleb.covid19.view_model.DataSource
 import com.doubleb.covid19.view_model.DataState
 import com.doubleb.covid19.view_model.SearchViewModel
+import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_search.*
 import org.koin.android.ext.android.inject
 import java.util.*
@@ -41,6 +42,9 @@ class SearchActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        FirebaseAnalytics.getInstance(this)
+            .setCurrentScreen(this, "Search", javaClass.simpleName)
 
         origin = intent.getIntExtra(ARGUMENTS_ORIGIN, WORLD_ORIGIN)
 
