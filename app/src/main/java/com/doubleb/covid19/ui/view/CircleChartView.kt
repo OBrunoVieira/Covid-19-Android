@@ -6,6 +6,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.doubleb.covid19.R
 import kotlinx.android.synthetic.main.view_circle_chart.view.*
+import kotlin.math.roundToInt
 
 class CircleChartView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -22,11 +23,11 @@ class CircleChartView @JvmOverloads constructor(
     }
 
     fun loading() {
-        circle_chart_critical_loading.progress = 100
-        circle_chart_critical_loading.visibility = VISIBLE
+        circle_chart_loading.progress = 100
+        circle_chart_loading.visibility = VISIBLE
 
-        circle_chart_critical_active.visibility = GONE
-        circle_chart_critical_recovered.visibility = GONE
+        circle_chart_active.visibility = GONE
+        circle_chart_recovered.visibility = GONE
         circle_chart_critical.visibility = GONE
         circle_chart_text_view_result.loading()
     }
@@ -44,18 +45,17 @@ class CircleChartView @JvmOverloads constructor(
     fun build() {
         circle_chart_text_view_result.setLoadedText(totalCases.toString())
 
-        circle_chart_critical_active.visibility = VISIBLE
-        circle_chart_critical_recovered.visibility = VISIBLE
+        circle_chart_active.visibility = VISIBLE
+        circle_chart_recovered.visibility = VISIBLE
         circle_chart_critical.visibility = VISIBLE
 
-        circle_chart_critical_loading.visibility = View.GONE
-        circle_chart_critical_loading.progress = 0
+        circle_chart_loading.visibility = View.GONE
+        circle_chart_loading.progress = 0
 
-        circle_chart_critical_active.progress = casesByTotal(activeCases)
-        circle_chart_critical_recovered.progress =
-            circle_chart_critical_active.progress + casesByTotal(recoveredCases)
+        circle_chart_active.progress = casesByTotal(activeCases)
+        circle_chart_recovered.progress = circle_chart_active.progress + casesByTotal(recoveredCases)
     }
 
     private fun casesByTotal(cases: Int) =
-        ((cases.toFloat() / totalCases.toFloat()) * 100).toInt()
+        ((cases.toFloat() / totalCases.toFloat()) * 100).roundToInt()
 }

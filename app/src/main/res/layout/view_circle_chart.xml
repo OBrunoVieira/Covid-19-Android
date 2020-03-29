@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/circle_chart_critical_recovered"
+        android:id="@+id/circle_chart_recovered"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="@dimen/circle_chart_view_size"
         android:layout_height="@dimen/circle_chart_view_size"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/circle_chart_critical_active"
+        android:id="@+id/circle_chart_active"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="@dimen/circle_chart_view_size"
         android:layout_height="@dimen/circle_chart_view_size"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/circle_chart_critical_loading"
+        android:id="@+id/circle_chart_loading"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="@dimen/circle_chart_view_size"
         android:layout_height="@dimen/circle_chart_view_size"
