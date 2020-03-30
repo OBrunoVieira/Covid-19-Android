@@ -1,6 +1,6 @@
 # Covid 19 - Android
 
-![alt text] [prints/image1.png]
+![alt text] (prints/image1.png) 
 ![alt text] [prints/image2.png]
 ![alt text] [prints/image3.png]
 ![alt text] [prints/image4.png]
@@ -14,13 +14,13 @@ infected and cured, in your country and in the rest of the world.
 - Global Search for cases
 
 ## 3rd party libraries used
-Koin - https://github.com/InsertKoinIO/koin
-Retrofit - https://github.com/square/retrofit
-Rx Java - https://github.com/ReactiveX/RxJava
-Rx Java Android - https://github.com/ReactiveX/RxAndroid
-Rx Java Retrofit Adapter - https://github.com/akarnokd/RxJavaRetrofitAdapter
+- Koin - https://github.com/InsertKoinIO/koin
+- Retrofit - https://github.com/square/retrofit
+- Rx Java - https://github.com/ReactiveX/RxJava
+- Rx Java Android - https://github.com/ReactiveX/RxAndroid
+- Rx Java Retrofit Adapter - https://github.com/akarnokd/RxJavaRetrofitAdapter
 
-Credits for
-@obrunovieira - Programmer https://www.linkedin.com/in/obrunovieira/
-@Brabsblue - Designer https://www.linkedin.com/in/barbara-schoen/
-@Javier - API https://github.com/javieraviles/covidAPI
+## Credits
+- @obrunovieira - Android Developer https://www.linkedin.com/in/obrunovieira/
+- @Brabsblue - Designer https://www.linkedin.com/in/barbara-schoen/
+- @Javieraviles - API https://github.com/javieraviles/covidAPI
