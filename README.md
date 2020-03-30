@@ -28,3 +28,6 @@ infected and cured, in your country and in the rest of the world.
 ## Developers
 - [@obrunovieira - Android Developer](https://www.linkedin.com/in/obrunovieira/)
 - [@brabsblue - Designer](https://www.linkedin.com/in/barbara-schoen/)
+
+## Suggestions and Feedback? Please, contact us
+bee.duplo@gmail.com
