@@ -1,6 +1,5 @@
 package com.doubleb.covid19.repository
 
-import com.doubleb.covid19.model.Country
 import com.doubleb.covid19.model.WorldData
 import com.doubleb.covid19.network.Covid19DataSource
 import io.reactivex.rxjava3.core.Observable
