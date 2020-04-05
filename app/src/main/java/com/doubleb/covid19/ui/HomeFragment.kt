@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.doubleb.covid19.R
 import com.doubleb.covid19.model.Country
+import com.doubleb.covid19.storage.Preferences
 import com.doubleb.covid19.view_model.DataSource
 import com.doubleb.covid19.view_model.DataState
 import com.doubleb.covid19.view_model.HomeViewModel
@@ -23,11 +24,18 @@ class HomeFragment : Fragment() {
     companion object {
         const val TAG = "HomeFragment"
         private const val SEARCH_RESULT = 1122
+        private const val COUNTRY_NAME_KEY = "COUNTRY_NAME_KEY"
     }
 
     private val viewModel: HomeViewModel by inject()
 
-    private lateinit var countryName: String
+    private val countryName by lazy {
+        Preferences.readStringValue(requireContext(), COUNTRY_NAME_KEY) ?: run {
+            val defaultValue = getString(R.string.country)
+            Preferences.writeValue(requireContext(), COUNTRY_NAME_KEY, defaultValue)
+            return@run defaultValue
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,10 +46,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Tracking.sendScreenView(this, ScreenName.HOME)
-        countryName = requireActivity().getString(R.string.country)
 
         home_text_view_sub_title.setOnClickListener { clickToSearch() }
-
         viewModel.liveData.observe(viewLifecycleOwner, observeCountry())
         viewModel.getByCountry(countryName)
     }
@@ -55,11 +61,11 @@ class HomeFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == SEARCH_RESULT && resultCode == Activity.RESULT_OK) {
             val resultName =
-                getCountry(data?.getStringExtra(SearchActivity.RESULT_DATA_COUNTRY_NAME))
+                data?.getStringExtra(SearchActivity.RESULT_DATA_COUNTRY_NAME) ?: countryName
 
             if (resultName != countryName) {
-                countryName = resultName
-                viewModel.getByCountry(countryName)
+                Preferences.writeValue(requireContext(), COUNTRY_NAME_KEY, resultName)
+                viewModel.getByCountry(resultName)
             }
         }
     }
@@ -100,7 +106,7 @@ class HomeFragment : Fragment() {
                         .todayDeaths(result.todayDeaths)
                         .build()
 
-                    home_text_view_sub_title.setLoadedText(getCountry(result.country))
+                    home_text_view_sub_title.setLoadedText(result.country)
                 }
             }
 
@@ -117,13 +123,4 @@ class HomeFragment : Fragment() {
             }
         }
     }
-
-    private fun getCountry(country: String? = null) =
-        if (country.isNullOrEmpty() && countryName.isNotEmpty()) {
-            countryName
-        } else if (country.isNullOrEmpty()) {
-            getString(R.string.country)
-        } else {
-            country
-        }
 }
