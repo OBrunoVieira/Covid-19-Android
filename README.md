@@ -25,9 +25,15 @@ infected and cured, in your country and in the rest of the world.
 - [Rx Java Retrofit Adapter](https://github.com/akarnokd/RxJavaRetrofitAdapter)
 - [Covid API](https://github.com/javieraviles/covidAPI)
 
-## Developers
+## Credits
 - [@obrunovieira - Android Developer](https://www.linkedin.com/in/obrunovieira/)
 - [@brabsblue - Designer](https://www.linkedin.com/in/barbara-schoen/)
+- [Novel Covid - Open Source API](https://github.com/NovelCOVID/API)
+
+## Sources
+- [Worldometers](https://www.worldometers.info/coronavirus/)
+- [Novel Coronavirus - World Health Organization](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/)
+- [CDC - Centers for Disease Control and Prevention](https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/)
 
 ## Suggestions and Feedback? Please, contact us
 bee.duplo@gmail.com
