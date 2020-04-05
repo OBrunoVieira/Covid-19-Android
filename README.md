@@ -23,7 +23,6 @@ infected and cured, in your country and in the rest of the world.
 - [Rx Java](https://github.com/ReactiveX/RxJava)
 - [Rx Java Android](https://github.com/ReactiveX/RxAndroid)
 - [Rx Java Retrofit Adapter](https://github.com/akarnokd/RxJavaRetrofitAdapter)
-- [Covid API](https://github.com/javieraviles/covidAPI)
 
 ## Credits
 - [@obrunovieira - Android Developer](https://www.linkedin.com/in/obrunovieira/)
