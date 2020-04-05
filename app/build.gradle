@@ -80,8 +80,9 @@ android {
 dependencies {
     kapt rootProject.androidDependencies.lifecycleAnnotation
 
+    implementation project(":tracking")
     implementation rootProject.androidDependencies.kotlin
-    implementation rootProject.androidDependencies.firebase
+    implementation rootProject.androidDependencies.firebaseCrashlytics
     implementation rootProject.androidDependencies.di
     implementation rootProject.androidDependencies.androidx
     implementation rootProject.androidDependencies.archComponents
