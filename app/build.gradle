@@ -82,6 +82,7 @@ dependencies {
 
     implementation project(":tracking")
     implementation rootProject.androidDependencies.kotlin
+    implementation rootProject.androidDependencies.mpchart
     implementation rootProject.androidDependencies.firebaseCrashlytics
     implementation rootProject.androidDependencies.di
     implementation rootProject.androidDependencies.androidx
