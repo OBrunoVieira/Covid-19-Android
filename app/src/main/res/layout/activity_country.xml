@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/back"
-        android:src="@drawable/ic_arrow"
         android:padding="@dimen/spacing_twenty"
+        android:src="@drawable/ic_arrow"
         app:layout_constraintBottom_toBottomOf="@id/country_text_view_title"
         app:layout_constraintEnd_toStartOf="@id/country_text_view_title"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,12 +28,62 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Brazil" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/country_fragment_container"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_twenty"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/country_text_view_title" />
+        app:layout_constraintTop_toBottomOf="@id/country_text_view_title"
+        tools:background="@drawable/shape_home_gradient">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:id="@+id/country_content_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/spacing_sixteen"
+                android:paddingTop="@dimen/spacing_sixteen"
+                android:paddingEnd="@dimen/spacing_sixteen"
+                android:paddingBottom="@dimen/home_bottom_spacing"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <com.doubleb.covid19.ui.view.ChartCardView
+                    android:id="@+id/country_chart_card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/spacing_eight"
+                    app:contentPadding="@dimen/spacing_twenty_four" />
+
+                <com.doubleb.covid19.ui.view.TodayCasesView
+                    android:id="@+id/country_today_cases_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sixteen"
+                    android:layout_marginBottom="@dimen/spacing_sixteen"
+                    app:cardCornerRadius="@dimen/spacing_eight"
+                    app:contentPaddingBottom="@dimen/spacing_twenty_eight"
+                    app:contentPaddingLeft="@dimen/spacing_sixteen"
+                    app:contentPaddingRight="@dimen/spacing_sixteen"
+                    app:contentPaddingTop="@dimen/spacing_sixteen" />
+
+            </LinearLayout>
+
+            <com.doubleb.covid19.ui.view.ErrorView
+                android:id="@+id/country_error_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
