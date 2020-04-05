@@ -54,10 +54,9 @@ ext {
 
             lifecycleAnnotation: "androidx.lifecycle:lifecycle-compiler:$archComponentsVersion",
 
-            firebase           : [
-                    "com.google.firebase:firebase-analytics:$firebaseVersion",
-                    "com.google.firebase:firebase-crashlytics:$firebaseCrashlyticsVersion"
-            ],
+            firebaseAnalytics  : "com.google.firebase:firebase-analytics:$firebaseVersion",
+
+            firebaseCrashlytics: "com.google.firebase:firebase-crashlytics:$firebaseCrashlyticsVersion",
 
             di                 : [
                     "org.koin:koin-android:$koinVersion",

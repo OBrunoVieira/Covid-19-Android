@@ -1,2 +1,3 @@
+include ':tracking'
 include ':app'
 rootProject.name = "Covid19"
