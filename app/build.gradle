@@ -32,7 +32,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
 
-        buildConfigField 'String', 'SERVER_URL', '"https://coronavirus-19-api.herokuapp.com"'
+        buildConfigField 'String', 'SERVER_URL', '"https://corona.lmao.ninja/"'
     }
 
     buildTypes {
