@@ -1,6 +1,11 @@
 # Covid 19 - Android
 
-***This is a Non-Commercial project, we do not interfere with [C.D.C](https://wwwnc.cdc.gov/eid/page/copyright-and-disclaimers) and [W.H.O](https://www.who.int/about/who-we-are/publishing-policies/copyright) copyrights.  We agree with [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/igo/)**
+<br>
+
+***This is a <ins>Non-Commercial</ins> project, we do not interfere with [C.D.C](https://wwwnc.cdc.gov/eid/page/copyright-and-disclaimers) and [W.H.O](https://www.who.int/about/who-we-are/publishing-policies/copyright) copyrights.  We agree with [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/igo/)**
+
+<br>
+<br>
 
 <p float="left">
      <img src="prints/image1.png" width="200"/>
