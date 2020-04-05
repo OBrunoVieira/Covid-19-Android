@@ -1,5 +1,10 @@
 # Covid 19 - Android
 
+**This is a <ins>Non-Commercial</ins> project, we do not interfere with [C.D.C](https://wwwnc.cdc.gov/eid/page/copyright-and-disclaimers) and [W.H.O](https://www.who.int/about/who-we-are/publishing-policies/copyright) copyrights.  We agree with [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/igo/)**
+
+<br>
+<br>
+
 <p float="left">
      <img src="prints/image1.png" width="200"/>
      <img src="prints/image2.png" width="200"/>
@@ -23,7 +28,6 @@ infected and cured, in your country and in the rest of the world.
 - [Rx Java](https://github.com/ReactiveX/RxJava)
 - [Rx Java Android](https://github.com/ReactiveX/RxAndroid)
 - [Rx Java Retrofit Adapter](https://github.com/akarnokd/RxJavaRetrofitAdapter)
-- [Covid API](https://github.com/javieraviles/covidAPI)
 
 ## Credits
 - [@obrunovieira - Android Developer](https://www.linkedin.com/in/obrunovieira/)
@@ -31,9 +35,10 @@ infected and cured, in your country and in the rest of the world.
 - [Novel Covid - Open Source API](https://github.com/NovelCOVID/API)
 
 ## Sources
-- [Worldometers](https://www.worldometers.info/coronavirus/)
-- [Novel Coronavirus - World Health Organization](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/)
-- [CDC - Centers for Disease Control and Prevention](https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/)
+* [Worldometers](https://www.worldometers.info/coronavirus/)
+(Which indirectly checks public sources from C.D.C, W.H.O and the Government Department of Health of some countries)
+
+* https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series
 
 ## Suggestions and Feedback? Please, contact us
 bee.duplo@gmail.com
