@@ -40,7 +40,7 @@
     <dimen name="error_button_stroke_width">1dp</dimen>
 
     <!--  Circle Chart View  -->
-    <dimen name="circle_chart_view_size">240dp</dimen>
+    <dimen name="circle_chart_view_size">200dp</dimen>
     <dimen name="circle_chart_thickness">16dp</dimen>
     <dimen name="circle_chart_text_view_max_width">120dp</dimen>
     <dimen name="circle_chart_text_view_cases_min_width">46dp</dimen>
