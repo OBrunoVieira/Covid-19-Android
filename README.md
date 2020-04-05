@@ -1,5 +1,7 @@
 # Covid 19 - Android
 
+***This is a Non-Commercial project, we do not interfer on [C.D.C](https://wwwnc.cdc.gov/eid/page/copyright-and-disclaimers) and [W.H.O](https://www.who.int/about/who-we-are/publishing-policies/copyright) copyrights.  We agree with [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/igo/)**
+
 <p float="left">
      <img src="prints/image1.png" width="200"/>
      <img src="prints/image2.png" width="200"/>
