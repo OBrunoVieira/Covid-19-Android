@@ -12,7 +12,7 @@ import io.reactivex.rxjava3.observers.DisposableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-class HomeViewModel(
+class CountryViewModel(
     private val countryRepository: CountryRepository,
     private val compositeDisposable: CompositeDisposable
 ) : ViewModel() {
@@ -47,13 +47,9 @@ class HomeViewModel(
         }.subscribe()
     }
 
-    fun clearViewModel() {
-        compositeDisposable.clear()
-        subscription?.dispose()
-    }
-
     override fun onCleared() {
         super.onCleared()
-        clearViewModel()
+        compositeDisposable.clear()
+        subscription?.dispose()
     }
 }
