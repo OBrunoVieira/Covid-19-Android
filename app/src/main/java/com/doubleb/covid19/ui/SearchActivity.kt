@@ -18,7 +18,8 @@ import com.doubleb.covid19.ui.listener.ClickListener
 import com.doubleb.covid19.view_model.DataSource
 import com.doubleb.covid19.view_model.DataState
 import com.doubleb.covid19.view_model.SearchViewModel
-import com.google.firebase.analytics.FirebaseAnalytics
+import com.doublebb.tracking.ScreenName
+import com.doublebb.tracking.Tracking
 import kotlinx.android.synthetic.main.activity_search.*
 import org.koin.android.ext.android.inject
 import java.util.*
@@ -42,9 +43,7 @@ class SearchActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        FirebaseAnalytics.getInstance(this)
-            .setCurrentScreen(this, "Search", javaClass.simpleName)
+        Tracking.sendScreenView(this, ScreenName.SEARCH)
 
         origin = intent.getIntExtra(ARGUMENTS_ORIGIN, WORLD_ORIGIN)
 
@@ -52,8 +51,8 @@ class SearchActivity :
         viewModel.getCountryNames()
 
         search_image_view_arrow.setOnClickListener { onBackPressed() }
-        search_edit_text.addTextChangedListener(onTextChanged = { text: CharSequence?, _: Int, count: Int, _: Int ->
-            filterTypedText(count, text.toString())
+        search_edit_text.addTextChangedListener(onTextChanged = { text: CharSequence?, _: Int, _: Int, _: Int ->
+            filterTypedText(text.toString())
         })
 
         search_recycler_view.run {
@@ -62,7 +61,7 @@ class SearchActivity :
         }
     }
 
-    private fun filterTypedText(count: Int, text: String) {
+    private fun filterTypedText(text: String) {
         if (text.count() > 0) {
             val filteredList =
                 viewModel.list?.filter {
