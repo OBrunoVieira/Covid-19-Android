@@ -46,23 +46,6 @@
         <item name="android:background">@drawable/shape_outline_rectangle</item>
     </style>
 
-    <!--  Circle Chart View  -->
-    <style name="CircleChartView.TextView.Title" parent="Base.TextView.Light">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:gravity">center</item>
-        <item name="android:text">@string/circle_chart_title</item>
-        <item name="android:maxLines">1</item>
-    </style>
-
-    <style name="CircleChartView.TextView.Result" parent="Base.TextView.Bold">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/text_size_twenty_six</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:maxLines">1</item>
-    </style>
-
     <!--  Splash Activity  -->
     <style name="Splash.TextView.One" parent="Base.TextView.Light">
         <item name="android:textSize">@dimen/text_size_thirty_six</item>
