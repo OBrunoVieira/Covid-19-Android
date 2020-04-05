@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/spacing_twenty"
     android:fillViewport="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/country_text_view_title"
     tools:background="@drawable/shape_home_gradient">
 
     <FrameLayout
@@ -28,7 +33,8 @@
                 android:id="@+id/home_text_view_title"
                 style="@style/Home.TextView.Title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:text="@string/app_name" />
 
             <com.doubleb.covid19.ui.view.LoadingTextView
                 android:id="@+id/home_text_view_sub_title"
@@ -45,7 +51,17 @@
                 app:cardCornerRadius="@dimen/spacing_eight"
                 app:contentPadding="@dimen/spacing_twenty_four" />
 
-            <include layout="@layout/view_home_today_cases" />
+            <com.doubleb.covid19.ui.view.TodayCasesView
+                android:id="@+id/home_today_cases_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sixteen"
+                android:layout_marginBottom="@dimen/spacing_sixteen"
+                app:cardCornerRadius="@dimen/spacing_eight"
+                app:contentPaddingBottom="@dimen/spacing_twenty_eight"
+                app:contentPaddingLeft="@dimen/spacing_sixteen"
+                app:contentPaddingRight="@dimen/spacing_sixteen"
+                app:contentPaddingTop="@dimen/spacing_sixteen" />
 
         </LinearLayout>
 
@@ -55,7 +71,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="gone" />
-
     </FrameLayout>
 
 </androidx.core.widget.NestedScrollView>
