@@ -6,6 +6,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.LinearLayout
 import com.doubleb.covid19.R
+import com.doubleb.covid19.extensions.compoundTopDrawable
 import kotlinx.android.synthetic.main.view_error.view.*
 import okio.IOException
 
@@ -15,6 +16,7 @@ class ErrorView @JvmOverloads constructor(
 
     companion object {
         const val INTERNET_ERROR = 1100
+        const val UNDER_CONSTRUCTION = 1101
         const val GENERIC_ERROR = -1
     }
 
@@ -27,8 +29,12 @@ class ErrorView @JvmOverloads constructor(
         View.inflate(context, R.layout.view_error, this)
     }
 
-    fun errorType(throwable: Throwable?) = apply {
+    fun throwable(throwable: Throwable?) = apply {
         this.errorType = if (throwable is IOException) INTERNET_ERROR else GENERIC_ERROR
+    }
+
+    fun errorType(errorType: Int) = apply {
+        this.errorType = errorType
     }
 
     fun reload(listener: OnClickListener) = apply {
@@ -36,23 +42,31 @@ class ErrorView @JvmOverloads constructor(
     }
 
     fun build() = apply {
-        error_text_view_title.run {
-            val drawableRes =
-                if (errorType == GENERIC_ERROR) {
-                    R.drawable.selector_icon_error
-                } else {
-                    R.drawable.selector_icon_no_internet
-                }
+        when (errorType) {
+            GENERIC_ERROR -> {
+                error_text_view_description.visibility = GONE
+                error_button.visibility = VISIBLE
 
-            setCompoundDrawablesRelativeWithIntrinsicBounds(0, drawableRes, 0, 0)
-            text =
-                resources.getString(
-                    if (errorType == GENERIC_ERROR) {
-                        R.string.error_generic_description
-                    } else {
-                        R.string.error_internet_description
-                    }
-                )
+                error_text_view_title.compoundTopDrawable(R.drawable.selector_icon_error)
+                error_text_view_title.setText(R.string.error_generic_title)
+            }
+
+            UNDER_CONSTRUCTION -> {
+                error_text_view_description.visibility = VISIBLE
+                error_button.visibility = GONE
+
+                error_text_view_title.compoundTopDrawable(R.drawable.selector_icon_cone)
+                error_text_view_title.setText(R.string.error_under_construction_title)
+                error_text_view_description.setText(R.string.error_under_construction_description)
+            }
+
+            else -> {
+                error_text_view_description.visibility = GONE
+                error_button.visibility = VISIBLE
+
+                error_text_view_title.compoundTopDrawable(R.drawable.selector_icon_no_internet)
+                error_text_view_title.setText(R.string.error_internet_title)
+            }
         }
     }
 }
