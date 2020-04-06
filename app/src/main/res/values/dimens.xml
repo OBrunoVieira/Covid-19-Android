@@ -9,6 +9,7 @@
     <dimen name="spacing_twenty_eight">28dp</dimen>
     <dimen name="spacing_twenty_four">24dp</dimen>
     <dimen name="spacing_thirty_two">32dp</dimen>
+    <dimen name="spacing_thirty_six">36dp</dimen>
     <dimen name="spacing_forty">40dp</dimen>
     <dimen name="spacing_hundred">100dp</dimen>
 
@@ -38,6 +39,13 @@
 
     <!--  Error View  -->
     <dimen name="error_button_stroke_width">1dp</dimen>
+
+    <!--  Care View  -->
+    <dimen name="care_view_round">8dp</dimen>
+    <dimen name="care_indicator_round">4dp</dimen>
+    <dimen name="care_indicator_max_width">24dp</dimen>
+    <dimen name="care_indicator_max_height">4dp</dimen>
+    <dimen name="care_bottom_spacing">90dp</dimen>
 
     <!--  Circle Chart View  -->
     <dimen name="circle_chart_view_size">200dp</dimen>
