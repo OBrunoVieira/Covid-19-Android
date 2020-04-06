@@ -37,7 +37,7 @@ class SpreadCardView @JvmOverloads constructor(
         val lastSevenDays = parse.format(Calendar.getInstance().takeLast(7))
         val today = parse.format(Date())
 
-        card_spread_chart_text_view_date.setLoadedText("($lastSevenDays-$today)")
+        card_spread_chart_text_view_date.setLoadedText("($lastSevenDays - $today)")
         card_spread_chart_view
             .recovered(recovered)
             .deaths(deaths)

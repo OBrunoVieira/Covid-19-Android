@@ -149,7 +149,7 @@
 
     <!--  Main Activity  -->
     <style name="Main.TextView.Home" parent="Base.TextView.SemiBold">
-        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textSize">@dimen/text_size_ten</item>
         <item name="android:textColor">@color/blue_dark</item>
         <item name="android:text">@string/main_menu_item_home</item>
         <item name="android:gravity">center</item>
@@ -157,7 +157,7 @@
     </style>
 
     <style name="Main.TextView.World" parent="Base.TextView.SemiBold">
-        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textSize">@dimen/text_size_ten</item>
         <item name="android:textColor">@color/blue_dark</item>
         <item name="android:text">@string/main_menu_item_world</item>
         <item name="android:gravity">center</item>
@@ -165,7 +165,7 @@
     </style>
 
     <style name="Main.TextView.News" parent="Base.TextView.SemiBold">
-        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textSize">@dimen/text_size_ten</item>
         <item name="android:textColor">@color/blue_dark</item>
         <item name="android:text">@string/main_menu_item_news</item>
         <item name="android:gravity">center</item>
@@ -173,7 +173,7 @@
     </style>
 
     <style name="Main.TextView.Care" parent="Base.TextView.SemiBold">
-        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textSize">@dimen/text_size_ten</item>
         <item name="android:textColor">@color/blue_dark</item>
         <item name="android:text">@string/main_menu_item_care</item>
         <item name="android:gravity">center</item>
