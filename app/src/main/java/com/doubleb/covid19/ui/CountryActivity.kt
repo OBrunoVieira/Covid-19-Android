@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import com.doubleb.covid19.R
-import com.doubleb.covid19.model.Country
+import com.doubleb.covid19.model.BaseData
 import com.doubleb.covid19.view_model.CountryViewModel
 import com.doubleb.covid19.view_model.DataSource
 import com.doubleb.covid19.view_model.DataState
@@ -35,7 +35,7 @@ class CountryActivity : BaseActivity(R.layout.activity_country) {
         viewModel.getByCountry(countryName)
     }
 
-    private fun observeCountry() = Observer<DataSource<Country>> {
+    private fun observeCountry() = Observer<DataSource<List<BaseData>>> {
         when (it.dataState) {
             DataState.LOADING -> {
                 country_error_view.visibility = View.GONE
@@ -43,24 +43,35 @@ class CountryActivity : BaseActivity(R.layout.activity_country) {
 
                 country_chart_card_view.loading()
                 country_today_cases_view.loading()
+                country_spread_chart_card_view.loading()
             }
 
             DataState.SUCCESS -> {
                 it.data?.let { result ->
+                    val countryData = result[0].country
+                    val historicalData = result[1].historical
+
                     country_error_view.visibility = View.GONE
                     country_content_data.visibility = View.VISIBLE
 
-                    country_chart_card_view
-                        .totalCases(result.cases)
-                        .activeCases(result.active)
-                        .recoveredCases(result.recovered)
-                        .deathCases(result.deaths)
-                        .build()
+                    countryData?.let { data ->
+                        country_chart_card_view
+                            .totalCases(data.cases)
+                            .activeCases(data.active)
+                            .recoveredCases(data.recovered)
+                            .deathCases(data.deaths)
+                            .build()
 
-                    country_today_cases_view
-                        .todayCases(result.todayCases)
-                        .todayDeaths(result.todayDeaths)
-                        .build()
+                        country_today_cases_view
+                            .todayCases(data.todayCases)
+                            .todayDeaths(data.todayDeaths)
+                            .build()
+                    }
+
+                    historicalData?.let { historical ->
+                        country_spread_chart_card_view
+                            .loadChart(historical.recovered, historical.deaths, historical.cases)
+                    }
                 }
             }
 
