@@ -89,5 +89,6 @@
     <!-- Spread Chart -->
     <string name="spread_chart_title">Spread over time</string>
 
+    <!--  World  -->
     <string name="world_title">Covid-19 in the world</string>
 </resources>

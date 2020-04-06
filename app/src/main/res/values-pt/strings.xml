@@ -2,28 +2,82 @@
     <string name="app_name">Covid19</string>
     <string name="back">Voltar</string>
 
+    <!-- Main -->
     <string name="main_content_description_search">Buscar Países</string>
     <string name="main_menu_item_home">Início</string>
     <string name="main_menu_item_world">Mundo</string>
+    <string name="main_menu_item_news">Notícias</string>
+    <string name="main_menu_item_care">Cuidados</string>
 
+    <!-- Search -->
     <string name="search_hint">Busque um país</string>
     <string name="search_no_result">Sem resultados</string>
 
+    <!-- Home -->
     <string name="home_title">Covid-19 no meu país</string>
     <string name="home_search_your_country">Busque seu país</string>
     <string name="home_today">Hoje</string>
     <string name="home_new_cases">Novos casos</string>
     <string name="home_new_deaths">Mortes</string>
 
+    <!--  Care  -->
+    <string name="care_title">Cuidados</string>
+
+    <!--  Prevention  -->
+    <string name="prevention_title">Prevenção</string>
+
+    <string name="prevention_wash_your_hands_title">Lave as mãos</string>
+    <string name="prevention_wash_your_hands_description">Lave as mãos por 20 segundos com água e sabão ou limpe-as com álcool em gel</string>
+
+    <string name="prevention_cover_nose_and_mouth_title">Cubra o nariz e a boca</string>
+    <string name="prevention_cover_nose_and_mouth_description">Quando espirrar ou tossir, cubra o nariz e a boca com um lenço ou o braço, perto do cotovelo</string>
+
+    <string name="prevention_avoid_close_contact_title">Evite contato próximo</string>
+    <string name="prevention_avoid_close_contact_description">Evite contato próximo (1 metro de distância) com pessoas doentes</string>
+
+    <string name="prevention_do_not_touch_your_face_title">Não toque seu rosto</string>
+    <string name="prevention_do_not_touch_your_face_description">Evite tocar seus olhos, nariz e boca se suas mãos não estiverem higienizadas</string>
+
+    <string name="prevention_stay_home_title">Fique em casa</string>
+    <string name="prevention_stay_home_description">Se tiver sintomas, fique em casa e evite contato com outras pessoas, inclusive os demais moradores da sua casa</string>
+
+    <string name="prevention_wear_a_mask_if_necessary_title">Use máscara, se necessário</string>
+    <string name="prevention_wear_a_mask_if_necessary_description">Use uma máscara se você estiver tossindo, espirrando ou cuidando de alguém com suspeita de covid-19</string>
+
+    <!--  Symptoms  -->
+    <string name="symptoms_title">Sintomas</string>
+
+    <string name="symptoms_cough_title">Tosse</string>
+    <string name="symptoms_cough_description">Um dos sintomas mais comuns é a tosse seca</string>
+
+    <string name="symptoms_fever_title">Febre</string>
+    <string name="symptoms_fever_description">Outro sintoma muito comum é febre alta</string>
+
+    <string name="symptoms_tiredness_title">Cansaço</string>
+    <string name="symptoms_tiredness_description">Pessoas infectadas com o coronavírus podem sentir cansaço acima do normal</string>
+
+    <string name="symptoms_difficulty_breathing_title">Falta de ar</string>
+    <string name="symptoms_difficulty_breathing_description">Em casos mais graves, pode haver falta de ar. Este sintoma requer atenção médica</string>
+
+    <!-- Error -->
     <string name="error_try_again">Tentar novamente</string>
     <string name="error_internet_title">Sem internet</string>
     <string name="error_generic_title">Algo deu errado</string>
+    <string name="error_under_construction_title">Disponível em breve</string>
+    <string name="error_under_construction_description">Ainda estamos construindo esta funcionalidade. Estará disponível em breve</string>
 
+    <!-- Chart -->
     <string name="chart_active_cases">Ativos</string>
     <string name="chart_recovered_cases">Curados</string>
     <string name="chart_critical_cases">Mortes</string>
+    <string name="chart_confirmed_cases">Confirmados</string>
 
+    <!-- Circle Chart -->
     <string name="circle_chart_title">casos totais</string>
 
+    <!-- Spread Chart -->
+    <string name="spread_chart_title">Evolução</string>
+
+    <!--  World  -->
     <string name="world_title">Covid-19 no mundo</string>
 </resources>
