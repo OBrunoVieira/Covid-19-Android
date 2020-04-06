@@ -3,6 +3,7 @@ package com.doubleb.covid19.ui.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.doubleb.covid19.R
@@ -25,6 +26,7 @@ class CareFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         care_view_pager.adapter = CareAdapter(this)
+        care_view_pager.visibility = VISIBLE
 
         TabLayoutMediator(care_tab_layout, care_view_pager) { tab, position ->
             tab.setText(if (position == 0) R.string.prevention_title else R.string.symptoms_title)

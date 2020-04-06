@@ -27,6 +27,6 @@ class NewsFragment : Fragment() {
         Tracking.sendScreenView(this, ScreenName.NEWS)
         news_error_view
             .errorType(UNDER_CONSTRUCTION)
-            .build()
+            .show()
     }
 }

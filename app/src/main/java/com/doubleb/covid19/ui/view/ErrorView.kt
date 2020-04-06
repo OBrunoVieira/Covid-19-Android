@@ -41,6 +41,11 @@ class ErrorView @JvmOverloads constructor(
         error_button.setOnClickListener { listener.onClick(it) }
     }
 
+    fun show(){
+        visibility = VISIBLE
+        build()
+    }
+
     fun build() = apply {
         when (errorType) {
             GENERIC_ERROR -> {
