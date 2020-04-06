@@ -34,7 +34,6 @@ class CircleChartView @JvmOverloads constructor(
     private var thereWasChanging = false
 
     init {
-
         minimumWidth = resources.getDimension(R.dimen.circle_chart_view_size).toInt()
         minimumHeight = resources.getDimension(R.dimen.circle_chart_view_size).toInt()
 
