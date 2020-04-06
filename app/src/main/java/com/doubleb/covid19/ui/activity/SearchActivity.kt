@@ -1,4 +1,4 @@
-package com.doubleb.covid19.ui
+package com.doubleb.covid19.ui.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -39,13 +39,17 @@ class SearchActivity :
     private val viewModel: SearchViewModel by inject()
     private val searchAdapter = SearchAdapter(listener = this)
 
-    private var origin = WORLD_ORIGIN
+    private var origin =
+        WORLD_ORIGIN
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Tracking.sendScreenView(this, ScreenName.SEARCH)
 
-        origin = intent.getIntExtra(ARGUMENTS_ORIGIN, WORLD_ORIGIN)
+        origin = intent.getIntExtra(
+            ARGUMENTS_ORIGIN,
+            WORLD_ORIGIN
+        )
 
         viewModel.liveData.observe(this, observeCountryNames())
         viewModel.getCountryNames()
@@ -118,7 +122,7 @@ class SearchActivity :
                 search_card_view.visibility = GONE
 
                 search_error_view
-                    .errorType(it.throwable)
+                    .throwable(it.throwable)
                     .reload(View.OnClickListener {
                         viewModel.getCountryNames()
                     })

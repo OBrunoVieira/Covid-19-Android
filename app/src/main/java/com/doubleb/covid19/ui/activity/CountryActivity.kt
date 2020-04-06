@@ -1,4 +1,4 @@
-package com.doubleb.covid19.ui
+package com.doubleb.covid19.ui.activity
 
 import android.os.Bundle
 import android.view.View
@@ -79,7 +79,7 @@ class CountryActivity : BaseActivity(R.layout.activity_country) {
                 country_content_data.visibility = View.GONE
 
                 country_error_view
-                    .errorType(it.throwable)
+                    .throwable(it.throwable)
                     .reload(View.OnClickListener {
                         viewModel.getByCountry(countryName)
                     })
