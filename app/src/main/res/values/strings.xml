@@ -51,7 +51,7 @@
 
     <string name="prevention_wear_a_mask_if_necessary_title">Wear a mask if necessary</string>
     <string name="prevention_wear_a_mask_if_necessary_description">Wear a mask if you are coughing,
-        sneezing or if you are taking care of a person with suspected covid-19 infection.</string>
+        sneezing or if you are taking care of a person with suspected covid-19 infection</string>
 
     <!--  Symptoms  -->
     <string name="symptoms_title">Symptoms</string>
