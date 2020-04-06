@@ -26,3 +26,7 @@
 
 -keepclassmembers class com.doubleb.covid19.** { <fields>; }
 -keepclassmembers class com.doubleb.covid19.model.** { <fields>; }
+
+-keep public class com.github.mikephil.charting.animation.* {
+    public protected *;
+}
