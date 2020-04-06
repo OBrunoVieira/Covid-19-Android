@@ -3,19 +3,29 @@ package com.doubleb.covid19.ui.view
 import android.content.Context
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.doubleb.covid19.R
 import com.doubleb.covid19.extensions.shortValue
+import com.doubleb.covid19.extensions.takeLast
 import com.doubleb.covid19.model.TimeLineResult
 import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class SpreadChartView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : BarChart(context, attrs, defStyleAttr) {
+
+    companion object {
+        private const val DATE_FORMAT = "dd/MM"
+    }
 
     private val barSpace = 0.02f //x3
     private val barWidth = 0.18f //x3
@@ -36,9 +46,16 @@ class SpreadChartView @JvmOverloads constructor(
         setTouchEnabled(false)
 
         xAxis.axisMinimum = 0f
-        xAxis.isEnabled = false
+        xAxis.setDrawGridLines(false)
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.typeface = ResourcesCompat.getFont(context, R.font.nunito_semi_bold)
+        xAxis.textColor = ContextCompat.getColor(context, R.color.gray_dark)
+        xAxis.setLabelCount(2, true)
 
         axisLeft.axisMinimum = 0f
+        axisLeft.typeface = ResourcesCompat.getFont(context, R.font.nunito_regular)
+        axisLeft.gridColor = ContextCompat.getColor(context, R.color.gray_light)
+        axisLeft.textColor = ContextCompat.getColor(context, R.color.gray_dark)
         axisLeft.setDrawAxisLine(false)
         axisLeft.setLabelCount(5, true)
 
@@ -60,11 +77,13 @@ class SpreadChartView @JvmOverloads constructor(
     }
 
     fun loading() {
-        axisLeft.valueFormatter = object : ValueFormatter() {
+        val emptyValueFormatter = object : ValueFormatter() {
             override fun getFormattedValue(value: Float): String {
                 return ""
             }
         }
+        axisLeft.valueFormatter = emptyValueFormatter
+        xAxis.valueFormatter = emptyValueFormatter
 
         buildData(
             configureLoadingChart()
@@ -75,6 +94,17 @@ class SpreadChartView @JvmOverloads constructor(
         axisLeft.valueFormatter = object : ValueFormatter() {
             override fun getFormattedValue(value: Float): String {
                 return if (value <= 0) "" else value.toLong().shortValue()
+            }
+        }
+
+        xAxis.valueFormatter = object : ValueFormatter() {
+            override fun getFormattedValue(value: Float): String {
+                val parse = SimpleDateFormat(DATE_FORMAT, Locale.getDefault())
+                return if (value <= 0) {
+                    parse.format(Calendar.getInstance().takeLast(7))
+                } else {
+                    parse.format(Date())
+                }
             }
         }
 
