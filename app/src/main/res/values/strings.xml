@@ -5,27 +5,38 @@
     <string name="covid19" translatable="false">Covid-19</string>
     <string name="tracker" translatable="false">Tracker</string>
 
+    <!-- Main -->
     <string name="main_content_description_search">Search Countries</string>
     <string name="main_menu_item_home">Home</string>
     <string name="main_menu_item_world">World</string>
 
+    <!-- Search -->
     <string name="search_hint">Search a country</string>
     <string name="search_no_result">No results</string>
 
+    <!-- Home -->
     <string name="home_title">Covid-19 in my country</string>
     <string name="home_search_your_country">Search your country</string>
-    <string name="home_active_cases">Active</string>
-    <string name="home_recovered_cases">Recovered</string>
-    <string name="home_critical_cases">Deaths</string>
     <string name="home_today">Today</string>
     <string name="home_new_cases">New cases</string>
     <string name="home_new_deaths">Deaths</string>
 
+    <!-- Error -->
     <string name="error_try_again">Try again</string>
     <string name="error_internet_description">No internet</string>
     <string name="error_generic_description">Something went wrong</string>
 
+    <!-- Chart -->
+    <string name="chart_active_cases">Active</string>
+    <string name="chart_recovered_cases">Recovered</string>
+    <string name="chart_critical_cases">Deaths</string>
+    <string name="chart_confirmed_cases">Confirmed</string>
+
+    <!-- Circle Chart -->
     <string name="circle_chart_title">total cases</string>
+
+    <!-- Spread Chart -->
+    <string name="spread_chart_title">Spread over time</string>
 
     <string name="world_title">Covid-19 in the world</string>
 </resources>
