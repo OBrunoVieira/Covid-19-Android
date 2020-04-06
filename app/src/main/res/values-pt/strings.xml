@@ -11,9 +11,6 @@
 
     <string name="home_title">Covid-19 no meu país</string>
     <string name="home_search_your_country">Busque seu país</string>
-    <string name="home_active_cases">Ativos</string>
-    <string name="home_recovered_cases">Curados</string>
-    <string name="home_critical_cases">Mortes</string>
     <string name="home_today">Hoje</string>
     <string name="home_new_cases">Novos casos</string>
     <string name="home_new_deaths">Mortes</string>
@@ -21,6 +18,10 @@
     <string name="error_try_again">Tentar novamente</string>
     <string name="error_internet_description">Sem internet</string>
     <string name="error_generic_description">Algo deu errado</string>
+
+    <string name="chart_active_cases">Ativos</string>
+    <string name="chart_recovered_cases">Curados</string>
+    <string name="chart_critical_cases">Mortes</string>
 
     <string name="circle_chart_title">casos totais</string>
 
