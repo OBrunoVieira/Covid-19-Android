@@ -45,5 +45,9 @@
     <dimen name="circle_chart_text_view_max_width">120dp</dimen>
     <dimen name="circle_chart_text_view_cases_min_width">46dp</dimen>
 
+    <!--  Spread Chart View  -->
+    <dimen name="spread_chart_view_size">150dp</dimen>
+    <dimen name="spread_date_min_width">84dp</dimen>
+
     <dimen name="design_fab_image_size" tools:override="true">56dp</dimen>
 </resources>
