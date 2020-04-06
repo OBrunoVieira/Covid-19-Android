@@ -38,6 +38,8 @@ infected and cured, in your country and in the rest of the world.
 * [Worldometers](https://www.worldometers.info/coronavirus/)
 (Which indirectly checks public sources from C.D.C, W.H.O and the Government Department of Health of some countries)
 
+* [Johns Hopkins University](https://hub.jhu.edu/novel-coronavirus-information/)
+
 * https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series
 
 ## Suggestions and Feedback? Please, contact us
