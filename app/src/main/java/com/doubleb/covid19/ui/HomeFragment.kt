@@ -5,11 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.doubleb.covid19.R
-import com.doubleb.covid19.model.Country
+import com.doubleb.covid19.model.BaseData
 import com.doubleb.covid19.storage.Preferences
 import com.doubleb.covid19.view_model.DataSource
 import com.doubleb.covid19.view_model.DataState
@@ -49,6 +50,7 @@ class HomeFragment : Fragment() {
 
         home_text_view_sub_title.setOnClickListener { clickToSearch() }
         viewModel.liveData.observe(viewLifecycleOwner, observeCountry())
+
         viewModel.getByCountry(countryName)
     }
 
@@ -78,40 +80,52 @@ class HomeFragment : Fragment() {
         )
     }
 
-    private fun observeCountry() = Observer<DataSource<Country>> {
+    private fun observeCountry() = Observer<DataSource<List<BaseData>>> {
         when (it.dataState) {
             DataState.LOADING -> {
-                home_error_view.visibility = View.GONE
+                home_error_view.visibility = GONE
                 home_content_data.visibility = View.VISIBLE
 
                 home_chart_card_view.loading()
+                home_spread_chart_card_view.loading()
                 home_today_cases_view.loading()
                 home_text_view_sub_title.loading()
             }
 
             DataState.SUCCESS -> {
                 it.data?.let { result ->
-                    home_error_view.visibility = View.GONE
+                    val countryData = result[0].country
+                    val historicalData = result[1].historical
+
+                    home_error_view.visibility = GONE
                     home_content_data.visibility = View.VISIBLE
 
-                    home_chart_card_view
-                        .totalCases(result.cases)
-                        .activeCases(result.active)
-                        .recoveredCases(result.recovered)
-                        .deathCases(result.deaths)
-                        .build()
+                    countryData?.let { data ->
+                        home_chart_card_view
+                            .totalCases(data.cases)
+                            .activeCases(data.active)
+                            .recoveredCases(data.recovered)
+                            .deathCases(data.deaths)
+                            .build()
 
-                    home_today_cases_view
-                        .todayCases(result.todayCases)
-                        .todayDeaths(result.todayDeaths)
-                        .build()
+                        home_today_cases_view
+                            .todayCases(data.todayCases)
+                            .todayDeaths(data.todayDeaths)
+                            .build()
 
-                    home_text_view_sub_title.setLoadedText(result.country)
+                        home_text_view_sub_title.setLoadedText(data.country)
+                    }
+
+                    historicalData?.let { historical ->
+                        home_spread_chart_card_view
+                            .loadChart(historical.recovered, historical.deaths, historical.cases)
+                    }
+
                 }
             }
 
             DataState.ERROR -> {
-                home_content_data.visibility = View.GONE
+                home_content_data.visibility = GONE
 
                 home_error_view
                     .errorType(it.throwable)
