@@ -4,6 +4,6 @@
     android:layout_width="match_parent"
     android:id="@+id/world_spread_chart_card_view"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/spacing_twenty_eight"
+    android:layout_marginTop="@dimen/spacing_sixteen"
     app:cardCornerRadius="@dimen/spacing_eight"
     app:contentPadding="@dimen/spacing_twenty_four" />

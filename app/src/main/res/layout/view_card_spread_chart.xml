@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     tools:cardCornerRadius="@dimen/spacing_eight"
     tools:contentPadding="@dimen/spacing_twenty_four"
-    tools:layout_marginTop="@dimen/spacing_sixteen"
     tools:parentTag="androidx.cardview.widget.CardView">
 
     <androidx.constraintlayout.widget.ConstraintLayout
