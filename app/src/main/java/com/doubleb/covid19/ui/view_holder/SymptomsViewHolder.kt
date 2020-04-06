@@ -23,7 +23,7 @@ class SymptomsViewHolder(itemView: View) : CareViewHolder(itemView) {
                     .illustrationRes(R.drawable.ic_fever)
                     .indicatorColor(R.color.green_dark)
                     .titleRes(R.string.symptoms_fever_title)
-                    .descriptionRes(R.string.symptoms_fever_title)
+                    .descriptionRes(R.string.symptoms_fever_description)
                     .build()
             }
 
