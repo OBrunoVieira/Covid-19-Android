@@ -1,18 +1,26 @@
 package com.doubleb.covid19.network
 
 import com.doubleb.covid19.model.Country
+import com.doubleb.covid19.model.Historical
+import com.doubleb.covid19.model.TimeLine
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface Covid19DataSource{
+interface Covid19DataSource {
 
     @GET("/countries/{country}")
-    fun getByCountry(@Path("country") country : String) : Observable<Country>
+    fun getByCountry(@Path("country") country: String): Observable<Country>
 
     @GET("/all")
-    fun getWorldCases() : Observable<Country>
+    fun getWorldCases(): Observable<Country>
 
     @GET("/countries")
-    fun getCasesByCountries() : Observable<List<Country>>
+    fun getCasesByCountries(): Observable<List<Country>>
+
+    @GET("/v2/historical/all")
+    fun getWorldHistorical(): Observable<TimeLine>
+
+    @GET("/v2/historical/{country}")
+    fun getHistoricalByCountry(@Path("country") country: String): Observable<Historical>
 }
