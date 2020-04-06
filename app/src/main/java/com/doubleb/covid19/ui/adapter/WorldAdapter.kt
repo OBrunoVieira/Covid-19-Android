@@ -5,22 +5,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.doubleb.covid19.R
 import com.doubleb.covid19.model.Country
-import com.doubleb.covid19.model.WorldData
+import com.doubleb.covid19.model.BaseData
 import com.doubleb.covid19.ui.listener.ClickListener
-import com.doubleb.covid19.ui.view_holder.WorldChartViewHolder
-import com.doubleb.covid19.ui.view_holder.WorldCountriesViewHolder
-import com.doubleb.covid19.ui.view_holder.WorldTitleViewHolder
-import com.doubleb.covid19.ui.view_holder.WorldViewHolder
+import com.doubleb.covid19.ui.view_holder.*
 
 class WorldAdapter(
-    val list: ArrayList<WorldData> = ArrayList(),
+    val list: ArrayList<BaseData> = ArrayList(),
     val listener: ClickListener<Country?>
 ) :
     RecyclerView.Adapter<WorldViewHolder>() {
     companion object {
         private const val VIEW_TYPE_TITLE = 1111
-        private const val VIEW_TYPE_CHART = 1112
-        private const val VIEW_TYPE_COUNTRIES = 1113
+        private const val VIEW_TYPE_CIRCLE_CHART = 1112
+        private const val VIEW_TYPE_SPREAD_CHART = 1113
+        private const val VIEW_TYPE_COUNTRIES = 1114
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -34,10 +32,19 @@ class WorldAdapter(
                     )
                 )
 
-            VIEW_TYPE_CHART ->
+            VIEW_TYPE_CIRCLE_CHART ->
                 WorldChartViewHolder(
                     LayoutInflater.from(parent.context).inflate(
                         R.layout.view_world_card_chart,
+                        parent,
+                        false
+                    )
+                )
+
+            VIEW_TYPE_SPREAD_CHART ->
+                WorldSpreadChartViewHolder(
+                    LayoutInflater.from(parent.context).inflate(
+                        R.layout.view_world_spread_chart,
                         parent,
                         false
                     )
@@ -58,9 +65,14 @@ class WorldAdapter(
 
     override fun onBindViewHolder(holder: WorldViewHolder, position: Int) {
         val country = list[position].country
+        val historical = list[position].historical
         when (getItemViewType(position)) {
-            VIEW_TYPE_CHART -> {
+            VIEW_TYPE_CIRCLE_CHART -> {
                 (holder as WorldChartViewHolder).bind(country)
+            }
+
+            VIEW_TYPE_SPREAD_CHART -> {
+                (holder as WorldSpreadChartViewHolder).bind(historical)
             }
 
             VIEW_TYPE_COUNTRIES -> {
@@ -73,7 +85,9 @@ class WorldAdapter(
         when (position) {
             0 -> VIEW_TYPE_TITLE
 
-            1 -> VIEW_TYPE_CHART
+            1 -> VIEW_TYPE_CIRCLE_CHART
+
+            2 -> VIEW_TYPE_SPREAD_CHART
 
             else -> VIEW_TYPE_COUNTRIES
         }

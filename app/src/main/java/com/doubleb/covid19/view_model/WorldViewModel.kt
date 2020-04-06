@@ -2,7 +2,7 @@ package com.doubleb.covid19.view_model
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.doubleb.covid19.model.WorldData
+import com.doubleb.covid19.model.BaseData
 import com.doubleb.covid19.repository.WorldRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -14,10 +14,11 @@ class WorldViewModel(
     private val compositeDisposable: CompositeDisposable
 ) : ViewModel() {
 
-    val liveDataWorldCases = MutableLiveData<DataSource<WorldData>>()
-    val liveDataCasesByCountry = MutableLiveData<DataSource<List<WorldData>>>()
-    private var worldData : WorldData? = null
-    private var worldDataList : List<WorldData>? = null
+    val liveDataWorldCases = MutableLiveData<DataSource<List<BaseData>>>()
+    val liveDataCasesByCountry = MutableLiveData<DataSource<List<BaseData>>>()
+
+    private var baseChartList: List<BaseData>? = null
+    private var baseDataList: List<BaseData>? = null
 
     fun getWorldCases() {
         compositeDisposable.add(
@@ -26,13 +27,13 @@ class WorldViewModel(
                 .observeOn(AndroidSchedulers.mainThread()).doOnSubscribe {
                     liveDataWorldCases.postValue(DataSource(DataState.LOADING))
                 }
-                .subscribeWith(object : DisposableObserver<WorldData>() {
+                .subscribeWith(object : DisposableObserver<List<BaseData>>() {
                     override fun onComplete() {
-                        liveDataWorldCases.postValue(DataSource(DataState.SUCCESS, worldData))
+                        liveDataWorldCases.postValue(DataSource(DataState.SUCCESS, baseChartList))
                     }
 
-                    override fun onNext(t: WorldData?) {
-                        worldData = t
+                    override fun onNext(t: List<BaseData>?) {
+                        baseChartList = t
                     }
 
                     override fun onError(e: Throwable?) {
@@ -51,18 +52,18 @@ class WorldViewModel(
                 .doOnSubscribe {
                     liveDataCasesByCountry.postValue(DataSource(DataState.LOADING))
                 }
-                .subscribeWith(object : DisposableObserver<List<WorldData>>() {
+                .subscribeWith(object : DisposableObserver<List<BaseData>>() {
                     override fun onComplete() {
                         liveDataCasesByCountry.postValue(
                             DataSource(
                                 DataState.SUCCESS,
-                                worldDataList
+                                baseDataList
                             )
                         )
                     }
 
-                    override fun onNext(t: List<WorldData>?) {
-                        worldDataList = t
+                    override fun onNext(t: List<BaseData>?) {
+                        baseDataList = t
                     }
 
                     override fun onError(e: Throwable?) {
@@ -73,7 +74,7 @@ class WorldViewModel(
         )
     }
 
-    fun clearViewModel(){
+    fun clearViewModel() {
         compositeDisposable.clear()
     }
 
