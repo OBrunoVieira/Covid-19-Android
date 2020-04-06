@@ -73,11 +73,6 @@
         <item name="android:background">@drawable/shape_outline_rectangle</item>
     </style>
 
-    <!--  Source View  -->
-    <style name="Source.TextView.Title" parent="Base.TextView.Regular">
-        <item name="android:textColor">@android:color/white</item>
-    </style>
-
     <!--  Card Chart View  -->
     <style name="CardChart.TextView.CasesNumber" parent="Base.TextView.Bold">
         <item name="android:textColor">@color/black</item>
