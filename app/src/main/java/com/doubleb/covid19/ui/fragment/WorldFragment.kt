@@ -1,4 +1,4 @@
-package com.doubleb.covid19.ui
+package com.doubleb.covid19.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import com.doubleb.covid19.R
 import com.doubleb.covid19.model.Country
 import com.doubleb.covid19.model.BaseData
+import com.doubleb.covid19.ui.activity.CountryActivity
 import com.doubleb.covid19.ui.adapter.WorldAdapter
 import com.doubleb.covid19.ui.listener.ClickListener
 import com.doubleb.covid19.view_model.DataSource
@@ -83,7 +84,7 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
                 DataState.ERROR -> {
                     world_recycler_view.visibility = GONE
                     world_error_view
-                        .errorType(it.throwable)
+                        .throwable(it.throwable)
                         .reload(View.OnClickListener {
                             viewModel.getWorldCases()
                             viewModel.getCasesByCountries()

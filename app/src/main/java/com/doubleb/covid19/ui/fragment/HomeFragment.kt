@@ -1,4 +1,4 @@
-package com.doubleb.covid19.ui
+package com.doubleb.covid19.ui.fragment
 
 import android.app.Activity
 import android.content.Intent
@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import com.doubleb.covid19.R
 import com.doubleb.covid19.model.BaseData
 import com.doubleb.covid19.storage.Preferences
+import com.doubleb.covid19.ui.activity.SearchActivity
 import com.doubleb.covid19.view_model.DataSource
 import com.doubleb.covid19.view_model.DataState
 import com.doubleb.covid19.view_model.HomeViewModel
@@ -31,9 +32,12 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by inject()
 
     private val countryName by lazy {
-        Preferences.readStringValue(requireContext(), COUNTRY_NAME_KEY) ?: run {
+        Preferences.readStringValue(requireContext(),
+            COUNTRY_NAME_KEY
+        ) ?: run {
             val defaultValue = getString(R.string.country)
-            Preferences.writeValue(requireContext(), COUNTRY_NAME_KEY, defaultValue)
+            Preferences.writeValue(requireContext(),
+                COUNTRY_NAME_KEY, defaultValue)
             return@run defaultValue
         }
     }
@@ -66,7 +70,8 @@ class HomeFragment : Fragment() {
                 data?.getStringExtra(SearchActivity.RESULT_DATA_COUNTRY_NAME) ?: countryName
 
             if (resultName != countryName) {
-                Preferences.writeValue(requireContext(), COUNTRY_NAME_KEY, resultName)
+                Preferences.writeValue(requireContext(),
+                    COUNTRY_NAME_KEY, resultName)
                 viewModel.getByCountry(resultName)
             }
         }
@@ -75,7 +80,10 @@ class HomeFragment : Fragment() {
     private fun clickToSearch() {
         startActivityForResult(
             Intent(activity, SearchActivity::class.java)
-                .putExtra(SearchActivity.ARGUMENTS_ORIGIN, SearchActivity.HOME_ORIGIN),
+                .putExtra(
+                    SearchActivity.ARGUMENTS_ORIGIN,
+                    SearchActivity.HOME_ORIGIN
+                ),
             SEARCH_RESULT
         )
     }
@@ -128,7 +136,7 @@ class HomeFragment : Fragment() {
                 home_content_data.visibility = GONE
 
                 home_error_view
-                    .errorType(it.throwable)
+                    .throwable(it.throwable)
                     .reload(View.OnClickListener {
                         viewModel.getByCountry(countryName)
                     })
