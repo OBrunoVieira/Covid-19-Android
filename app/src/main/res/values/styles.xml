@@ -1,10 +1,13 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Base.TabBar.SemiBold" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">@font/nunito_semi_bold</item>
     </style>
 
     <style name="Base.TextView" parent="@android:style/TextAppearance">
@@ -27,10 +30,34 @@
         <item name="android:fontFamily">@font/nunito_light</item>
     </style>
 
+    <!--  Care View  -->
+    <style name="CareView.TextView.Title" parent="Base.TextView.SemiBold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_sixteen</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_eight</item>
+    </style>
+
+    <style name="CareView.TextView.Description" parent="Base.TextView.Regular">
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_eight</item>
+    </style>
+
     <!--  Error View  -->
     <style name="ErrorView.TextView.Title" parent="Base.TextView.Bold">
         <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:gravity">center</item>
         <item name="android:drawablePadding">@dimen/spacing_twenty_four</item>
+    </style>
+
+    <style name="ErrorView.TextView.Description" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_eighteen</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/spacing_twenty_four</item>
     </style>
 
     <style name="ErrorView.Button" parent="Base.TextView.SemiBold">
@@ -46,49 +73,9 @@
         <item name="android:background">@drawable/shape_outline_rectangle</item>
     </style>
 
-    <!--  Splash Activity  -->
-    <style name="Splash.TextView.One" parent="Base.TextView.Light">
-        <item name="android:textSize">@dimen/text_size_thirty_six</item>
-        <item name="android:text">@string/covid19</item>
-    </style>
-
-    <style name="Splash.TextView.Two" parent="Base.TextView.Bold">
-        <item name="android:textSize">@dimen/text_size_thirty_six</item>
-        <item name="android:text">@string/tracker</item>
-        <item name="android:layout_marginStart">@dimen/spacing_four</item>
-    </style>
-
-    <!--  Main Activity  -->
-    <style name="Main.TextView.Home" parent="Base.TextView.SemiBold">
-        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
-        <item name="android:textColor">@color/blue_dark</item>
-        <item name="android:text">@string/main_menu_item_home</item>
-        <item name="android:gravity">center</item>
-        <item name="android:drawableTop">@drawable/selector_icon_home</item>
-    </style>
-
-    <style name="Main.TextView.World" parent="Base.TextView.SemiBold">
-        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
-        <item name="android:textColor">@color/blue_dark</item>
-        <item name="android:text">@string/main_menu_item_world</item>
-        <item name="android:gravity">center</item>
-        <item name="android:drawableTop">@drawable/selector_icon_world</item>
-    </style>
-
-    <!--  Search Activity  -->
-    <style name="Search.EditText" parent="Base.TextView.Regular">
-        <item name="android:textSize">@dimen/text_size_eighteen</item>
-        <item name="backgroundTint">@android:color/white</item>
-        <item name="android:hint">@string/search_hint</item>
-        <item name="android:textColorHint">@color/gray</item>
-        <item name="android:layout_marginTop">@dimen/spacing_twenty</item>
-        <item name="android:layout_marginEnd">@dimen/spacing_twenty</item>
-    </style>
-
-    <style name="Search.TextView.Item" parent="Base.TextView.Regular">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:paddingTop">@dimen/spacing_sixteen</item>
-        <item name="android:paddingBottom">@dimen/spacing_sixteen</item>
+    <!--  Source View  -->
+    <style name="Source.TextView.Title" parent="Base.TextView.Regular">
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <!--  Card Chart View  -->
@@ -153,20 +140,65 @@
         <item name="android:layout_marginStart">@dimen/spacing_four</item>
     </style>
 
-    <!--  Home Fragment  -->
-    <style name="Home.TextView.Title" parent="Base.TextView.Regular">
-        <item name="android:textSize">@dimen/text_size_twenty_four</item>
-        <item name="android:text">@string/home_title</item>
+    <!--  Splash Activity  -->
+    <style name="Splash.TextView.One" parent="Base.TextView.Light">
+        <item name="android:textSize">@dimen/text_size_thirty_six</item>
+        <item name="android:text">@string/covid19</item>
     </style>
 
-    <style name="Home.TextView.Country" parent="Base.TextView.Bold">
-        <item name="android:textSize">@dimen/text_size_thirty_two</item>
-        <item name="android:minWidth">@dimen/home_fragment_country_min_width</item>
-        <item name="android:layout_marginTop">@dimen/spacing_eight</item>
-        <item name="android:drawableEnd">@drawable/selector_icon_edit</item>
-        <item name="android:drawablePadding">@dimen/spacing_eight</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
+    <style name="Splash.TextView.Two" parent="Base.TextView.Bold">
+        <item name="android:textSize">@dimen/text_size_thirty_six</item>
+        <item name="android:text">@string/tracker</item>
+        <item name="android:layout_marginStart">@dimen/spacing_four</item>
+    </style>
+
+    <!--  Main Activity  -->
+    <style name="Main.TextView.Home" parent="Base.TextView.SemiBold">
+        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:text">@string/main_menu_item_home</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawableTop">@drawable/selector_icon_home</item>
+    </style>
+
+    <style name="Main.TextView.World" parent="Base.TextView.SemiBold">
+        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:text">@string/main_menu_item_world</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawableTop">@drawable/selector_icon_world</item>
+    </style>
+
+    <style name="Main.TextView.News" parent="Base.TextView.SemiBold">
+        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:text">@string/main_menu_item_news</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawableTop">@drawable/selector_icon_news</item>
+    </style>
+
+    <style name="Main.TextView.Care" parent="Base.TextView.SemiBold">
+        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:text">@string/main_menu_item_care</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawableTop">@drawable/selector_icon_care</item>
+    </style>
+
+    <!--  Search Activity  -->
+    <style name="Search.EditText" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_eighteen</item>
+        <item name="backgroundTint">@android:color/white</item>
+        <item name="android:hint">@string/search_hint</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:layout_marginTop">@dimen/spacing_twenty</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_twenty</item>
+    </style>
+
+    <style name="Search.TextView.Item" parent="Base.TextView.Regular">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingTop">@dimen/spacing_sixteen</item>
+        <item name="android:paddingBottom">@dimen/spacing_sixteen</item>
     </style>
 
     <!--  Search Activity  -->
@@ -216,6 +248,38 @@
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/text_size_eighteen</item>
         <item name="android:layout_marginTop">@dimen/spacing_twelve</item>
+    </style>
+
+    <!--  Care Fragment  -->
+    <style name="Care.TabLayout" parent="Base.TabBar.SemiBold">
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_sixteen</item>
+    </style>
+
+    <style name="Care.TextView.Title" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:text">@string/care_title</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginTop">@dimen/spacing_twenty</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
+    </style>
+
+    <!--  Home Fragment  -->
+    <style name="Home.TextView.Title" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:text">@string/home_title</item>
+    </style>
+
+    <style name="Home.TextView.Country" parent="Base.TextView.Bold">
+        <item name="android:textSize">@dimen/text_size_thirty_two</item>
+        <item name="android:minWidth">@dimen/home_fragment_country_min_width</item>
+        <item name="android:layout_marginTop">@dimen/spacing_eight</item>
+        <item name="android:drawableEnd">@drawable/selector_icon_edit</item>
+        <item name="android:drawablePadding">@dimen/spacing_eight</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <!--  World Fragment  -->

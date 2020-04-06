@@ -16,8 +16,8 @@
     <string name="home_new_deaths">Mortes</string>
 
     <string name="error_try_again">Tentar novamente</string>
-    <string name="error_internet_description">Sem internet</string>
-    <string name="error_generic_description">Algo deu errado</string>
+    <string name="error_internet_title">Sem internet</string>
+    <string name="error_generic_title">Algo deu errado</string>
 
     <string name="chart_active_cases">Ativos</string>
     <string name="chart_recovered_cases">Curados</string>
