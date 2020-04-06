@@ -13,7 +13,8 @@
     <dimen name="spacing_forty">40dp</dimen>
     <dimen name="spacing_hundred">100dp</dimen>
 
-    <dimen name="text_size_twenty_ten">10sp</dimen>
+    <dimen name="text_size_eight">8sp</dimen>
+    <dimen name="text_size_ten">10sp</dimen>
     <dimen name="text_size_twelve">12sp</dimen>
     <dimen name="text_size_sixteen">16sp</dimen>
     <dimen name="text_size_eighteen">18sp</dimen>
