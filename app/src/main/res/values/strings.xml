@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Covid19</string>
     <string name="back">Back</string>
     <string name="country" translatable="false">Brazil</string>
     <string name="covid19" translatable="false">Covid-19</string>
