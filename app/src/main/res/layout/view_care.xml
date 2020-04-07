@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/care_view_round"
+    app:contentPaddingTop="@dimen/spacing_sixteen"
+    tools:parentTag="androidx.cardview.widget.CardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_sixteen"
+        android:paddingEnd="@dimen/spacing_eight">
+
+        <ImageView
+            android:id="@+id/care_image_view_illustration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@drawable/ic_avoid_contact" />
+
+        <TextView
+            android:id="@+id/care_text_view_title"
+            style="@style/CareView.TextView.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/care_image_view_illustration"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/prevention_stay_home_title" />
+
+        <ImageView
+            android:id="@+id/care_image_view_indicator"
+            android:layout_width="@dimen/care_indicator_max_width"
+            android:layout_height="@dimen/care_indicator_max_height"
+            android:layout_marginTop="@dimen/spacing_four"
+            android:background="@drawable/shape_care_indicator"
+            android:importantForAccessibility="no"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/care_text_view_title"
+            app:layout_goneMarginTop="0dp" />
+
+        <TextView
+            android:id="@+id/care_text_view_description"
+            style="@style/CareView.TextView.Description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/care_image_view_illustration"
+            app:layout_constraintHeight_default="wrap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/care_image_view_indicator"
+            app:layout_constraintVertical_bias="0"
+            tools:text="@string/prevention_stay_home_description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

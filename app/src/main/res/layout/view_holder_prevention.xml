@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.doubleb.covid19.ui.view.CareView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/prevention_care_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_sixteen"
+    android:layout_marginStart="@dimen/spacing_sixteen"
+    android:layout_marginEnd="@dimen/spacing_sixteen"
+    app:cardCornerRadius="@dimen/care_view_round"
+    app:contentPaddingTop="@dimen/spacing_sixteen" />

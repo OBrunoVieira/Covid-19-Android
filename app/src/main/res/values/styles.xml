@@ -1,10 +1,13 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Base.TabBar.SemiBold" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">@font/nunito_semi_bold</item>
     </style>
 
     <style name="Base.TextView" parent="@android:style/TextAppearance">
@@ -27,10 +30,34 @@
         <item name="android:fontFamily">@font/nunito_light</item>
     </style>
 
+    <!--  Care View  -->
+    <style name="CareView.TextView.Title" parent="Base.TextView.SemiBold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_sixteen</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_eight</item>
+    </style>
+
+    <style name="CareView.TextView.Description" parent="Base.TextView.Regular">
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_eight</item>
+    </style>
+
     <!--  Error View  -->
     <style name="ErrorView.TextView.Title" parent="Base.TextView.Bold">
         <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:gravity">center</item>
         <item name="android:drawablePadding">@dimen/spacing_twenty_four</item>
+    </style>
+
+    <style name="ErrorView.TextView.Description" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_eighteen</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/spacing_twenty_four</item>
     </style>
 
     <style name="ErrorView.Button" parent="Base.TextView.SemiBold">
@@ -46,21 +73,66 @@
         <item name="android:background">@drawable/shape_outline_rectangle</item>
     </style>
 
-    <!--  Circle Chart View  -->
-    <style name="CircleChartView.TextView.Title" parent="Base.TextView.Light">
+    <!--  Card Chart View  -->
+    <style name="CardChart.TextView.CasesNumber" parent="Base.TextView.Bold">
         <item name="android:textColor">@color/black</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:gravity">center</item>
-        <item name="android:text">@string/circle_chart_title</item>
-        <item name="android:maxLines">1</item>
+        <item name="android:minWidth">@dimen/circle_chart_text_view_cases_min_width</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
     </style>
 
-    <style name="CircleChartView.TextView.Result" parent="Base.TextView.Bold">
+    <style name="CardChart.TextView.ActiveCases" parent="Base.TextView.Regular">
+        <item name="android:text">@string/chart_active_cases</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/text_size_twenty_six</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:maxLines">1</item>
+        <item name="android:drawableStart">@drawable/shape_cases_indicator</item>
+        <item name="android:drawablePadding">@dimen/spacing_eight</item>
+        <item name="android:drawableTint">@color/yellow_light</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+    </style>
+
+    <style name="CardChart.TextView.ConfirmedCases" parent="Base.TextView.Regular">
+        <item name="android:text">@string/chart_confirmed_cases</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:drawableStart">@drawable/shape_cases_indicator</item>
+        <item name="android:drawablePadding">@dimen/spacing_eight</item>
+        <item name="android:drawableTint">@color/yellow_light</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+    </style>
+
+    <style name="CardChart.TextView.RecoveredCases" parent="Base.TextView.Regular">
+        <item name="android:text">@string/chart_recovered_cases</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
+        <item name="android:drawablePadding">@dimen/spacing_eight</item>
+        <item name="android:drawableStart">@drawable/shape_cases_indicator</item>
+        <item name="android:drawableTint">@color/green_dark</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+    </style>
+
+    <style name="CardChart.TextView.CriticalCases" parent="Base.TextView.Regular">
+        <item name="android:text">@string/chart_critical_cases</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:drawablePadding">@dimen/spacing_eight</item>
+        <item name="android:textSize">@dimen/text_size_twelve</item>
+        <item name="android:drawableStart">@drawable/shape_cases_indicator</item>
+        <item name="android:drawableTint">@color/black</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+    </style>
+
+    <!--  Spread Chart View  -->
+    <style name="SpreadChart.TextView.Title" parent="Base.TextView.SemiBold">
+        <item name="android:text">@string/spread_chart_title</item>
+        <item name="android:textSize">@dimen/text_size_eighteen</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="SpreadChart.TextView.Date" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/spacing_twelve</item>
+        <item name="android:minWidth">@dimen/spread_date_min_width</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:layout_marginStart">@dimen/spacing_four</item>
     </style>
 
     <!--  Splash Activity  -->
@@ -77,7 +149,7 @@
 
     <!--  Main Activity  -->
     <style name="Main.TextView.Home" parent="Base.TextView.SemiBold">
-        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textSize">@dimen/text_size_ten</item>
         <item name="android:textColor">@color/blue_dark</item>
         <item name="android:text">@string/main_menu_item_home</item>
         <item name="android:gravity">center</item>
@@ -85,11 +157,27 @@
     </style>
 
     <style name="Main.TextView.World" parent="Base.TextView.SemiBold">
-        <item name="android:textSize">@dimen/text_size_twenty_ten</item>
+        <item name="android:textSize">@dimen/text_size_ten</item>
         <item name="android:textColor">@color/blue_dark</item>
         <item name="android:text">@string/main_menu_item_world</item>
         <item name="android:gravity">center</item>
         <item name="android:drawableTop">@drawable/selector_icon_world</item>
+    </style>
+
+    <style name="Main.TextView.News" parent="Base.TextView.SemiBold">
+        <item name="android:textSize">@dimen/text_size_ten</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:text">@string/main_menu_item_news</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawableTop">@drawable/selector_icon_news</item>
+    </style>
+
+    <style name="Main.TextView.Care" parent="Base.TextView.SemiBold">
+        <item name="android:textSize">@dimen/text_size_ten</item>
+        <item name="android:textColor">@color/blue_dark</item>
+        <item name="android:text">@string/main_menu_item_care</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawableTop">@drawable/selector_icon_care</item>
     </style>
 
     <!--  Search Activity  -->
@@ -106,59 +194,6 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:paddingTop">@dimen/spacing_sixteen</item>
         <item name="android:paddingBottom">@dimen/spacing_sixteen</item>
-    </style>
-
-    <style name="CardChart.TextView.CasesNumber" parent="Base.TextView.Bold">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:minWidth">@dimen/circle_chart_text_view_cases_min_width</item>
-        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
-        <item name="android:textSize">@dimen/text_size_twelve</item>
-    </style>
-
-    <style name="CardChart.TextView.ActiveCases" parent="Base.TextView.Regular">
-        <item name="android:text">@string/home_active_cases</item>
-        <item name="android:textSize">@dimen/text_size_twelve</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:drawableStart">@drawable/shape_cases_indicator</item>
-        <item name="android:drawablePadding">@dimen/spacing_eight</item>
-        <item name="android:drawableTint">@color/yellow_light</item>
-        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
-    </style>
-
-    <style name="CardChart.TextView.RecoveredCases" parent="Base.TextView.Regular">
-        <item name="android:text">@string/home_recovered_cases</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/text_size_twelve</item>
-        <item name="android:drawablePadding">@dimen/spacing_eight</item>
-        <item name="android:drawableStart">@drawable/shape_cases_indicator</item>
-        <item name="android:drawableTint">@color/green_dark</item>
-        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
-    </style>
-
-    <style name="CardChart.TextView.CriticalCases" parent="Base.TextView.Regular">
-        <item name="android:text">@string/home_critical_cases</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:drawablePadding">@dimen/spacing_eight</item>
-        <item name="android:textSize">@dimen/text_size_twelve</item>
-        <item name="android:drawableStart">@drawable/shape_cases_indicator</item>
-        <item name="android:drawableTint">@color/black</item>
-        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
-    </style>
-
-    <!--  Home Fragment  -->
-    <style name="Home.TextView.Title" parent="Base.TextView.Regular">
-        <item name="android:textSize">@dimen/text_size_twenty_four</item>
-        <item name="android:text">@string/home_title</item>
-    </style>
-
-    <style name="Home.TextView.Country" parent="Base.TextView.Bold">
-        <item name="android:textSize">@dimen/text_size_thirty_two</item>
-        <item name="android:minWidth">@dimen/home_fragment_country_min_width</item>
-        <item name="android:layout_marginTop">@dimen/spacing_eight</item>
-        <item name="android:drawableEnd">@drawable/selector_icon_edit</item>
-        <item name="android:drawablePadding">@dimen/spacing_eight</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
     </style>
 
     <!--  Search Activity  -->
@@ -208,6 +243,38 @@
         <item name="android:gravity">end</item>
         <item name="android:textSize">@dimen/text_size_eighteen</item>
         <item name="android:layout_marginTop">@dimen/spacing_twelve</item>
+    </style>
+
+    <!--  Care Fragment  -->
+    <style name="Care.TabLayout" parent="Base.TabBar.SemiBold">
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_sixteen</item>
+    </style>
+
+    <style name="Care.TextView.Title" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:text">@string/care_title</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginTop">@dimen/spacing_twenty</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
+    </style>
+
+    <!--  Home Fragment  -->
+    <style name="Home.TextView.Title" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:text">@string/home_title</item>
+    </style>
+
+    <style name="Home.TextView.Country" parent="Base.TextView.Bold">
+        <item name="android:textSize">@dimen/text_size_thirty_two</item>
+        <item name="android:minWidth">@dimen/home_fragment_country_min_width</item>
+        <item name="android:layout_marginTop">@dimen/spacing_eight</item>
+        <item name="android:drawableEnd">@drawable/selector_icon_edit</item>
+        <item name="android:drawablePadding">@dimen/spacing_eight</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <!--  World Fragment  -->

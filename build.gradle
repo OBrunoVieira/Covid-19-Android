@@ -25,6 +25,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -48,9 +49,12 @@ ext {
     final espressoVersion = '3.2.0'
     final androidJunitVersion = '1.1.1'
     final junitVersion = '4.12'
+    final mpchartVersion = 'v3.1.0'
 
     androidDependencies = [
             kotlin             : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+
+            mpchart            : "com.github.PhilJay:MPAndroidChart:$mpchartVersion",
 
             lifecycleAnnotation: "androidx.lifecycle:lifecycle-compiler:$archComponentsVersion",
 

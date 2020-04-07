@@ -8,10 +8,10 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_fragment_container"
-        android:name="com.doubleb.covid19.ui.HomeFragment"
-        android:tag="HomeFragment"
+        android:name="com.doubleb.covid19.ui.fragment.HomeFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:tag="HomeFragment" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/main_float_action_button"
@@ -45,11 +45,6 @@
                 style="@style/Main.TextView.Home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".4" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
                 android:layout_weight=".2" />
 
             <TextView
@@ -57,7 +52,28 @@
                 style="@style/Main.TextView.World"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".4"
+                android:layout_weight=".2"
+                android:alpha=".5" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".2" />
+
+            <TextView
+                android:id="@+id/main_menu_item_news"
+                style="@style/Main.TextView.News"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".2"
+                android:alpha=".5" />
+
+            <TextView
+                android:id="@+id/main_menu_item_care"
+                style="@style/Main.TextView.Care"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".2"
                 android:alpha=".5" />
         </LinearLayout>
 

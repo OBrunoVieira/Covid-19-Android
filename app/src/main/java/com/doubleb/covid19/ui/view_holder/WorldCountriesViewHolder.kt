@@ -6,6 +6,7 @@ import com.doubleb.covid19.R
 import com.doubleb.covid19.model.Country
 import com.doubleb.covid19.ui.listener.ClickListener
 import kotlinx.android.synthetic.main.view_world_country_item.view.*
+import java.text.NumberFormat
 
 class WorldCountriesViewHolder(
     itemView: View,
@@ -34,7 +35,7 @@ class WorldCountriesViewHolder(
 
         country?.let {
             itemView.country_item_text_view_name.setLoadedText(it.country)
-            itemView.country_item_text_view_cases.setLoadedText(it.cases.toString())
+            itemView.country_item_text_view_cases.setLoadedText(NumberFormat.getInstance().format(it.cases))
         } ?: run {
             itemView.country_item_text_view_name.loading()
             itemView.country_item_text_view_cases.loading()

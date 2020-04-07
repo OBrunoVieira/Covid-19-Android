@@ -1,4 +1,4 @@
-package com.doubleb.covid19.ui
+package com.doubleb.covid19.ui.activity
 
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes

@@ -1,31 +1,93 @@
 <resources>
-    <string name="app_name">Covid19</string>
     <string name="back">Back</string>
     <string name="country" translatable="false">Brazil</string>
     <string name="covid19" translatable="false">Covid-19</string>
     <string name="tracker" translatable="false">Tracker</string>
 
+    <!-- Main -->
     <string name="main_content_description_search">Search Countries</string>
     <string name="main_menu_item_home">Home</string>
     <string name="main_menu_item_world">World</string>
+    <string name="main_menu_item_news">News</string>
+    <string name="main_menu_item_care">Care</string>
 
+    <!-- Search -->
     <string name="search_hint">Search a country</string>
     <string name="search_no_result">No results</string>
 
+    <!-- Home -->
     <string name="home_title">Covid-19 in my country</string>
     <string name="home_search_your_country">Search your country</string>
-    <string name="home_active_cases">Active</string>
-    <string name="home_recovered_cases">Recovered</string>
-    <string name="home_critical_cases">Deaths</string>
     <string name="home_today">Today</string>
     <string name="home_new_cases">New cases</string>
     <string name="home_new_deaths">Deaths</string>
 
-    <string name="error_try_again">Try again</string>
-    <string name="error_internet_description">No internet</string>
-    <string name="error_generic_description">Something went wrong</string>
+    <!--  Care  -->
+    <string name="care_title">Care</string>
 
+    <!--  Prevention  -->
+    <string name="prevention_title">Prevention</string>
+
+    <string name="prevention_wash_your_hands_title">Wash your hands</string>
+    <string name="prevention_wash_your_hands_description">Wash your hands regularly for 20 seconds,
+        with soap and water or alcohol-based hand rub</string>
+
+    <string name="prevention_cover_nose_and_mouth_title">Cover nose and mouth</string>
+    <string name="prevention_cover_nose_and_mouth_description">Cover your nose and mouth with a
+        disposable tissue or flexed elbow when you cough or sneeze</string>
+
+    <string name="prevention_avoid_close_contact_title">Avoid close contact</string>
+    <string name="prevention_avoid_close_contact_description">Avoid close contact
+        (1 meter or 3 feet) with people who are unwell</string>
+
+    <string name="prevention_do_not_touch_your_face_title">Do not touch your face</string>
+    <string name="prevention_do_not_touch_your_face_description">Avoid touching your eyes, nose,
+        or mouth if your hands are not clean</string>
+
+    <string name="prevention_stay_home_title">Stay home</string>
+    <string name="prevention_stay_home_description">Stay home and self-isolate from others in the
+        household if you feel unwell</string>
+
+    <string name="prevention_wear_a_mask_if_necessary_title">Wear a mask if necessary</string>
+    <string name="prevention_wear_a_mask_if_necessary_description">Wear a mask if you are coughing,
+        sneezing or if you are taking care of a person with suspected covid-19 infection</string>
+
+    <!--  Symptoms  -->
+    <string name="symptoms_title">Symptoms</string>
+
+    <string name="symptoms_cough_title">Cough</string>
+    <string name="symptoms_cough_description">One of the most common symptoms is dry cough</string>
+
+    <string name="symptoms_fever_title">Fever</string>
+    <string name="symptoms_fever_description">Another common symptom is high fever</string>
+
+    <string name="symptoms_tiredness_title">Tiredness</string>
+    <string name="symptoms_tiredness_description">A person infected with the virus can experience
+        unusual tiredness</string>
+
+    <string name="symptoms_difficulty_breathing_title">Difficulty breathing</string>
+    <string name="symptoms_difficulty_breathing_description">In more severe cases, breathing may be
+        difficult. This symptom requires medical help</string>
+
+    <!-- Error -->
+    <string name="error_try_again">Try again</string>
+    <string name="error_internet_title">No internet</string>
+    <string name="error_generic_title">Something went wrong</string>
+    <string name="error_under_construction_title">Available soon</string>
+    <string name="error_under_construction_description">We are still building this feature. Soon it will be available</string>
+
+    <!-- Chart -->
+    <string name="chart_active_cases">Active</string>
+    <string name="chart_recovered_cases">Recovered</string>
+    <string name="chart_critical_cases">Deaths</string>
+    <string name="chart_confirmed_cases">Confirmed</string>
+
+    <!-- Circle Chart -->
     <string name="circle_chart_title">total cases</string>
 
+    <!-- Spread Chart -->
+    <string name="spread_chart_title">Spread over time</string>
+
+    <!--  World  -->
     <string name="world_title">Covid-19 in the world</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.doubleb.covid19.ui
+package com.doubleb.covid19.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.doubleb.covid19.R
 import com.doubleb.covid19.model.Country
-import com.doubleb.covid19.model.WorldData
+import com.doubleb.covid19.model.BaseData
+import com.doubleb.covid19.ui.activity.CountryActivity
 import com.doubleb.covid19.ui.adapter.WorldAdapter
 import com.doubleb.covid19.ui.listener.ClickListener
 import com.doubleb.covid19.view_model.DataSource
@@ -30,7 +31,7 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
 
     private val viewModel: WorldViewModel by inject()
 
-    private var placeholderList = arrayListOf(WorldData(), WorldData(), WorldData(), WorldData())
+    private var placeholderList = arrayListOf(BaseData(), BaseData(), BaseData(), BaseData(), BaseData())
     private var adapter = WorldAdapter(listener = this)
 
     override fun onCreateView(
@@ -58,7 +59,7 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
     }
 
     private fun observeWorldCases() =
-        Observer<DataSource<WorldData>> {
+        Observer<DataSource<List<BaseData>>> {
             when (it.dataState) {
                 DataState.LOADING -> {
                     world_error_view.visibility = GONE
@@ -73,16 +74,17 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
                     world_error_view.visibility = GONE
                     world_recycler_view.visibility = VISIBLE
 
-                    it.data?.let { worldData ->
-                        adapter.list[1] = worldData
-                        adapter.notifyItemChanged(1)
+                    it.data?.let { worldList ->
+                        adapter.list[1] = worldList[0]
+                        adapter.list[2] = worldList[1]
+                        adapter.notifyItemRangeChanged(1, 2)
                     }
                 }
 
                 DataState.ERROR -> {
                     world_recycler_view.visibility = GONE
                     world_error_view
-                        .errorType(it.throwable)
+                        .throwable(it.throwable)
                         .reload(View.OnClickListener {
                             viewModel.getWorldCases()
                             viewModel.getCasesByCountries()
@@ -94,7 +96,7 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
         }
 
     private fun observeCasesByCountries() =
-        Observer<DataSource<List<WorldData>>> {
+        Observer<DataSource<List<BaseData>>> {
             when (it.dataState) {
                 DataState.LOADING -> {
                     world_error_view.visibility = GONE
@@ -121,6 +123,7 @@ class WorldFragment : Fragment(), ClickListener<Country?> {
                 }
 
                 DataState.ERROR -> {
+                    //TODO Handle cases by countries
                 }
             }
         }

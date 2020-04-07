@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/spacing_twenty"
     android:fillViewport="true"
+    android:paddingTop="@dimen/spacing_twenty"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +45,14 @@
 
             <com.doubleb.covid19.ui.view.ChartCardView
                 android:id="@+id/home_chart_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sixteen"
+                app:cardCornerRadius="@dimen/spacing_eight"
+                app:contentPadding="@dimen/spacing_twenty_four" />
+
+            <com.doubleb.covid19.ui.view.SpreadCardView
+                android:id="@+id/home_spread_chart_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_sixteen"

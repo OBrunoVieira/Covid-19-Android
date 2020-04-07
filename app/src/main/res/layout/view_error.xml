@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:background="@drawable/shape_home_gradient"
     tools:parentTag="android.widget.LinearLayout">
 
@@ -12,7 +14,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:drawableTop="@drawable/selector_icon_no_internet"
-        tools:text="@string/error_internet_description" />
+        tools:text="@string/error_internet_title" />
+
+    <TextView
+        android:id="@+id/error_text_view_description"
+        style="@style/ErrorView.TextView.Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/error_internet_title" />
 
     <TextView
         android:id="@+id/error_button"

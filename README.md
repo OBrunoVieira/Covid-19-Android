@@ -21,8 +21,12 @@ infected and cured, in your country and in the rest of the world.
 - Your country's cases
 - World's cases
 - Global Search for cases
+- News(Available Soon)
+- Prevention and Symptoms tips
+
 
 ## 3rd party libraries used
+- [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
 - [Koin](https://github.com/InsertKoinIO/koin)
 - [Retrofit](https://github.com/square/retrofit)
 - [Rx Java](https://github.com/ReactiveX/RxJava)
@@ -37,6 +41,8 @@ infected and cured, in your country and in the rest of the world.
 ## Sources
 * [Worldometers](https://www.worldometers.info/coronavirus/)
 (Which indirectly checks public sources from C.D.C, W.H.O and the Government Department of Health of some countries)
+
+* [Johns Hopkins University](https://hub.jhu.edu/novel-coronavirus-information/)
 
 * https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series
 
