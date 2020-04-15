@@ -1,23 +1,22 @@
 package com.doubleb.covid19.repository
 
+import com.doubleb.covid19.model.CountryData
 import com.doubleb.covid19.model.Historical
 import com.doubleb.covid19.model.HistoricalResult
 import com.doubleb.covid19.model.TimeLineResult
-import com.doubleb.covid19.model.BaseData
 import com.doubleb.covid19.network.Covid19DataSource
 import io.reactivex.rxjava3.core.Observable
 
 class CountryRepository(private val covid19DataSource: Covid19DataSource) {
-    fun getCountry(country: String): Observable<ArrayList<BaseData>> = run {
-        val baseList = arrayListOf<BaseData>()
+    fun getCountry(country: String): Observable<CountryData> = run {
+        val countryData = CountryData()
         covid19DataSource.getByCountry(country)
             .flatMap {
-                baseList.add(BaseData(country = it))
-                getHistoricalByCountry(country)
+                countryData.country = it
+                return@flatMap getHistoricalByCountry(country)
             }.map {
-                baseList.apply {
-                    add(BaseData(historical = it))
-                }
+                countryData.historical = it
+                return@map countryData
             }
     }
 
