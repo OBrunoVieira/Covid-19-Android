@@ -79,4 +79,10 @@
 
     <!--  World  -->
     <string name="world_title">Covid-19 no mundo</string>
+
+    <!--  Overview  -->
+    <string name="overview_title">Visão Geral</string>
+
+    <!--  Countries  -->
+    <string name="countries_title">Países</string>
 </resources>

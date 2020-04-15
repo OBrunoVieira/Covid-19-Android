@@ -90,4 +90,10 @@
 
     <!--  World  -->
     <string name="world_title">Covid-19 in the world</string>
+
+    <!--  Overview  -->
+    <string name="overview_title">Overview</string>
+
+    <!--  Countries  -->
+    <string name="countries_title">Countries</string>
 </resources>
