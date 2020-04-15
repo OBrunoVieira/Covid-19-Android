@@ -66,7 +66,7 @@ class CountriesFragment : Fragment(), ClickListener<Country?> {
                     it.data?.let { worldDataList ->
                         adapter.list.clear()
                         adapter.list.addAll(worldDataList)
-                        adapter.notifyDataSetChanged()
+                        adapter.notifyItemRangeChanged(0, adapter.list.size - 1)
                     }
                 }
 
