@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingTop="@dimen/spacing_twenty"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/country_text_view_title"
+    tools:background="@drawable/shape_home_gradient">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:paddingStart="@dimen/spacing_sixteen"
+        android:paddingTop="@dimen/spacing_sixteen"
+        android:paddingEnd="@dimen/spacing_sixteen"
+        android:paddingBottom="@dimen/home_bottom_spacing">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/overview_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="overview_chart_card_view,
+            overview_spread_chart_card_view,
+            overview_today_cases_view" />
+
+        <com.doubleb.covid19.ui.view.ChartCardView
+            android:id="@+id/overview_chart_card_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sixteen"
+            app:cardCornerRadius="@dimen/spacing_eight"
+            app:contentPadding="@dimen/spacing_twenty_four"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.doubleb.covid19.ui.view.SpreadCardView
+            android:id="@+id/overview_spread_chart_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sixteen"
+            app:cardCornerRadius="@dimen/spacing_eight"
+            app:contentPadding="@dimen/spacing_twenty_four"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/overview_chart_card_view" />
+
+        <com.doubleb.covid19.ui.view.TodayCasesView
+            android:id="@+id/overview_today_cases_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sixteen"
+            android:layout_marginBottom="@dimen/spacing_sixteen"
+            app:cardCornerRadius="@dimen/spacing_eight"
+            app:contentPaddingBottom="@dimen/spacing_twenty_eight"
+            app:contentPaddingLeft="@dimen/spacing_sixteen"
+            app:contentPaddingRight="@dimen/spacing_sixteen"
+            app:contentPaddingTop="@dimen/spacing_sixteen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/overview_spread_chart_card_view" />
+
+        <com.doubleb.covid19.ui.view.ErrorView
+            android:id="@+id/overview_error_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
