@@ -21,6 +21,6 @@ class SearchViewHolder(itemView: View, listener: ClickListener<Country>) :
         this.country = country
 
         val textView = itemView as TextView
-        textView.text = country?.country
+        textView.text = country?.name
     }
 }

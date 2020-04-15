@@ -15,6 +15,7 @@ class SearchViewModel(
 ) : ViewModel() {
 
     val liveData = MutableLiveData<DataSource<List<Country>>>()
+
     var list: List<Country>? = null
 
     fun getCountryNames() {

@@ -2,8 +2,7 @@ package com.doubleb.covid19.view_model
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.doubleb.covid19.model.BaseData
-import com.doubleb.covid19.model.Country
+import com.doubleb.covid19.model.CountryData
 import com.doubleb.covid19.repository.CountryRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -17,10 +16,11 @@ class CountryViewModel(
     private val countryRepository: CountryRepository,
     private val compositeDisposable: CompositeDisposable
 ) : ViewModel() {
-    private var subscription: Disposable? = null
 
-    val liveData = MutableLiveData<DataSource<List<BaseData>>>()
-    var baseDataList: List<BaseData>? = null
+    val liveData = MutableLiveData<DataSource<CountryData>>()
+
+    private var subscription: Disposable? = null
+    private var countryData: CountryData? = null
 
     fun getByCountry(country: String) {
         subscription = Observable.interval(0, 2, TimeUnit.MINUTES).map {
@@ -31,13 +31,13 @@ class CountryViewModel(
                     .doOnSubscribe {
                         liveData.postValue(DataSource(DataState.LOADING))
                     }
-                    .subscribeWith(object : DisposableObserver<List<BaseData>>() {
+                    .subscribeWith(object : DisposableObserver<CountryData>() {
                         override fun onComplete() {
-                            liveData.postValue(DataSource(DataState.SUCCESS, baseDataList))
+                            liveData.postValue(DataSource(DataState.SUCCESS, countryData))
                         }
 
-                        override fun onNext(t: List<BaseData>?) {
-                            baseDataList = t
+                        override fun onNext(t: CountryData?) {
+                            countryData = t
                         }
 
                         override fun onError(e: Throwable?) {

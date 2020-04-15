@@ -69,7 +69,7 @@ class SearchActivity :
         if (text.count() > 0) {
             val filteredList =
                 viewModel.list?.filter {
-                    val country = it.country?.toLowerCase(Locale.getDefault())
+                    val country = it.name?.toLowerCase(Locale.getDefault())
                     val currentText = text.toLowerCase(Locale.getDefault())
                     country?.contains(currentText) == true
                 }
@@ -133,13 +133,13 @@ class SearchActivity :
     }
 
     override fun onItemClicked(data: Country?, position: Int) {
-        search_edit_text.setText(data?.country)
+        search_edit_text.setText(data?.name)
         buildSearchList(viewModel.list)
 
         if (origin == HOME_ORIGIN) {
             setResult(
                 Activity.RESULT_OK,
-                Intent().putExtra(RESULT_DATA_COUNTRY_NAME, data?.country)
+                Intent().putExtra(RESULT_DATA_COUNTRY_NAME, data?.name)
             )
             onBackPressed()
             return
@@ -147,7 +147,7 @@ class SearchActivity :
 
         startActivity(
             Intent(this, CountryActivity::class.java)
-                .putExtra(CountryActivity.ARGUMENTS_COUNTRY_NAME, data?.country)
+                .putExtra(CountryActivity.ARGUMENTS_COUNTRY_NAME, data?.name)
         )
     }
 }
