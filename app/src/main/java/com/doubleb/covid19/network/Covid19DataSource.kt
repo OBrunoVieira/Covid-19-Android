@@ -9,18 +9,18 @@ import retrofit2.http.Path
 
 interface Covid19DataSource {
 
-    @GET("/countries/{country}")
+    @GET("countries/{country}")
     fun getByCountry(@Path("country") country: String): Observable<Country>
 
-    @GET("/all")
+    @GET("all")
     fun getWorldCases(): Observable<Country>
 
-    @GET("/countries")
+    @GET("countries")
     fun getCasesByCountries(): Observable<List<Country>>
 
-    @GET("/v2/historical/all")
+    @GET("historical/all")
     fun getWorldHistorical(): Observable<TimeLine>
 
-    @GET("/v2/historical/{country}")
+    @GET("historical/{country}")
     fun getHistoricalByCountry(@Path("country") country: String): Observable<Historical>
 }
