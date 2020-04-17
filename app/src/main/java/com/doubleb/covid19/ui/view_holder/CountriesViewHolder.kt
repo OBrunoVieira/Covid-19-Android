@@ -8,10 +8,10 @@ import com.doubleb.covid19.ui.listener.ClickListener
 import kotlinx.android.synthetic.main.view_world_country_item.view.*
 import java.text.NumberFormat
 
-class WorldCountriesViewHolder(
+class CountriesViewHolder(
     itemView: View,
     listener: ClickListener<Country?>
-) : WorldViewHolder(itemView) {
+) : RecyclerView.ViewHolder(itemView) {
 
     private val margin = itemView.resources.getDimension(R.dimen.world_bottom_spacing).toInt()
     private var country: Country? = null
@@ -33,9 +33,12 @@ class WorldCountriesViewHolder(
             if (isLastPosition) margin else 0
         )
 
-        country?.let {
-            itemView.country_item_text_view_name.setLoadedText(it.country)
-            itemView.country_item_text_view_cases.setLoadedText(NumberFormat.getInstance().format(it.cases))
+        val countryName = country?.name
+        val countryCases = country?.cases
+
+        countryName?.let {
+            itemView.country_item_text_view_name.setLoadedText(it)
+            itemView.country_item_text_view_cases.setLoadedText(NumberFormat.getInstance().format(countryCases))
         } ?: run {
             itemView.country_item_text_view_name.loading()
             itemView.country_item_text_view_cases.loading()

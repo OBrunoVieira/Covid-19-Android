@@ -26,13 +26,13 @@ android {
         targetSdkVersion 29
 
         versionCode 3
-        versionName "1.1.0"
+        versionName "1.1.1"
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
 
-        buildConfigField 'String', 'SERVER_URL', '"https://corona.lmao.ninja/"'
+        buildConfigField 'String', 'SERVER_URL', '"https://corona.lmao.ninja/v2/"'
     }
 
     buildTypes {

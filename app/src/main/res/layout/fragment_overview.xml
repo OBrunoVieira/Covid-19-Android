@@ -22,40 +22,16 @@
         android:paddingBottom="@dimen/home_bottom_spacing">
 
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/home_group"
+            android:id="@+id/overview_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            app:constraint_referenced_ids="home_text_view_title,
-            home_text_view_sub_title,
-            home_chart_card_view,
-            home_spread_chart_card_view,
-            home_today_cases_view" />
-
-        <TextView
-            android:id="@+id/home_text_view_title"
-            style="@style/Home.TextView.Title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/app_name" />
-
-        <com.doubleb.covid19.ui.view.LoadingTextView
-            android:id="@+id/home_text_view_sub_title"
-            style="@style/Home.TextView.Country"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_text_view_title"
-            app:layout_constraintWidth_default="wrap"
-            tools:text="@string/country" />
+            app:constraint_referenced_ids="overview_chart_card_view,
+            overview_spread_chart_card_view,
+            overview_today_cases_view" />
 
         <com.doubleb.covid19.ui.view.ChartCardView
-            android:id="@+id/home_chart_card_view"
+            android:id="@+id/overview_chart_card_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_sixteen"
@@ -63,10 +39,10 @@
             app:contentPadding="@dimen/spacing_twenty_four"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_text_view_sub_title" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.doubleb.covid19.ui.view.SpreadCardView
-            android:id="@+id/home_spread_chart_card_view"
+            android:id="@+id/overview_spread_chart_card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_sixteen"
@@ -74,10 +50,10 @@
             app:contentPadding="@dimen/spacing_twenty_four"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_chart_card_view" />
+            app:layout_constraintTop_toBottomOf="@id/overview_chart_card_view" />
 
         <com.doubleb.covid19.ui.view.TodayCasesView
-            android:id="@+id/home_today_cases_view"
+            android:id="@+id/overview_today_cases_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_sixteen"
@@ -90,10 +66,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_spread_chart_card_view" />
+            app:layout_constraintTop_toBottomOf="@id/overview_spread_chart_card_view" />
 
         <com.doubleb.covid19.ui.view.ErrorView
-            android:id="@+id/home_error_view"
+            android:id="@+id/overview_error_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -3,24 +3,24 @@ package com.doubleb.covid19.view_model
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.doubleb.covid19.model.Country
-import com.doubleb.covid19.repository.SearchRepository
+import com.doubleb.covid19.repository.WorldRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.observers.DisposableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class SearchViewModel(
-    private val searchRepository: SearchRepository,
+class CountriesViewModel (
+    private val worldRepository: WorldRepository,
     private val compositeDisposable: CompositeDisposable
-) : ViewModel() {
+) : ViewModel(){
 
     val liveData = MutableLiveData<DataSource<List<Country>>>()
 
-    var list: List<Country>? = null
+    private var list: List<Country>? = null
 
-    fun getCountryNames() {
+    fun getCasesByCountries() {
         compositeDisposable.add(
-            searchRepository.getCountryNames()
+            worldRepository.getCasesByCountries()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe {
@@ -48,8 +48,13 @@ class SearchViewModel(
         )
     }
 
+    fun clearViewModel() {
+        compositeDisposable.clear()
+    }
+
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.clear()
     }
+
 }

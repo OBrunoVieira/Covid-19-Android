@@ -2,16 +2,18 @@ package com.doubleb.covid19.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
 data class Country(
-    val country: String?,
-    val cases: Int,
-    val todayCases: Int,
-    val deaths: Int,
-    val todayDeaths: Int,
-    val recovered: Int,
-    val active: Int,
-    val critical: Int
+    @SerializedName("country")
+    val name: String? = null,
+    val cases: Int = 0,
+    val todayCases: Int = 0,
+    val deaths: Int = 0,
+    val todayDeaths: Int = 0,
+    val recovered: Int = 0,
+    val active: Int = 0,
+    val critical: Int = 0
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
@@ -26,7 +28,7 @@ data class Country(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(country)
+        parcel.writeString(name)
         parcel.writeInt(cases)
         parcel.writeInt(todayCases)
         parcel.writeInt(deaths)

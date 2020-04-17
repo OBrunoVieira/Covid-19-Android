@@ -1,7 +1,6 @@
 package com.doubleb.covid19.ui.view
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
@@ -24,6 +23,13 @@ class LoadingTextView @JvmOverloads constructor(
         loading()
     }
 
+    override fun setVisibility(visibility: Int) {
+        super.setVisibility(visibility)
+        if (visibility != VISIBLE) {
+            clearLoadingAnimation()
+        }
+    }
+
     fun loading() {
         foreground = ContextCompat.getDrawable(context, R.drawable.shape_rectangle_loading)
         text = null
@@ -32,6 +38,10 @@ class LoadingTextView @JvmOverloads constructor(
 
     fun setLoadedText(text: String?) {
         this.text = text
+        clearLoadingAnimation()
+    }
+
+    private fun clearLoadingAnimation() {
         foreground = null
         clearAnimation()
     }

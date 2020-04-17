@@ -6,33 +6,31 @@ import io.reactivex.rxjava3.core.Observable
 
 class WorldRepository(private val covid19DataSource: Covid19DataSource) {
 
-    fun getWorldCases(): Observable<List<BaseData>> = run {
-        val worldList = arrayListOf<BaseData>()
+    fun getWorldCases(): Observable<WorldData> = run {
+        val worldData = WorldData()
         covid19DataSource.getWorldCases()
             .flatMap {
-                worldList.add(BaseData(country = it))
-                getWorldHistorical()
+                worldData.country = it
+                return@flatMap getWorldHistorical()
             }
             .map {
-                worldList.apply {
-                    add(BaseData(historical = it.historical))
-                }
+                worldData.historical = it
+                return@map worldData
             }
     }
 
 
-    fun getCasesByCountries(): Observable<List<BaseData>> =
+    fun getCasesByCountries(): Observable<List<Country>> =
         covid19DataSource.getCasesByCountries()
             .flatMapIterable { it }
-            .map { BaseData(it) }
             .toSortedList { o1, o2 ->
-                val countryOneCases = o1.country?.cases ?: 0
-                val countryTwoCases = o2.country?.cases ?: 0
+                val countryOneCases = o1.cases
+                val countryTwoCases = o2.cases
                 countryTwoCases.compareTo(countryOneCases)
             }
             .toObservable()
 
-    private fun getWorldHistorical(): Observable<BaseData> =
+    private fun getWorldHistorical(): Observable<HistoricalResult> =
         covid19DataSource.getWorldHistorical()
             .onErrorResumeNext { Observable.just(TimeLine()) }
             .map {
@@ -54,13 +52,6 @@ class WorldRepository(private val covid19DataSource: Covid19DataSource) {
                     }.takeLast(7)
                 }
 
-
-                BaseData(
-                    historical = HistoricalResult(
-                        cases = casesList,
-                        deaths = deathList,
-                        recovered = recoveredList
-                    )
-                )
+                HistoricalResult(cases = casesList, deaths = deathList, recovered = recoveredList)
             }
 }

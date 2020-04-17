@@ -34,9 +34,13 @@ infected and cured, in your country and in the rest of the world.
 - [Rx Java Retrofit Adapter](https://github.com/akarnokd/RxJavaRetrofitAdapter)
 
 ## Credits
-- [@obrunovieira - Android Developer](https://www.linkedin.com/in/obrunovieira/)
 - [@brabsblue - Designer](https://www.linkedin.com/in/barbara-schoen/)
+- [@obrunovieira - Android Developer](https://www.linkedin.com/in/obrunovieira/)
+- [@quaggie - iOS Developer](https://www.linkedin.com/in/jonathanbijos/)
 - [Novel Covid - Open Source API](https://github.com/NovelCOVID/API)
+
+## Follow our iOS Project
+- [Covid 19 Tracker - iOS](https://github.com/Quaggie/Covid-19Tracker)
 
 ## Sources
 * [Worldometers](https://www.worldometers.info/coronavirus/)
