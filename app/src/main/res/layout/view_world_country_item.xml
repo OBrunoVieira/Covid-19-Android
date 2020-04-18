@@ -9,23 +9,59 @@
     android:layout_marginTop="@dimen/spacing_sixteen"
     android:layout_marginEnd="@dimen/spacing_sixteen"
     app:cardCornerRadius="@dimen/spacing_eight"
-    app:contentPadding="@dimen/spacing_sixteen">
+    app:contentPaddingBottom="@dimen/spacing_twelve"
+    app:contentPaddingRight="@dimen/spacing_sixteen"
+    app:contentPaddingLeft="@dimen/spacing_sixteen"
+    app:contentPaddingTop="@dimen/spacing_twelve">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/country_item_content_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/country_item_image_view_country"
+                android:layout_width="@dimen/country_item_max_size"
+                android:layout_height="@dimen/country_item_max_size"
+                android:background="@drawable/shape_circle"
+                android:importantForAccessibility="no"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/country_text_view_badge"
+                style="@style/World.TextView.Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@id/country_item_image_view_country"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/country_item_image_view_country"
+                app:layout_constraintVertical_bias="0.1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <com.doubleb.covid19.ui.view.LoadingTextView
             android:id="@+id/country_item_text_view_name"
             style="@style/World.TextView.CountryName"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintWidth_default="wrap"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/country_item_content_badge"
             app:layout_constraintEnd_toStartOf="@id/country_item_text_view_cases"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/country_item_content_badge"
+            app:layout_constraintTop_toTopOf="@id/country_item_content_badge"
+            app:layout_constrainedWidth="true"
             tools:text="Brazil" />
 
         <com.doubleb.covid19.ui.view.LoadingTextView
@@ -33,10 +69,10 @@
             style="@style/World.TextView.CountryCases"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/country_item_content_badge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/country_item_text_view_name"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/country_item_content_badge"
             tools:text="1001" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
