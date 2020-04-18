@@ -47,9 +47,9 @@ class RateView @JvmOverloads constructor(
 
     private fun formatSpannableText(text: String) = SpannableString(text).apply {
         setSpan(
-            RelativeSizeSpan(1.5f),
-            0,
+            RelativeSizeSpan(0.66f),
             length - 1,
+            length,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
     }
