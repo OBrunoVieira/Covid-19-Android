@@ -27,6 +27,7 @@ infected and cured, in your country and in the rest of the world.
 
 ## 3rd party libraries used
 - [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
+- [Glide](https://github.com/bumptech/glide)
 - [Koin](https://github.com/InsertKoinIO/koin)
 - [Retrofit](https://github.com/square/retrofit)
 - [Rx Java](https://github.com/ReactiveX/RxJava)
