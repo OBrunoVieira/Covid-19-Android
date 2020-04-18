@@ -96,4 +96,9 @@
 
     <!--  Countries  -->
     <string name="countries_title">Countries</string>
+
+    <!--  Rate  -->
+    <string name="rate_recovery_title">Recovery rate</string>
+    <string name="rate_fatality_title">Fatality rate</string>
+
 </resources>
