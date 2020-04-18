@@ -13,7 +13,8 @@ data class Country(
     val todayDeaths: Int = 0,
     val recovered: Int = 0,
     val active: Int = 0,
-    val critical: Int = 0
+    val critical: Int = 0,
+    val countryInfo: CountryInfo? = null
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
@@ -23,9 +24,9 @@ data class Country(
         parcel.readInt(),
         parcel.readInt(),
         parcel.readInt(),
-        parcel.readInt()
-    ) {
-    }
+        parcel.readInt(),
+        parcel.readParcelable(CountryInfo::class.java.classLoader)
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)
@@ -36,6 +37,7 @@ data class Country(
         parcel.writeInt(recovered)
         parcel.writeInt(active)
         parcel.writeInt(critical)
+        parcel.writeParcelable(countryInfo, flags)
     }
 
     override fun describeContents(): Int {
