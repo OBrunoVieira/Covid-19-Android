@@ -1,6 +1,7 @@
 <resources>
     <string name="back">Back</string>
     <string name="country" translatable="false">Brazil</string>
+    <string name="position" translatable="false">%dº</string>
     <string name="covid19" translatable="false">Covid-19</string>
     <string name="tracker" translatable="false">Tracker</string>
 

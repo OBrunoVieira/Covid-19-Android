@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="spacing_two">2dp</dimen>
     <dimen name="spacing_four">4dp</dimen>
     <dimen name="spacing_eight">8dp</dimen>
     <dimen name="spacing_ten">10dp</dimen>
@@ -16,6 +17,7 @@
     <dimen name="text_size_eight">8sp</dimen>
     <dimen name="text_size_ten">10sp</dimen>
     <dimen name="text_size_twelve">12sp</dimen>
+    <dimen name="text_size_fourteen">14sp</dimen>
     <dimen name="text_size_sixteen">16sp</dimen>
     <dimen name="text_size_eighteen">18sp</dimen>
     <dimen name="text_size_twenty_four">24sp</dimen>
@@ -37,6 +39,11 @@
     <!--  World Fragment  -->
     <dimen name="world_fragment_cases_min_width">76dp</dimen>
     <dimen name="world_bottom_spacing">84dp</dimen>
+
+    <!--  Country Item  -->
+    <dimen name="country_item_max_size">24dp</dimen>
+    <dimen name="country_item_badge_min_width">22dp</dimen>
+    <dimen name="country_item_badge_min_height">12dp</dimen>
 
     <!--  Error View  -->
     <dimen name="error_button_stroke_width">1dp</dimen>
