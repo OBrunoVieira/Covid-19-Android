@@ -1,6 +1,9 @@
 package com.doubleb.covid19.ui.view
 
 import android.content.Context
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.RelativeSizeSpan
 import android.util.AttributeSet
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
@@ -38,6 +41,11 @@ class LoadingTextView @JvmOverloads constructor(
 
     fun setLoadedText(text: String?) {
         this.text = text
+        clearLoadingAnimation()
+    }
+
+    fun setLoadedText(spannableText: SpannableString) {
+        this.text = spannableText
         clearLoadingAnimation()
     }
 
