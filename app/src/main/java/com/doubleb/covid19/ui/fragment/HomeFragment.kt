@@ -103,26 +103,34 @@ class HomeFragment : Fragment() {
                 home_spread_chart_card_view.loading()
                 home_today_cases_view.loading()
                 home_text_view_sub_title.loading()
+                home_rate_view.loading()
             }
 
             DataState.SUCCESS -> {
-                it.data?.country?.let { countryData ->
+                it.data?.country?.let { country ->
                     home_chart_card_view
-                        .totalCases(countryData.cases)
-                        .activeCases(countryData.active)
-                        .recoveredCases(countryData.recovered)
-                        .deathCases(countryData.deaths)
+                        .totalCases(country.cases)
+                        .activeCases(country.active)
+                        .recoveredCases(country.recovered)
+                        .deathCases(country.deaths)
                         .build()
 
                     home_today_cases_view
-                        .todayCases(countryData.todayCases)
-                        .todayDeaths(countryData.todayDeaths)
+                        .todayCases(country.todayCases)
+                        .todayDeaths(country.todayDeaths)
                         .build()
 
-                    home_text_view_sub_title.setLoadedText(countryData.name)
+                    home_rate_view
+                        .recoveryRate(country.recovered.toDouble() / country.cases.toDouble())
+                        .fatalityRate(country.todayDeaths.toDouble() / country.cases.toDouble())
+                        .build()
+
+                    home_text_view_sub_title.setLoadedText(country.name)
                 } ?: run {
                     home_chart_card_view.loading()
                     home_today_cases_view.loading()
+                    home_rate_view.loading()
+                    home_text_view_sub_title.loading()
                 }
 
                 it.data?.historical?.let { historicalResult ->
