@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import androidx.cardview.widget.CardView
 import androidx.core.view.marginLeft
 import com.doubleb.covid19.R
+import com.doubleb.covid19.extensions.toNumber
 import kotlinx.android.synthetic.main.view_today_cases.view.*
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -53,8 +54,8 @@ class TodayCasesView @JvmOverloads constructor(
             ).format(Date())
         )
 
-        today_cases_text_view_newest_results.setLoadedText(NumberFormat.getInstance().format(todayCases))
-        today_cases_text_view_newest_deaths_results.setLoadedText(NumberFormat.getInstance().format(todayDeaths))
+        today_cases_text_view_newest_results.setLoadedText(todayCases.toNumber())
+        today_cases_text_view_newest_deaths_results.setLoadedText(todayDeaths.toNumber())
     }
 
 }

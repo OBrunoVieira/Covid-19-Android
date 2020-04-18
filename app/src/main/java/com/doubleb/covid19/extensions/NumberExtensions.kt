@@ -23,5 +23,7 @@ fun Long.shortValue(): String = run {
     }
 }
 
+fun Int.toNumber() : String = NumberFormat.getInstance().format(this)
+
 fun Double.toPercentString(): String =
     DecimalFormat("#.##'%'", DecimalFormatSymbols(Locale.getDefault())).format(this)
