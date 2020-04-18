@@ -18,8 +18,9 @@
         <com.doubleb.covid19.ui.view.LoadingTextView
             android:id="@+id/country_item_text_view_name"
             style="@style/World.TextView.CountryName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintWidth_default="wrap"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/country_item_text_view_cases"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
