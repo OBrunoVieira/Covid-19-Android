@@ -8,16 +8,19 @@ import org.koin.dsl.module
 val viewModelModule = module {
     factory { CompositeDisposable() }
 
-    // Home Section ================================================================================
+    // Home ========================================================================================
     viewModel { HomeViewModel(get(), get()) }
 
-    // Country Details Section =====================================================================
+    // Country Details =============================================================================
     viewModel { CountryViewModel(get(), get()) }
 
-    // Search Section ==============================================================================
+    // Search ======================================================================================
     viewModel { SearchViewModel(get(), get()) }
 
     // World Section ===============================================================================
     viewModel { OverviewViewModel(get(), get()) }
     viewModel { CountriesViewModel(get(), get()) }
+
+    // News ========================================================================================
+    viewModel { NewsViewModel(get(), get()) }
 }
