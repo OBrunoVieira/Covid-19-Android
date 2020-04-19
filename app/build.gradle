@@ -31,8 +31,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        buildConfigField 'String', 'HOST_CORONA', '"https://corona.lmao.ninja/v2/"'
 
-        buildConfigField 'String', 'SERVER_URL', '"https://corona.lmao.ninja/v2/"'
+        buildConfigField 'String', 'HOST_GOOGLE_NEWS', '"https://newsapi.org/v2/"'
+
+        buildConfigField 'String', 'GOOGLE_NEWS_API_KEY', "$GOOGLE_NEWS_API_KEY"
     }
 
     buildTypes {
