@@ -46,13 +46,13 @@
         <com.doubleb.covid19.ui.view.LoadingTextView
             android:id="@+id/home_text_view_sub_title"
             style="@style/Home.TextView.Country"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_text_view_title"
-            app:layout_constraintWidth_default="wrap"
+            app:layout_constrainedWidth="true"
             tools:text="@string/country" />
 
         <com.doubleb.covid19.ui.view.ChartCardView

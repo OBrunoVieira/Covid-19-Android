@@ -8,10 +8,11 @@
     android:layout_marginStart="@dimen/spacing_sixteen"
     android:layout_marginTop="@dimen/spacing_sixteen"
     android:layout_marginEnd="@dimen/spacing_sixteen"
+    android:foreground="?android:attr/selectableItemBackground"
     app:cardCornerRadius="@dimen/spacing_eight"
     app:contentPaddingBottom="@dimen/spacing_twelve"
-    app:contentPaddingRight="@dimen/spacing_sixteen"
     app:contentPaddingLeft="@dimen/spacing_sixteen"
+    app:contentPaddingRight="@dimen/spacing_sixteen"
     app:contentPaddingTop="@dimen/spacing_twelve">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,12 +57,12 @@
             style="@style/World.TextView.CountryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="@id/country_item_content_badge"
             app:layout_constraintEnd_toStartOf="@id/country_item_text_view_cases"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toEndOf="@id/country_item_content_badge"
             app:layout_constraintTop_toTopOf="@id/country_item_content_badge"
-            app:layout_constrainedWidth="true"
             tools:text="Brazil" />
 
         <com.doubleb.covid19.ui.view.LoadingTextView
