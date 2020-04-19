@@ -58,6 +58,5 @@ class CountriesViewHolder(
                 country_text_view_badge.visibility = INVISIBLE
             }
         }
-
     }
 }
