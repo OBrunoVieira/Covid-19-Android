@@ -98,6 +98,9 @@
     <!--  Countries  -->
     <string name="countries_title">Countries</string>
 
+    <!--  News  -->
+    <string name="news_title">News</string>
+
     <!--  Rate  -->
     <string name="rate_recovery_title">Recovery rate</string>
     <string name="rate_fatality_title">Fatality rate</string>

@@ -335,4 +335,45 @@
         <item name="android:minHeight">@dimen/country_item_badge_min_height</item>
     </style>
 
+    <!--  News Fragment  -->
+    <style name="News.TextView.Title" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:text">@string/news_title</item>
+    </style>
+
+    <style name="News.TextView.Item.Title" parent="Base.TextView.SemiBold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="News.TextView.Item.Source" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/spacing_eleven</item>
+        <item name="android:text">@string/news_title</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_sixteen</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minWidth">@dimen/news_fragment_source_text_min_width</item>
+    </style>
+
+    <style name="News.TextView.Item.PublishAt" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/spacing_eleven</item>
+        <item name="android:text">@string/news_title</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_sixteen</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minWidth">@dimen/news_fragment_publish_at_text_min_width</item>
+    </style>
+
 </resources>

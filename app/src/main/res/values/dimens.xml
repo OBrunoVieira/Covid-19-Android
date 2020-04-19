@@ -4,6 +4,7 @@
     <dimen name="spacing_four">4dp</dimen>
     <dimen name="spacing_eight">8dp</dimen>
     <dimen name="spacing_ten">10dp</dimen>
+    <dimen name="spacing_eleven">11dp</dimen>
     <dimen name="spacing_twelve">12dp</dimen>
     <dimen name="spacing_sixteen">16dp</dimen>
     <dimen name="spacing_twenty">20dp</dimen>
@@ -39,6 +40,11 @@
     <!--  World Fragment  -->
     <dimen name="world_fragment_cases_min_width">76dp</dimen>
     <dimen name="world_bottom_spacing">84dp</dimen>
+    
+    <!--  News Fragment -->
+    <dimen name="news_fragment_image_max_height">136dp</dimen>
+    <dimen name="news_fragment_source_text_min_width">80dp</dimen>
+    <dimen name="news_fragment_publish_at_text_min_width">60dp</dimen>
 
     <!--  Country Item  -->
     <dimen name="country_item_max_size">24dp</dimen>
