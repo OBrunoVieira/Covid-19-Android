@@ -33,6 +33,7 @@ class SearchActivity :
         const val WORLD_ORIGIN = 1111
 
         const val RESULT_DATA_COUNTRY_NAME = "RESULT_DATA_COUNTRY_NAME"
+        const val RESULT_DATA_COUNTRY_ISO = "RESULT_DATA_COUNTRY_ISO"
         const val ARGUMENTS_ORIGIN = "ARGUMENTS_ORIGIN"
     }
 
@@ -139,7 +140,9 @@ class SearchActivity :
         if (origin == HOME_ORIGIN) {
             setResult(
                 Activity.RESULT_OK,
-                Intent().putExtra(RESULT_DATA_COUNTRY_NAME, data?.name)
+                Intent()
+                    .putExtra(RESULT_DATA_COUNTRY_NAME, data?.name)
+                    .putExtra(RESULT_DATA_COUNTRY_ISO, data?.countryInfo?.iso2)
             )
             onBackPressed()
             return
