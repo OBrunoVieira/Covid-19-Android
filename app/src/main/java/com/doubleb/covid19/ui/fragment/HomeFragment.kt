@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.doubleb.covid19.R
 import com.doubleb.covid19.model.CountryData
+import com.doubleb.covid19.storage.Key
 import com.doubleb.covid19.storage.Preferences
 import com.doubleb.covid19.ui.activity.SearchActivity
 import com.doubleb.covid19.view_model.DataSource
@@ -24,25 +25,33 @@ import org.koin.android.ext.android.inject
 class HomeFragment : Fragment() {
 
     companion object {
-        const val TAG = "HomeFragment"
         private const val SEARCH_RESULT = 1122
-        private const val COUNTRY_NAME_KEY = "COUNTRY_NAME_KEY"
     }
 
     private val viewModel: HomeViewModel by inject()
 
     private val countryName by lazy {
-        Preferences.readStringValue(
-            requireContext(),
-            COUNTRY_NAME_KEY
-        ) ?: run {
-            val defaultValue = getString(R.string.country)
-            Preferences.writeValue(
-                requireContext(),
-                COUNTRY_NAME_KEY, defaultValue
-            )
-            return@run defaultValue
-        }
+        Preferences.readStringValue(requireContext(), Key.COUNTRY_NAME)
+            ?: run {
+                val defaultValue = getString(R.string.country_name)
+                Preferences.writeValue(
+                    requireContext(),
+                    Key.COUNTRY_NAME, defaultValue
+                )
+                return@run defaultValue
+            }
+    }
+
+    private val countryIso by lazy {
+        Preferences.readStringValue(requireContext(), Key.COUNTRY_ISO)
+            ?: run {
+                val defaultValue = getString(R.string.country_iso)
+                Preferences.writeValue(
+                    requireContext(),
+                    Key.COUNTRY_ISO, defaultValue
+                )
+                return@run defaultValue
+            }
     }
 
     override fun onCreateView(
@@ -72,11 +81,20 @@ class HomeFragment : Fragment() {
             val resultName =
                 data?.getStringExtra(SearchActivity.RESULT_DATA_COUNTRY_NAME) ?: countryName
 
+            val resultIso =
+                data?.getStringExtra(SearchActivity.RESULT_DATA_COUNTRY_ISO) ?: countryIso
+
             if (resultName != countryName) {
                 Preferences.writeValue(
                     requireContext(),
-                    COUNTRY_NAME_KEY, resultName
+                    Key.COUNTRY_NAME, resultName
                 )
+
+                Preferences.writeValue(
+                    requireContext(),
+                    Key.COUNTRY_ISO, resultIso
+                )
+
                 viewModel.getCountry(resultName)
             }
         }
@@ -122,7 +140,7 @@ class HomeFragment : Fragment() {
 
                     home_rate_view
                         .recoveryRate(country.recovered.toDouble() / country.cases.toDouble())
-                        .fatalityRate(country.todayDeaths.toDouble() / country.cases.toDouble())
+                        .fatalityRate(country.deaths.toDouble() / country.cases.toDouble())
                         .build()
 
                     home_text_view_sub_title.setLoadedText(country.name)
