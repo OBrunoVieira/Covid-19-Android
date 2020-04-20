@@ -22,5 +22,5 @@ val viewModelModule = module {
     viewModel { CountriesViewModel(get(), get()) }
 
     // News ========================================================================================
-    viewModel { NewsViewModel(get(), get()) }
+    viewModel { NewsViewModel(get()) }
 }

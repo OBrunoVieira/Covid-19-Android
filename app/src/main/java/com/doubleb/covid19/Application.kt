@@ -1,10 +1,7 @@
 package com.doubleb.covid19
 
 import android.app.Application
-import com.doubleb.covid19.di.fragmentModule
-import com.doubleb.covid19.di.networkModule
-import com.doubleb.covid19.di.repositoryModule
-import com.doubleb.covid19.di.viewModelModule
+import com.doubleb.covid19.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.fragment.koin.fragmentFactory
@@ -18,7 +15,7 @@ class Application : Application() {
             androidContext(this@Application)
             androidLogger()
             fragmentFactory()
-            modules(viewModelModule, repositoryModule, networkModule, fragmentModule)
+            modules(viewModelModule, repositoryModule, networkModule, fragmentModule, dataSourceModule)
         }
     }
 }

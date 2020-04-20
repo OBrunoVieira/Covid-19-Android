@@ -18,5 +18,5 @@ val repositoryModule = module {
     single { SearchRepository(get()) }
 
     // News ========================================================================================
-    single { NewsRepository(get(named("GoogleNewsApi"))) }
+    single { NewsRepository(get()) }
 }
