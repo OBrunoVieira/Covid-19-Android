@@ -7,10 +7,14 @@ import androidx.fragment.app.Fragment
 
 open class BaseActivity(@LayoutRes contentLayoutId: Int) : AppCompatActivity(contentLayoutId) {
 
-    fun inflateFragment(@IdRes containerViewId: Int, fragment: Fragment, tag: String) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(containerViewId, fragment, tag)
-            .commit()
+    fun inflateFragment(@IdRes containerViewId: Int, fragment: Fragment) {
+        val tag = fragment.javaClass.name
+
+        if (supportFragmentManager.findFragmentByTag(tag) == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(containerViewId, fragment, tag)
+                .commit()
+        }
     }
 }
