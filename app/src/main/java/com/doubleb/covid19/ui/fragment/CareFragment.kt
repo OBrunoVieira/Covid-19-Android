@@ -12,9 +12,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_care.*
 
 class CareFragment : Fragment() {
-    companion object {
-        const val TAG = "CareFragment"
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

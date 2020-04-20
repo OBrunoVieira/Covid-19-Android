@@ -15,10 +15,6 @@ import kotlinx.android.synthetic.main.fragment_world.*
 
 class WorldFragment : Fragment() {
 
-    companion object {
-        const val TAG = "WorldFragment"
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

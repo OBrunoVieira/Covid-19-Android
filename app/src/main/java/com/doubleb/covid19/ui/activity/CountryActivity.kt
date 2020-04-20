@@ -26,7 +26,7 @@ class CountryActivity : BaseActivity(R.layout.activity_country) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Tracking.sendScreenView(this, ScreenName.COUNTRY_DETAILS)
-        countryName = intent.getStringExtra(ARGUMENTS_COUNTRY_NAME) ?: getString(R.string.country)
+        countryName = intent.getStringExtra(ARGUMENTS_COUNTRY_NAME) ?: getString(R.string.country_name)
 
         country_image_view_back.setOnClickListener { onBackPressed() }
         country_text_view_title.text = countryName
