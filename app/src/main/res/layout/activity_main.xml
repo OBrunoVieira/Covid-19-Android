@@ -8,10 +8,8 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_fragment_container"
-        android:name="com.doubleb.covid19.ui.fragment.HomeFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:tag="HomeFragment" />
+        android:layout_height="match_parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/main_float_action_button"
