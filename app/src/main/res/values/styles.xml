@@ -224,6 +224,7 @@
     <style name="Search.TextView.NotFound" parent="Base.TextView.Bold">
         <item name="android:drawableTop">@drawable/selector_not_found</item>
         <item name="android:text">@string/search_no_result</item>
+        <item name="android:gravity">center</item>
         <item name="android:layout_marginTop">@dimen/spacing_hundred</item>
         <item name="android:layout_marginStart">@dimen/spacing_twenty</item>
         <item name="android:layout_marginEnd">@dimen/spacing_twenty</item>
@@ -339,6 +340,14 @@
     <style name="News.TextView.Title" parent="Base.TextView.Regular">
         <item name="android:textSize">@dimen/text_size_twenty_four</item>
         <item name="android:text">@string/news_title</item>
+    </style>
+
+    <style name="News.TextView.NotFound" parent="Base.TextView.Bold">
+        <item name="android:drawableTop">@drawable/selector_icon_news_empty</item>
+        <item name="android:drawablePadding">@dimen/spacing_twenty_four</item>
+        <item name="android:text">@string/news_empty_title</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
     </style>
 
     <style name="News.TextView.Item.Title" parent="Base.TextView.SemiBold">

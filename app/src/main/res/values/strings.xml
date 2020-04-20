@@ -1,6 +1,7 @@
 <resources>
     <string name="back">Back</string>
-    <string name="country" translatable="false">Brazil</string>
+    <string name="country_name" translatable="false">Brazil</string>
+    <string name="country_iso" translatable="false">br</string>
     <string name="position" translatable="false">%dº</string>
     <string name="covid19" translatable="false">Covid-19</string>
     <string name="tracker" translatable="false">Tracker</string>
@@ -100,6 +101,7 @@
 
     <!--  News  -->
     <string name="news_title">News</string>
+    <string name="news_empty_title">No news</string>
 
     <!--  Rate  -->
     <string name="rate_recovery_title">Recovery rate</string>
