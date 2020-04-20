@@ -4,12 +4,18 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-data class CountryInfo(@SerializedName("flag") val flagUrl: String? = null) : Parcelable {
-    constructor(parcel: Parcel) : this(parcel.readString()) {
-    }
+data class CountryInfo(
+    @SerializedName("flag") val flagUrl: String? = null,
+    val iso2: String? = null
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readString()
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(flagUrl)
+        parcel.writeString(iso2)
     }
 
     override fun describeContents(): Int {
@@ -25,4 +31,5 @@ data class CountryInfo(@SerializedName("flag") val flagUrl: String? = null) : Pa
             return arrayOfNulls(size)
         }
     }
+
 }
