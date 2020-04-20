@@ -24,24 +24,28 @@ infected and cured, in your country and in the rest of the world.
 - News(Available Soon)
 - Prevention and Symptoms tips
 
+## Credits
+- [@brabsblue - Designer](https://www.linkedin.com/in/barbara-schoen/)
+- [@obrunovieira - Android Developer](https://www.linkedin.com/in/obrunovieira/)
+- [@quaggie - iOS Developer](https://www.linkedin.com/in/jonathanbijos/)
+
+## Follow our iOS Project
+- [Covid 19 Tracker - iOS](https://github.com/Quaggie/Covid-19Tracker)
+
+## 3rd party APIs used
+- [Novel Covid - Open Source API](https://github.com/NovelCOVID/API)
+- [News API](https://newsapi.org)
 
 ## 3rd party libraries used
 - [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
 - [Glide](https://github.com/bumptech/glide)
 - [Koin](https://github.com/InsertKoinIO/koin)
+- [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs)
+- [Paging Library](https://developer.android.com/topic/libraries/architecture/paging)
 - [Retrofit](https://github.com/square/retrofit)
 - [Rx Java](https://github.com/ReactiveX/RxJava)
 - [Rx Java Android](https://github.com/ReactiveX/RxAndroid)
 - [Rx Java Retrofit Adapter](https://github.com/akarnokd/RxJavaRetrofitAdapter)
-
-## Credits
-- [@brabsblue - Designer](https://www.linkedin.com/in/barbara-schoen/)
-- [@obrunovieira - Android Developer](https://www.linkedin.com/in/obrunovieira/)
-- [@quaggie - iOS Developer](https://www.linkedin.com/in/jonathanbijos/)
-- [Novel Covid - Open Source API](https://github.com/NovelCOVID/API)
-
-## Follow our iOS Project
-- [Covid 19 Tracker - iOS](https://github.com/Quaggie/Covid-19Tracker)
 
 ## Sources
 * [Worldometers](https://www.worldometers.info/coronavirus/)

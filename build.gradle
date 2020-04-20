@@ -39,7 +39,9 @@ ext {
     final firebaseVersion = '17.2.2'
     final firebaseCrashlyticsVersion = '17.0.0-beta01'
     final ktxVersion = '1.2.0'
+    final pagingLibraryVersion = '2.1.2'
     final androidxVersion = '1.1.0'
+    final browserVersion = '1.2.0'
     final constraintLayoutVersion = '2.0.0-beta4'
     final fragmentVersion = '1.2.3'
     final archComponentsVersion = '2.2.0'
@@ -75,9 +77,11 @@ ext {
 
             androidx           : [
                     "androidx.appcompat:appcompat:$androidxVersion",
+                    "androidx.browser:browser:$browserVersion",
                     "androidx.core:core-ktx:$ktxVersion",
                     "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
-                    "androidx.fragment:fragment-ktx:$fragmentVersion"
+                    "androidx.fragment:fragment-ktx:$fragmentVersion",
+                    "androidx.paging:paging-runtime:$pagingLibraryVersion"
             ],
 
             archComponents     : [
