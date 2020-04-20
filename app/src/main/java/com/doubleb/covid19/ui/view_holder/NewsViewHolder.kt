@@ -12,14 +12,26 @@ import com.doubleb.covid19.R
 import com.doubleb.covid19.extensions.gone
 import com.doubleb.covid19.extensions.visible
 import com.doubleb.covid19.model.News
+import com.doubleb.covid19.ui.listener.ClickListener
 import kotlinx.android.synthetic.main.view_news_item.view.*
 
-class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-    RequestListener<Drawable> {
+class NewsViewHolder(
+    itemView: View,
+    listener: ClickListener<News?>
+) : RecyclerView.ViewHolder(itemView), RequestListener<Drawable> {
 
     private val margin = itemView.resources.getDimension(R.dimen.world_bottom_spacing).toInt()
+    private var news: News? = null
 
-    fun bind(news: News, isLastPosition: Boolean) = itemView.run {
+    init {
+        itemView.setOnClickListener {
+            listener.onItemClicked(news, adapterPosition)
+        }
+    }
+
+    fun bind(news: News?, isLastPosition: Boolean) = itemView.run {
+        this@NewsViewHolder.news = news
+
         val layoutParams = (layoutParams as? RecyclerView.LayoutParams)
         layoutParams?.setMargins(
             layoutParams.leftMargin,
@@ -28,7 +40,7 @@ class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
             if (isLastPosition) margin else 0
         )
 
-        if (news.isEmpty()) {
+        if (news == null || news.isEmpty()) {
             news_item_image_view_placeholder.visible()
 
             news_item_text_view_title.visible()
@@ -39,11 +51,13 @@ class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
 
             news_item_text_view_publish_at.visible()
             news_item_text_view_publish_at.loading()
+
+            news_item_image_view_background.setImageDrawable(null)
             return
         }
 
         if (!news.urlToImage.isNullOrEmpty()) {
-
+            news_item_image_view_placeholder.gone()
             Glide.with(context)
                 .load(news.urlToImage)
                 .centerCrop()
@@ -97,5 +111,4 @@ class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         itemView.news_item_image_view_placeholder.gone()
         return false
     }
-
 }

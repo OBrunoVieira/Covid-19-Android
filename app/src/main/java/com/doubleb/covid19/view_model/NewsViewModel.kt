@@ -1,50 +1,41 @@
 package com.doubleb.covid19.view_model
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.doubleb.covid19.model.CountryData
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
+import com.doubleb.covid19.model.News
 import com.doubleb.covid19.model.NewsResult
 import com.doubleb.covid19.repository.NewsRepository
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.observers.DisposableObserver
-import io.reactivex.rxjava3.schedulers.Schedulers
+import com.doubleb.covid19.repository.data_source.NewsDataSource
 
 class NewsViewModel(
-    private val newsRepository: NewsRepository,
-    private val compositeDisposable: CompositeDisposable
+    private val newsRepository: NewsRepository
 ) : ViewModel() {
 
-    val liveData = MutableLiveData<DataSource<NewsResult>>()
-    private var newsResult: NewsResult? = null
+    val liveData: LiveData<PagedList<News>>
+    val liveDataState = Transformations.switchMap<NewsDataSource, DataSource<NewsResult>>(
+        newsRepository.liveDataNews,
+        NewsDataSource::liveDataState
+    )
 
-    fun getTopHeadlines() {
-        compositeDisposable.add(
-            newsRepository.getTopHeadlines()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe {
-                    liveData.postValue(DataSource(DataState.LOADING))
-                }
-                .subscribeWith(object : DisposableObserver<NewsResult>() {
-                    override fun onComplete() {
-                        liveData.postValue(DataSource(DataState.SUCCESS, newsResult))
-                    }
+    init {
+        val config = PagedList.Config.Builder()
+            .setInitialLoadSizeHint(5)
+            .setPageSize(10)
+            .setEnablePlaceholders(false)
+            .build()
 
-                    override fun onNext(t: NewsResult?) {
-                        newsResult = t
-                    }
+        liveData = LivePagedListBuilder<Int, News>(newsRepository, config).build()
+    }
 
-                    override fun onError(e: Throwable?) {
-                        liveData.postValue(DataSource(DataState.ERROR, throwable = e))
-                    }
-
-                })
-        )
+    fun retry(){
+        newsRepository.retry()
     }
 
     fun clearViewModel() {
-        compositeDisposable.clear()
+        newsRepository.clearDisposables()
     }
 
     override fun onCleared() {
