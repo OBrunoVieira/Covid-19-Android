@@ -22,7 +22,7 @@ class NewsViewModel(
 
     init {
         val config = PagedList.Config.Builder()
-            .setInitialLoadSizeHint(5)
+            .setInitialLoadSizeHint(10)
             .setPageSize(10)
             .setEnablePlaceholders(false)
             .build()
