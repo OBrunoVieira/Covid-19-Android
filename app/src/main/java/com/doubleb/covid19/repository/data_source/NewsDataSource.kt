@@ -3,6 +3,7 @@ package com.doubleb.covid19.repository.data_source
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
+import com.doubleb.covid19.R
 import com.doubleb.covid19.model.News
 import com.doubleb.covid19.model.NewsResult
 import com.doubleb.covid19.network.GoogleNewsDataSource
@@ -67,7 +68,7 @@ class NewsDataSource(
                 }
 
                 override fun onError(e: Throwable?) {
-                    liveDataState.postValue(DataSource(DataState.ERROR, throwable = e))
+                    liveDataState.postValue(DataSource(DataState.ERROR, newsResult, e))
                     retryAction { loadInitial(params, callback) }
                 }
 
@@ -103,7 +104,7 @@ class NewsDataSource(
                 }
 
                 override fun onError(e: Throwable?) {
-                    liveDataState.postValue(DataSource(DataState.ERROR, throwable = e))
+                    liveDataState.postValue(DataSource(DataState.ERROR, newsResult, e))
                     retryAction { loadAfter(params, callback) }
                 }
 
@@ -132,15 +133,24 @@ class NewsDataSource(
     }
 
     private fun getCountryIso() = run {
-        val readValue = Preferences.readStringValue(context, Key.COUNTRY_ISO) ?: ""
-        val defaultIso = readValue.toLowerCase(Locale.getDefault())
-
+        val defaultIso = recoverCountryIso().toLowerCase(Locale.getDefault())
         return@run if (defaultIso.isNotEmpty() && isoList.contains(defaultIso)) {
             defaultIso
         } else {
             ""
         }
     }
+
+    private fun recoverCountryIso() = Preferences.readStringValue(context, Key.COUNTRY_ISO)
+        ?: run {
+            val defaultValue = context.getString(R.string.country_iso)
+            Preferences.writeValue(
+                context,
+                Key.COUNTRY_ISO, defaultValue
+            )
+
+            return defaultValue
+        }
 
     private inline fun retryAction(crossinline method: () -> Unit) {
         retryCompletable = Completable.fromAction {
