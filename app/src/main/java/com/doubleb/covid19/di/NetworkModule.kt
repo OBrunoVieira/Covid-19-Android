@@ -6,10 +6,7 @@ import com.doubleb.covid19.extensions.isNetworkConnected
 import com.doubleb.covid19.network.Covid19DataSource
 import com.doubleb.covid19.network.GoogleNewsDataSource
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
-import okhttp3.Cache
-import okhttp3.CacheControl
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
+import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
 import org.koin.android.ext.koin.androidContext
@@ -67,43 +64,71 @@ private fun buildOkHttpClient(context: Context) = run {
         .connectTimeout(60L, TimeUnit.SECONDS)
         .readTimeout(60L, TimeUnit.SECONDS)
         .addInterceptor(loggingInterceptor)
+        .addInterceptor(createOfflineCachePolicy(context))
 }
 
 fun createCoronaCachePolicy(context: Context) = object : Interceptor {
-    override fun intercept(chain: Interceptor.Chain) = run {
-        val request = chain.request()
-        val requestBuilder = request.newBuilder()
+    override fun intercept(chain: Interceptor.Chain): Response {
+        if (context.isNetworkConnected()) {
+            val cacheControl = CacheControl.Builder()
+                .maxAge(2, TimeUnit.MINUTES)
+                .build()
 
-        if (request.method == "GET") {
-            val cacheControl = if (context.isNetworkConnected()) {
-                CacheControl.Builder().onlyIfCached().maxAge(2, TimeUnit.MINUTES).build()
-            } else {
-                CacheControl.Builder().maxStale(1, TimeUnit.DAYS).build()
-            }
-
-            requestBuilder.cacheControl(cacheControl)
+            return chain.proceed(chain.request())
+                .newBuilder()
+                .removeHeader("Pragma")
+                .removeHeader("Cache-Control")
+                .addHeader("Cache-Control", cacheControl.toString())
+                .build()
         }
 
-        return@run chain.proceed(requestBuilder.build())
+        return chain.proceed(chain.request())
     }
 }
 
 private fun createGoogleNewsCachePolicy(context: Context) = object : Interceptor {
-    override fun intercept(chain: Interceptor.Chain) = run {
-        val request = chain.request()
-        val requestBuilder = request.newBuilder()
-            .addHeader("x-api-key", GOOGLE_NEWS_API_KEY)
+    override fun intercept(chain: Interceptor.Chain): Response {
+        if (context.isNetworkConnected()) {
+            val request = chain.request()
+                .newBuilder()
+                .addHeader("x-api-key", GOOGLE_NEWS_API_KEY)
+                .build()
 
-        if (request.method == "GET") {
-            val cacheControl = if (context.isNetworkConnected()) {
-                CacheControl.Builder().maxAge(2, TimeUnit.HOURS).build()
-            } else {
-                CacheControl.Builder().maxStale(1, TimeUnit.DAYS).build()
-            }
+            val cacheControl = CacheControl.Builder()
+                .maxAge(2, TimeUnit.HOURS)
+                .build()
 
-            requestBuilder.cacheControl(cacheControl)
+            return chain.proceed(request)
+                .newBuilder()
+                .removeHeader("Pragma")
+                .removeHeader("Cache-Control")
+                .addHeader("Cache-Control", cacheControl.toString())
+                .build()
         }
 
-        return@run chain.proceed(requestBuilder.build())
+        return chain.proceed(chain.request())
     }
+}
+
+private fun createOfflineCachePolicy(context: Context) = object : Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        if (!context.isNetworkConnected()) {
+            val cacheControl =
+                CacheControl.Builder()
+                    .onlyIfCached()
+                    .maxStale(7, TimeUnit.DAYS)
+                    .build()
+
+            return chain.proceed(
+                chain.request()
+                    .newBuilder()
+                    .cacheControl(cacheControl)
+                    .build()
+            )
+        }
+
+        return chain.proceed(chain.request())
+
+    }
+
 }
