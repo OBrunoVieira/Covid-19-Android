@@ -14,33 +14,39 @@
 
 ## Description
 
-With Covid-19 Tracker you'll be aware of the pandemic situation in real time. See the number of
-infected and cured, in your country and in the rest of the world.
+With Covid-19 Tracker you'll be aware of the pandemic situation in real time and offline as well. 
+See the number of infected and cured, in your country and in the rest of the world.
 
 ## Product feature
 - Your country's cases
 - World's cases
 - Global Search for cases
-- News(Available Soon)
+- News
 - Prevention and Symptoms tips
-
-
-## 3rd party libraries used
-- [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
-- [Koin](https://github.com/InsertKoinIO/koin)
-- [Retrofit](https://github.com/square/retrofit)
-- [Rx Java](https://github.com/ReactiveX/RxJava)
-- [Rx Java Android](https://github.com/ReactiveX/RxAndroid)
-- [Rx Java Retrofit Adapter](https://github.com/akarnokd/RxJavaRetrofitAdapter)
+- Offline Tracking
 
 ## Credits
 - [@brabsblue - Designer](https://www.linkedin.com/in/barbara-schoen/)
 - [@obrunovieira - Android Developer](https://www.linkedin.com/in/obrunovieira/)
 - [@quaggie - iOS Developer](https://www.linkedin.com/in/jonathanbijos/)
-- [Novel Covid - Open Source API](https://github.com/NovelCOVID/API)
 
 ## Follow our iOS Project
 - [Covid 19 Tracker - iOS](https://github.com/Quaggie/Covid-19Tracker)
+
+## 3rd party APIs used
+- [Novel Covid API](https://github.com/NovelCOVID/API)
+- [NewsAPI.org](https://newsapi.org)
+
+## 3rd party libraries used
+- [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
+- [Glide](https://github.com/bumptech/glide)
+- [Koin](https://github.com/InsertKoinIO/koin)
+- [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs)
+- [Paging Library](https://developer.android.com/topic/libraries/architecture/paging)
+- [Retrofit](https://github.com/square/retrofit)
+- [Rx Java](https://github.com/ReactiveX/RxJava)
+- [Rx Java Android](https://github.com/ReactiveX/RxAndroid)
+- [Rx Java Retrofit Adapter](https://github.com/akarnokd/RxJavaRetrofitAdapter)
 
 ## Sources
 * [Worldometers](https://www.worldometers.info/coronavirus/)

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_sixteen"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/spacing_eight">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/news_item_image_view_background"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/news_fragment_image_max_height"
+            android:background="@color/loading"
+            android:importantForAccessibility="no"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/news_item_image_view_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_news_placeholder"
+            app:layout_constraintBottom_toBottomOf="@id/news_item_image_view_background"
+            app:layout_constraintEnd_toEndOf="@id/news_item_image_view_background"
+            app:layout_constraintStart_toStartOf="@id/news_item_image_view_background"
+            app:layout_constraintTop_toTopOf="@id/news_item_image_view_background" />
+
+        <com.doubleb.covid19.ui.view.LoadingTextView
+            android:id="@+id/news_item_text_view_title"
+            style="@style/News.TextView.Item.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/news_item_image_view_background" />
+
+        <ImageView
+            android:id="@+id/news_item_image_view_indicator"
+            android:layout_width="@dimen/indicator_view_max_width"
+            android:layout_height="@dimen/indicator_view_max_height"
+            android:layout_marginStart="@dimen/spacing_sixteen"
+            android:layout_marginTop="@dimen/spacing_four"
+            android:background="@drawable/shape_indicator"
+            android:backgroundTint="@color/loading"
+            android:importantForAccessibility="no"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/news_item_text_view_title" />
+
+        <com.doubleb.covid19.ui.view.LoadingTextView
+            android:id="@+id/news_item_text_view_source"
+            style="@style/News.TextView.Item.Source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/news_item_text_view_publish_at"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/news_item_image_view_indicator" />
+
+        <com.doubleb.covid19.ui.view.LoadingTextView
+            android:id="@+id/news_item_text_view_publish_at"
+            style="@style/News.TextView.Item.PublishAt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/news_item_text_view_source"
+            app:layout_constraintTop_toBottomOf="@id/news_item_image_view_indicator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -26,7 +26,7 @@ class CountryActivity : BaseActivity(R.layout.activity_country) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Tracking.sendScreenView(this, ScreenName.COUNTRY_DETAILS)
-        countryName = intent.getStringExtra(ARGUMENTS_COUNTRY_NAME) ?: getString(R.string.country)
+        countryName = intent.getStringExtra(ARGUMENTS_COUNTRY_NAME) ?: getString(R.string.country_name)
 
         country_image_view_back.setOnClickListener { onBackPressed() }
         country_text_view_title.text = countryName
@@ -44,24 +44,31 @@ class CountryActivity : BaseActivity(R.layout.activity_country) {
                 country_chart_card_view.loading()
                 country_today_cases_view.loading()
                 country_spread_chart_card_view.loading()
+                country_rate_view.loading()
             }
 
             DataState.SUCCESS -> {
-                it.data?.country?.let { countryData ->
+                it.data?.country?.let { country ->
                     country_chart_card_view
-                        .totalCases(countryData.cases)
-                        .activeCases(countryData.active)
-                        .recoveredCases(countryData.recovered)
-                        .deathCases(countryData.deaths)
+                        .totalCases(country.cases)
+                        .activeCases(country.active)
+                        .recoveredCases(country.recovered)
+                        .deathCases(country.deaths)
                         .build()
 
                     country_today_cases_view
-                        .todayCases(countryData.todayCases)
-                        .todayDeaths(countryData.todayDeaths)
+                        .todayCases(country.todayCases)
+                        .todayDeaths(country.todayDeaths)
+                        .build()
+
+                    country_rate_view
+                        .recoveryRate(country.recovered.toDouble() / country.cases.toDouble())
+                        .fatalityRate(country.deaths.toDouble() / country.cases.toDouble())
                         .build()
                 } ?: run {
                     country_chart_card_view.loading()
                     country_today_cases_view.loading()
+                    country_rate_view.loading()
                 }
 
                 it.data?.historical?.let { historicalResult ->

@@ -36,10 +36,10 @@
 
         <ImageView
             android:id="@+id/care_image_view_indicator"
-            android:layout_width="@dimen/care_indicator_max_width"
-            android:layout_height="@dimen/care_indicator_max_height"
+            android:layout_width="@dimen/indicator_view_max_width"
+            android:layout_height="@dimen/indicator_view_max_height"
             android:layout_marginTop="@dimen/spacing_four"
-            android:background="@drawable/shape_care_indicator"
+            android:background="@drawable/shape_indicator"
             android:importantForAccessibility="no"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/care_text_view_title"
@@ -48,11 +48,11 @@
         <TextView
             android:id="@+id/care_text_view_description"
             style="@style/CareView.TextView.Description"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/care_image_view_illustration"
-            app:layout_constraintHeight_default="wrap"
+            app:layout_constrainedWidth="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/care_image_view_indicator"
             app:layout_constraintVertical_bias="0"

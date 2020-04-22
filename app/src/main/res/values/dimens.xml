@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="spacing_two">2dp</dimen>
     <dimen name="spacing_four">4dp</dimen>
     <dimen name="spacing_eight">8dp</dimen>
     <dimen name="spacing_ten">10dp</dimen>
+    <dimen name="spacing_eleven">11dp</dimen>
     <dimen name="spacing_twelve">12dp</dimen>
     <dimen name="spacing_sixteen">16dp</dimen>
     <dimen name="spacing_twenty">20dp</dimen>
@@ -16,6 +18,7 @@
     <dimen name="text_size_eight">8sp</dimen>
     <dimen name="text_size_ten">10sp</dimen>
     <dimen name="text_size_twelve">12sp</dimen>
+    <dimen name="text_size_fourteen">14sp</dimen>
     <dimen name="text_size_sixteen">16sp</dimen>
     <dimen name="text_size_eighteen">18sp</dimen>
     <dimen name="text_size_twenty_four">24sp</dimen>
@@ -37,15 +40,22 @@
     <!--  World Fragment  -->
     <dimen name="world_fragment_cases_min_width">76dp</dimen>
     <dimen name="world_bottom_spacing">84dp</dimen>
+    
+    <!--  News Fragment -->
+    <dimen name="news_fragment_image_max_height">136dp</dimen>
+    <dimen name="news_fragment_source_text_min_width">80dp</dimen>
+    <dimen name="news_fragment_publish_at_text_min_width">60dp</dimen>
+
+    <!--  Country Item  -->
+    <dimen name="country_item_max_size">24dp</dimen>
+    <dimen name="country_item_badge_min_width">22dp</dimen>
+    <dimen name="country_item_badge_min_height">12dp</dimen>
 
     <!--  Error View  -->
     <dimen name="error_button_stroke_width">1dp</dimen>
 
     <!--  Care View  -->
     <dimen name="care_view_round">8dp</dimen>
-    <dimen name="care_indicator_round">4dp</dimen>
-    <dimen name="care_indicator_max_width">24dp</dimen>
-    <dimen name="care_indicator_max_height">4dp</dimen>
     <dimen name="care_bottom_spacing">90dp</dimen>
 
     <!--  Circle Chart View  -->
@@ -57,6 +67,14 @@
     <!--  Spread Chart View  -->
     <dimen name="spread_chart_view_size">150dp</dimen>
     <dimen name="spread_date_min_width">84dp</dimen>
+
+    <!--  Rate View  -->
+    <dimen name="rate_view_min_width">80dp</dimen>
+
+    <!--  Indicator View  -->
+    <dimen name="indicator_view_max_width">24dp</dimen>
+    <dimen name="indicator_view_max_height">4dp</dimen>
+    <dimen name="indicator_view_round">4dp</dimen>
 
     <dimen name="design_fab_image_size" tools:override="true">56dp</dimen>
 </resources>

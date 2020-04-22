@@ -85,4 +85,12 @@
 
     <!--  Countries  -->
     <string name="countries_title">Países</string>
+
+    <!--  News  -->
+    <string name="news_title">Notícias</string>
+    <string name="news_empty_title">Sem notícias</string>
+
+    <!--  Rate  -->
+    <string name="rate_recovery_title">Tx. de cura</string>
+    <string name="rate_fatality_title">Tx. de mortalidade</string>
 </resources>

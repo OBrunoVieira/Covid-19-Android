@@ -89,8 +89,7 @@ class OverviewFragment : Fragment() {
                         .reload(View.OnClickListener {
                             viewModel.getWorldCases()
                         })
-                        .build()
-                        .visibility = VISIBLE
+                        .show()
                 }
             }
         }

@@ -12,6 +12,7 @@
 
     <style name="Base.TextView" parent="@android:style/TextAppearance">
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_size_fourteen</item>
     </style>
 
     <style name="Base.TextView.Bold" parent="Base.TextView">
@@ -135,6 +136,29 @@
         <item name="android:layout_marginStart">@dimen/spacing_four</item>
     </style>
 
+    <!--  Rate View  -->
+    <style name="RateView.TextView.Result" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/spacing_twenty_four</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minWidth">@dimen/rate_view_min_width</item>
+        <item name="android:layout_marginTop">@dimen/spacing_twenty</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_four</item>
+    </style>
+
+    <style name="RateView.TextView.Recovery" parent="Base.TextView.Regular">
+        <item name="android:text">@string/rate_recovery_title</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="RateView.TextView.Fatality" parent="Base.TextView.Regular">
+        <item name="android:text">@string/rate_fatality_title</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <!--  Splash Activity  -->
     <style name="Splash.TextView.One" parent="Base.TextView.Light">
         <item name="android:textSize">@dimen/text_size_thirty_six</item>
@@ -200,6 +224,7 @@
     <style name="Search.TextView.NotFound" parent="Base.TextView.Bold">
         <item name="android:drawableTop">@drawable/selector_not_found</item>
         <item name="android:text">@string/search_no_result</item>
+        <item name="android:gravity">center</item>
         <item name="android:layout_marginTop">@dimen/spacing_hundred</item>
         <item name="android:layout_marginStart">@dimen/spacing_twenty</item>
         <item name="android:layout_marginEnd">@dimen/spacing_twenty</item>
@@ -256,7 +281,7 @@
         <item name="android:textSize">@dimen/text_size_twenty_four</item>
         <item name="android:text">@string/care_title</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:layout_marginTop">@dimen/spacing_twenty</item>
+        <item name="android:layout_marginTop">@dimen/spacing_thirty_six</item>
         <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
         <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
     </style>
@@ -287,6 +312,10 @@
         <item name="android:textSize">@dimen/text_size_sixteen</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:gravity">start</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_eight</item>
+        <item name="android:ellipsize">end</item>
         <item name="android:minWidth">@dimen/world_fragment_cases_min_width</item>
     </style>
 
@@ -295,6 +324,66 @@
         <item name="android:textColor">@color/gray_dark</item>
         <item name="android:gravity">end</item>
         <item name="android:minWidth">@dimen/world_fragment_cases_min_width</item>
+    </style>
+
+    <style name="World.TextView.Badge" parent="Base.TextView.Bold">
+        <item name="android:background">@drawable/shape_badge</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:padding">@dimen/spacing_two</item>
+        <item name="android:textSize">@dimen/text_size_eight</item>
+        <item name="android:minWidth">@dimen/country_item_badge_min_width</item>
+        <item name="android:minHeight">@dimen/country_item_badge_min_height</item>
+    </style>
+
+    <!--  News Fragment  -->
+    <style name="News.TextView.Title" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
+        <item name="android:text">@string/news_title</item>
+    </style>
+
+    <style name="News.TextView.NotFound" parent="Base.TextView.Bold">
+        <item name="android:drawableTop">@drawable/selector_icon_news_empty</item>
+        <item name="android:drawablePadding">@dimen/spacing_twenty_four</item>
+        <item name="android:text">@string/news_empty_title</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_size_twenty_four</item>
+    </style>
+
+    <style name="News.TextView.Item.Title" parent="Base.TextView.SemiBold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="News.TextView.Item.Source" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/spacing_eleven</item>
+        <item name="android:text">@string/news_title</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_sixteen</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minWidth">@dimen/news_fragment_source_text_min_width</item>
+    </style>
+
+    <style name="News.TextView.Item.PublishAt" parent="Base.TextView.Regular">
+        <item name="android:textSize">@dimen/spacing_eleven</item>
+        <item name="android:text">@string/news_title</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginTop">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_sixteen</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:drawablePadding">@dimen/spacing_four</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minWidth">@dimen/news_fragment_publish_at_text_min_width</item>
     </style>
 
 </resources>

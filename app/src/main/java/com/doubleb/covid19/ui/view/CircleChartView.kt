@@ -15,6 +15,7 @@ import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.doubleb.covid19.R
+import com.doubleb.covid19.extensions.toNumber
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -111,7 +112,7 @@ class CircleChartView @JvmOverloads constructor(
 
     private fun configureCenteredText(totalCases: Int) = run {
         val title = context.getString(R.string.circle_chart_title)
-        val result = NumberFormat.getInstance().format(totalCases)
+        val result = totalCases.toNumber()
         val nunitoRegular = ResourcesCompat.getFont(context, R.font.nunito_regular)
         val nunitoBold = ResourcesCompat.getFont(context, R.font.nunito_bold)
 

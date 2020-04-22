@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.cardview.widget.CardView
 import com.doubleb.covid19.R
+import com.doubleb.covid19.extensions.toNumber
 import kotlinx.android.synthetic.main.view_card_chart.view.*
 import java.text.NumberFormat
 
@@ -50,9 +51,9 @@ class ChartCardView @JvmOverloads constructor(
             .totalCases(totalCases)
             .build()
 
-        card_chart_text_view_active_cases_number.setLoadedText(NumberFormat.getInstance().format(activeCases))
-        card_chart_text_view_recovered_cases_number.setLoadedText(NumberFormat.getInstance().format(recoveredCases))
-        card_chart_text_view_critical_cases_number.setLoadedText(NumberFormat.getInstance().format(criticalCases))
+        card_chart_text_view_active_cases_number.setLoadedText(activeCases.toNumber())
+        card_chart_text_view_recovered_cases_number.setLoadedText(recoveredCases.toNumber())
+        card_chart_text_view_critical_cases_number.setLoadedText(criticalCases.toNumber())
     }
 
 }

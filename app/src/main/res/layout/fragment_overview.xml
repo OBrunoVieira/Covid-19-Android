@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:paddingTop="@dimen/spacing_twenty"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -17,7 +16,7 @@
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
         android:paddingStart="@dimen/spacing_sixteen"
-        android:paddingTop="@dimen/spacing_sixteen"
+        android:paddingTop="@dimen/spacing_twenty_four"
         android:paddingEnd="@dimen/spacing_sixteen"
         android:paddingBottom="@dimen/home_bottom_spacing">
 
@@ -34,7 +33,6 @@
             android:id="@+id/overview_chart_card_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_sixteen"
             app:cardCornerRadius="@dimen/spacing_eight"
             app:contentPadding="@dimen/spacing_twenty_four"
             app:layout_constraintEnd_toEndOf="parent"
