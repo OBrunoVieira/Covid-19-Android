@@ -59,6 +59,6 @@ class NewsAdapter(private val listener: ClickListener<News?>) :
     }
 
     private fun hasFooter(): Boolean {
-        return super.getItemCount() != 0 && state != DataState.SUCCESS
+        return super.getItemCount() != 0 && state == DataState.LOADING
     }
 }

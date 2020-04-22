@@ -84,7 +84,7 @@ class NewsFragment : Fragment(), ClickListener<News?> {
             DataState.SUCCESS -> {
                 news_content_loading.gone()
 
-                if(it.data?.articles.isNullOrEmpty()){
+                if (it.data?.articles.isNullOrEmpty()) {
                     news_recycler_view.gone()
                     news_text_view_not_found.visible()
                 } else {
@@ -96,14 +96,16 @@ class NewsFragment : Fragment(), ClickListener<News?> {
             }
 
             DataState.ERROR -> {
-                news_content_loading.gone()
-                news_recycler_view.gone()
-                news_error_view
-                    .throwable(it.throwable)
-                    .reload(View.OnClickListener {
-                        viewModel.retry()
-                    })
-                    .show()
+                if (adapter.itemCount == 0) {
+                    news_content_loading.gone()
+                    news_recycler_view.gone()
+                    news_error_view
+                        .throwable(it.throwable)
+                        .reload(View.OnClickListener {
+                            viewModel.retry()
+                        })
+                        .show()
+                }
             }
         }
     }
