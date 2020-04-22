@@ -381,6 +381,7 @@
         <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
         <item name="android:layout_marginBottom">@dimen/spacing_sixteen</item>
         <item name="android:ellipsize">end</item>
+        <item name="android:drawablePadding">@dimen/spacing_four</item>
         <item name="android:maxLines">1</item>
         <item name="android:minWidth">@dimen/news_fragment_publish_at_text_min_width</item>
     </style>
