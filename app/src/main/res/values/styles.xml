@@ -281,7 +281,7 @@
         <item name="android:textSize">@dimen/text_size_twenty_four</item>
         <item name="android:text">@string/care_title</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:layout_marginTop">@dimen/spacing_twenty</item>
+        <item name="android:layout_marginTop">@dimen/spacing_thirty_six</item>
         <item name="android:layout_marginStart">@dimen/spacing_sixteen</item>
         <item name="android:layout_marginEnd">@dimen/spacing_sixteen</item>
     </style>
