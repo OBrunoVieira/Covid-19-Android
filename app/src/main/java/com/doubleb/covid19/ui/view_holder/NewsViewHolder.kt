@@ -9,8 +9,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.doubleb.covid19.R
-import com.doubleb.covid19.extensions.gone
-import com.doubleb.covid19.extensions.visible
+import com.doubleb.covid19.extensions.*
 import com.doubleb.covid19.model.News
 import com.doubleb.covid19.ui.listener.ClickListener
 import kotlinx.android.synthetic.main.view_news_item.view.*
@@ -20,7 +19,20 @@ class NewsViewHolder(
     listener: ClickListener<News?>
 ) : RecyclerView.ViewHolder(itemView), RequestListener<Drawable> {
 
+    companion object {
+        private const val DATE_FORMAT = "dd/MM/yyyy"
+    }
+
     private val margin = itemView.resources.getDimension(R.dimen.world_bottom_spacing).toInt()
+    private val colors by lazy {
+        arrayOf(
+            R.color.purple_light,
+            R.color.green_dark,
+            R.color.blue_dark,
+            R.color.yellow_light
+        )
+    }
+
     private var news: News? = null
 
     init {
@@ -53,8 +65,11 @@ class NewsViewHolder(
             news_item_text_view_publish_at.loading()
 
             news_item_image_view_background.setImageDrawable(null)
+            news_item_image_view_indicator.setBackgroundTint(R.color.loading)
             return
         }
+
+        news_item_image_view_indicator.setBackgroundTint(colors[adapterPosition % colors.size])
 
         if (!news.urlToImage.isNullOrEmpty()) {
             news_item_image_view_placeholder.gone()
@@ -74,19 +89,22 @@ class NewsViewHolder(
             news_item_text_view_title.gone()
         }
 
-        if (!news.author.isNullOrEmpty()) {
-            news_item_text_view_source.visible()
-            news_item_text_view_source.setLoadedText(news.author)
-        } else if (!news.source?.name.isNullOrEmpty()) {
+        if (!news.source?.name.isNullOrEmpty()) {
             news_item_text_view_source.visible()
             news_item_text_view_source.setLoadedText(news.source?.name)
+        } else if (!news.author.isNullOrEmpty()) {
+            news_item_text_view_source.visible()
+            news_item_text_view_source.setLoadedText(news.author)
         } else {
             news_item_text_view_source.gone()
         }
 
         if (!news.publishedAt.isNullOrEmpty()) {
             news_item_text_view_publish_at.visible()
-            news_item_text_view_publish_at.setLoadedText(news.publishedAt)
+            news_item_text_view_publish_at.compoundStartDrawable(R.drawable.selector_icon_publish_at)
+            news_item_text_view_publish_at.setLoadedText(
+                news.publishedAt.convertZuluToTargetFormat(DATE_FORMAT)
+            )
         } else {
             news_item_text_view_publish_at.gone()
         }
