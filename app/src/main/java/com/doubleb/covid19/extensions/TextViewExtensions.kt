@@ -6,3 +6,7 @@ import androidx.annotation.DrawableRes
 fun TextView.compoundTopDrawable(@DrawableRes drawableRes: Int) {
     setCompoundDrawablesRelativeWithIntrinsicBounds(0, drawableRes, 0, 0)
 }
+
+fun TextView.compoundStartDrawable(@DrawableRes drawableRes: Int) {
+    setCompoundDrawablesRelativeWithIntrinsicBounds(drawableRes, 0, 0, 0)
+}
