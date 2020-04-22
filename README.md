@@ -14,15 +14,16 @@
 
 ## Description
 
-With Covid-19 Tracker you'll be aware of the pandemic situation in real time. See the number of
-infected and cured, in your country and in the rest of the world.
+With Covid-19 Tracker you'll be aware of the pandemic situation in real time and offline as well. 
+See the number of infected and cured, in your country and in the rest of the world.
 
 ## Product feature
 - Your country's cases
 - World's cases
 - Global Search for cases
-- News(Available Soon)
+- News
 - Prevention and Symptoms tips
+- Offline Tracking
 
 ## Credits
 - [@brabsblue - Designer](https://www.linkedin.com/in/barbara-schoen/)
@@ -33,8 +34,8 @@ infected and cured, in your country and in the rest of the world.
 - [Covid 19 Tracker - iOS](https://github.com/Quaggie/Covid-19Tracker)
 
 ## 3rd party APIs used
-- [Novel Covid - Open Source API](https://github.com/NovelCOVID/API)
-- [News API](https://newsapi.org)
+- [Novel Covid API](https://github.com/NovelCOVID/API)
+- [NewsAPI.org](https://newsapi.org)
 
 ## 3rd party libraries used
 - [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
