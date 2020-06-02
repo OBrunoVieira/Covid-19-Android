@@ -17,6 +17,9 @@
 With Covid-19 Tracker you'll be aware of the pandemic situation in real time and offline as well. 
 See the number of infected and cured, in your country and in the rest of the world.
 
+## Download the latest version (Firebase distribution)
+[appdistribution.firebase.dev/i/KTPteCm](appdistribution.firebase.dev/i/KTPteCm)
+
 ## Product feature
 - Your country's cases
 - World's cases
